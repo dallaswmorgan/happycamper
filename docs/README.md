@@ -1,9 +1,3 @@
-[Heroku link][heroku]
-[Trello link][trello]
-
-[heroku]:
-[trello]:
-
 ##MVP:
 
  HappyCamper is designed to take the hassle out of finding quality campsites. Drawing inspiration from Hipcamp.com, it is a web application built on a Rails backend and a React/Redux frontend. By 01/20/17, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
@@ -24,11 +18,11 @@
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[wireframes]: wireframes
+[components]: component-hierarchy.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 ## Implementation Timeline
 
