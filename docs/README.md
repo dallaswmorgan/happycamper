@@ -1,3 +1,6 @@
+[Trello Link]: https://trello.com/b/4G6Aj0Oz/happy-camper
+[Heroku Link]: https://happycamper.herokuapp.com/
+
 ##MVP:
 
  HappyCamper is designed to take the hassle out of finding quality campsites. Drawing inspiration from Hipcamp.com, it is a web application built on a Rails backend and a React/Redux frontend. By 01/20/17, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
