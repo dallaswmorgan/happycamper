@@ -1,3 +1,4 @@
+```js
 {
   currentUser: {
     id: 1,
@@ -47,13 +48,6 @@
       check_out_date: 6/3/2017,
       number_of_guests: 6
     }
-  },
-  users: {
-    1: {
-      fname: "Dallas",
-      lname: "Morgan",
-      email: "dallaswmorgan@gmail.com",
-      image_url: "",
-    }
-  }  
+  }
 }
+```

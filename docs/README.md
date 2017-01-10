@@ -41,9 +41,9 @@
 
 **Objective:** Functioning rails project with front-end auth and login/signup modal. Guest login available. Guest user seeding completed.
 
-### Phase 2: Site model with featured sites (1 day)
+### Phase 2: Site model with featured sites. Users can list sites (2.5 days)
 
-**Objective:** Featured sites are displayed on homepage with links to site detail page. Sites can be grouped by region. Site seeding completed
+**Objective:** Featured sites are displayed on homepage with links to site detail page. Sites can be grouped by region. Users can create sites. Users can add photos to sites using form. Site and user seeding completed.
 
 ### Phase 3: Site search page with google maps and search bar (2 days)
 
@@ -62,7 +62,3 @@
 ### Phase 6: Local conditions (1 day)
 
 **Objective:** Site detail pages have information about current weather conditions, elevation, and distance from user.
-
-### Phase 7: Users can list sites (1 day)
-
-**Objective:** Users can become hosts and add listed sites. Sites can be created, updated, and destroyed.

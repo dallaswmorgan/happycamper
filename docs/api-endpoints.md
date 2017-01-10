@@ -9,7 +9,6 @@
 
 ###Session
   - `POST /api/session`
-  - `GET /api/session`
   - `DELETE /api/session`
 
 ###Sites

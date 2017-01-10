@@ -1,19 +1,23 @@
 ## Component Hierarchy
 
-**HomeContainer**
+**App**
   - Header
-    - LoggedOutHeader
-      * Logo
-      * LoginForm (modal)
-      * SignUpForm (modal)
-    - LoggedInHeader
-      * Logo
-      * SearchBar (by date/location/guests)
-      * BecomeHostButton
-      * ReservationsButton
-      - UserPic
-        * ProfileLink
-        * LogoutButton
+    (When logged out)
+    * Logo
+    * SearchBar (by date/location/guests)
+    * LoginForm (modal)
+    * SignUpForm (modal)
+    (When logged in)
+    * Logo
+    * SearchBar (by date/location/guests)
+    * BecomeHostButton
+    * ReservationsButton
+    - UserPic
+      * ProfileLink
+      * LogoutButton
+
+**HomeContainer**
+  - App
   - FeaturedSitesContainer
     * Image
     * Title
@@ -23,13 +27,13 @@
     * LinkToRegion
 
 **SearchContainer**
-  - LoggedInHeader
+  - App
   - SpotFilter
     * GoogleMap
     * SpotIndex
 
 **SiteContainer**
-  * LoggedInHeader
+  - App  
   * SpotDetail
   * BookingForm
 
@@ -40,6 +44,6 @@
 | "/"              | "HomeContainer"   |
 | "/login"         | "LoginForm"       |
 | "/sign-up"       | "SignUpForm"      |
+| "/create-site"   | "SiteCreationForm"|
 | "/search"        | "SearchContainer" |
 | "/site/:siteId"  | "SiteContainer"   |
-| "/users/:userId" | "UserContainer"   |

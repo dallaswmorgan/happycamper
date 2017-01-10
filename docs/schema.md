@@ -4,10 +4,10 @@
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-fname           | string    | not null, indexed
-lname           | string    | not null, indexed
+fname           | string    | not null
+lname           | string    | not null
 email           | string    | not null, indexed, unique
-image_url       | string    | not null, indexed
+image_url       | string    | not null
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
