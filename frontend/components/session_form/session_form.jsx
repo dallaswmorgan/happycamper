@@ -3,6 +3,17 @@ import assign from 'lodash/assign';
 import { Link, withRouter } from 'react-router';
 import Modal from 'react-modal';
 
+const modalStyle = {
+  content : {
+    top                   : '55%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+  }
+};
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -18,23 +29,11 @@ class SessionForm extends React.Component {
 
   }
 
+
+
   componentDidMount() {
     this.redirectIfLoggedIn();
   }
-
-
-  //
-  modal() {
-    return(
-      <Modal
-        isOpen={this.state.modalOpen}
-        onRequestClose={this.closeModal}>
-        {<SessionFormContainer formType={this.formType}/>}
-      </Modal>
-    );
-  }
-
-
 
   redirectIfLoggedIn() {
     if (this.props.loggedIn) {
@@ -172,42 +171,36 @@ class SessionForm extends React.Component {
   render() {
     // if (this.formType === "login") {
       return(
-        <div className="modal">
-
-          <Modal isOpen={this.props.modalOpen} contentLabel="Modal">
-            <div>
-              <form onSubmit={this.handleLoginSubmit} className="login-form-box">
-                Welcome back to Happy Camper!
-                <br/>
-                {this.renderErrors()}
-                <div className="login-form">
-                  <br/>
-                    <input type="text"
-                      placeholder="Email"
-                      value={this.state.email}
-                      onChange={this.update("email")}
-                      className="login-input"/>
-                  <br/>
-                    <input type="password"
-                      placeholder="Password"
-                      value={this.state.password}
-                      onChange={this.update("password")}
-                      className="login-input"/>
-                  <br/>
-                  <input type="submit" value="Log in"/>
-                </div>
-
-                <div className="toggle-form">
-                  <div
-                      className="toggle-session"
-                      onClick={this.toggleSession("signup")}>
-                    <p>{"Not a member yet? Sign up!"}</p>
-                  </div>
-                </div>
-              </form>
+        <div>
+          <form onSubmit={this.handleLoginSubmit} className="login-form-box">
+            Welcome back to Happy Camper!
+            <br/>
+            {this.renderErrors()}
+            <div className="login-form">
+              <br/>
+                <input type="text"
+                  placeholder="Email"
+                  value={this.state.email}
+                  onChange={this.update("email")}
+                  className="login-input"/>
+              <br/>
+                <input type="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                  className="login-input"/>
+              <br/>
+              <input type="submit" value="Log in"/>
             </div>
 
-          </Modal>
+            <div className="toggle-form">
+              <div
+                  className="toggle-session"
+                  onClick={this.toggleSession("signup")}>
+                <p>{"Not a member yet? Sign up!"}</p>
+              </div>
+            </div>
+          </form>
         </div>
       );
   //   } else {

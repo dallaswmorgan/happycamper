@@ -3,22 +3,36 @@ import { Link, hashHistory, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 
+const modalStyle = {
+  content : {
+    top                   : '55%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+  }
+};
+
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false,
+      modalIsOpen: false,
       formType: "login"
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
   // Modal Management
   openModal(formType) {
-    this.setState({ modalOpen: true, formType });
+    this.setState({ modalIsOpen: true, formType });
   }
 
   closeModal() {
-    this.setState({modelOpen: false});
+    console.log("trying to close modal");
+    this.setState({modalIsOpen: false});
   }
 
   componentWillMount() {
@@ -34,10 +48,16 @@ class Header extends React.Component {
           {searchBar}
           <button className="logged-out-button"
             onClick={() => this.openModal("signup")}>Sign up</button>
-          <SessionFormContainer
-            formType={this.state.formType}
-            closeModal={this.closeModal}
-            modalOpen={this.state.modalOpen}/>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            contentLabel="Modal"
+            onRequestClose={this.closeModal}
+            style={modalStyle}>
+            <div className="auth-modal-container">
+              <SessionFormContainer
+                formType={this.state.formType}/>
+            </div>
+          </Modal>
       </div>
     );
   }
