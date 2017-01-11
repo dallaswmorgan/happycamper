@@ -3,7 +3,8 @@ import { Link, hashHistory, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 
-const logo = "Happy Camper";
+const logo = <img  className="logo"
+  src="http://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
 const searchBar = "Search Bar";
 
 const modalStyle = {
@@ -31,6 +32,12 @@ class Header extends React.Component {
   // Modal Management
   openModal(formType) {
     this.setState({ modalIsOpen: true, formType: formType });
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.loggedIn) {
+      this.closeModal();
+    }
   }
 
   closeModal() {
