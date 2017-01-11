@@ -5,7 +5,13 @@ import configureStore from './store/store';
 import { login, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  let store;
+  if(window.currentUser) {
+    const preLoadedState= { session: { currentUser: window.currentUser } };
+    store = configureStore(preLoadedState);
+  } else {
+    store = configureStore();
+  }
   // testing only
   window.store = store;
   const root = document.getElementById('root');

@@ -55,15 +55,6 @@ class SessionForm extends React.Component {
     this.props.signup(user);
   }
 
-  loginGuest() {
-    this.setState({
-      email: "guest@happycamper.camp",
-      password: "camphappy"
-    });
-    const guest = this.state;
-    this.props.login(guest);
-  }
-
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -104,7 +95,7 @@ class SessionForm extends React.Component {
 
   loginForm() {
     return(
-      <div>
+      <div className="session-form-container">
         <form onSubmit={this.handleLoginSubmit} className="login-form-box">
           Welcome back to Happy Camper!
           <br/>
@@ -124,7 +115,6 @@ class SessionForm extends React.Component {
                 className="login-input"/>
             <br/>
             <input type="submit" value="Log in"/>
-            <button onClick={() => this.loginGuest()}>Guest Login</button>
           </div>
         </form>
       </div>
@@ -133,7 +123,7 @@ class SessionForm extends React.Component {
 
   signinForm() {
     return(
-      <div className="signup-form-container">
+      <div className="session-form-container">
         <form onSubmit={this.handleSignupSubmit} className="signup-form-box">
           Welcome to Happy Camper!
           <br/>

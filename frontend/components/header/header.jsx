@@ -8,7 +8,7 @@ const logo = <img  className="logo"
 
 const searchBar = (
   <div className="search-bar-box">
-    <i class="fa fa-search" aria-hidden="true"></i>
+    <i className="fa fa-search" aria-hidden="true"></i>
     <input className="search-bar" type="text" placeholder="Search"/>
   </div>);
 
@@ -68,7 +68,7 @@ class Header extends React.Component {
   }
 
   handleGuestLogin() {
-    const guest = { email: "guest@happycamper.camps", password: "camphappy"};
+    const guest = { email: "guest@happycamper.camp", password: "camphappy"};
     this.props.login(guest);
   }
 
@@ -92,6 +92,9 @@ class Header extends React.Component {
           <button
             className="login-button"
             onClick={() => this.toggleModal()}>Sign up!</button>
+          <button
+            className="login-button"
+            onClick={() => this.handleGuestLogin()}>Log in as Guest</button>
         </div>
       );
     } else {
@@ -101,6 +104,9 @@ class Header extends React.Component {
           <button
             className="login-button"
             onClick={() => this.toggleModal()}>Sign in!</button>
+          <button
+            className="login-button"
+            onClick={() => this.handleGuestLogin()}>Log in as Guest</button>
         </div>
       );
     }
