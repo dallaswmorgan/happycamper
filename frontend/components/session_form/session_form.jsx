@@ -44,7 +44,7 @@ class SessionForm extends React.Component {
   handleLoginSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    debugger;
+    // debugger;
     this.props.login(user);
   }
 
@@ -52,6 +52,16 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.signup(user);
+  }
+
+  loginGuest() {
+    this.setState({
+      email: "guest@happycamper.camps",
+      password: "camphappy"
+    });
+    const guest = this.state;
+    this.props.login(guest);
+    debugger;
   }
 
   update(field) {
@@ -114,6 +124,7 @@ class SessionForm extends React.Component {
                 className="login-input"/>
             <br/>
             <input type="submit" value="Log in"/>
+            <button onClick={() => this.loginGuest()}>Guest Login</button>
           </div>
         </form>
       </div>

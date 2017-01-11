@@ -6,6 +6,8 @@ import { login, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
+  // testing only
+  window.store = store;
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);
 });
