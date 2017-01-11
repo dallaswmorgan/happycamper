@@ -5,7 +5,12 @@ import SessionFormContainer from '../session_form/session_form_container';
 
 const logo = <img  className="logo"
   src="http://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
-const searchBar = <input className="search-bar" type="text" placeholder="Search"/>;
+
+const searchBar = (
+  <div className="search-bar-box">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input className="search-bar" type="text" placeholder="Search"/>
+  </div>);
 
 const modalStyle = {
   content : {
@@ -26,6 +31,8 @@ class Header extends React.Component {
       modalIsOpen: false,
       formType: "login"
     };
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -63,6 +70,10 @@ class Header extends React.Component {
   handleGuestLogin() {
     const guest = { email: "guest@happycamper.camps", password: "camphappy"};
     this.props.login(guest);
+  }
+
+  handleLogout() {
+    this.props.logout();
   }
 
   handleListRequest() {
@@ -131,7 +142,8 @@ class Header extends React.Component {
           onClick={() => this.handleListRequest()}>List a Campsite</button>
         <button className="nav-button"
           onClick={() => this.handleReservationsRequest()}>My Reservations</button>
-        {this.sessionModal()}
+        <button className="nav-button"
+          onClick={() => this.handleLogout()}>Log out</button>
       </div>
     );
   }

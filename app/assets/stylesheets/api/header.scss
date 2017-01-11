@@ -28,9 +28,15 @@
   justify-content: flex-start;
 }
 
-.search-bar{
+.search-bar {
+  height: 15px;
   border: none;
   justify-content: center;
+}
+.search-icon {
+  height: 15px;
+  width: 15px;
+  filter: brightness(25%);
 }
 
 
