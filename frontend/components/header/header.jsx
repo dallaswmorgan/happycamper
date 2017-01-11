@@ -3,6 +3,9 @@ import { Link, hashHistory, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 
+const logo = "Happy Camper";
+const searchBar = "Search Bar";
+
 const modalStyle = {
   content : {
     top                   : '55%',
@@ -27,11 +30,10 @@ class Header extends React.Component {
   }
   // Modal Management
   openModal(formType) {
-    this.setState({ modalIsOpen: true, formType });
+    this.setState({ modalIsOpen: true, formType: formType });
   }
 
   closeModal() {
-    console.log("trying to close modal");
     this.setState({modalIsOpen: false});
   }
 
@@ -39,15 +41,42 @@ class Header extends React.Component {
     Modal.setAppElement('body');
   }
 
+  loggedOutNav() {
+
+  }
+
+  toggleModal() {
+    console.log("in toggleModal");
+    this.closeModal();
+    let newForm;
+    if (this.state.formType === "login") {
+      newForm = "signup";
+    } else {
+      newForm = "login";
+    }
+    this.openModal("newForm");
+  }
+
+  loginButtons() {
+    return(
+      <div className="login-buttons-box">
+        <p>{"Not a member yet?"}</p>
+        <button
+          className="login-button"
+          onClick={() => this.toggleModal()}>Sign up!</button>
+      </div>
+    );
+  }
+
   render() {
-    const logo = "Happy Camper!";
-    const searchBar = "Search Bar";
     return(
       <div className="nav-bar">
           {logo}
           {searchBar}
           <button className="logged-out-button"
             onClick={() => this.openModal("signup")}>Sign up</button>
+          <button className="logged-out-button"
+            onClick={() => this.openModal("login")}>Log in</button>
           <Modal
             isOpen={this.state.modalIsOpen}
             contentLabel="Modal"
@@ -55,8 +84,10 @@ class Header extends React.Component {
             style={modalStyle}>
             <div className="auth-modal-container">
               <SessionFormContainer
-                formType={this.state.formType}/>
+                formType={this.state.formType}
+                openModal={this.openModal}/>
             </div>
+            {this.loginButtons()}
           </Modal>
       </div>
     );

@@ -91,121 +91,80 @@ class SessionForm extends React.Component {
     }
   }
 
-  // render() {
-  //
-  //   if (this.props.formType === "login") {
-  //     return (
-  //       <div className="login-form-container">
-  //         <form onSubmit={this.handleLoginSubmit} className="login-form-box">
-  //           Welcome back to Happy Camper!
-  //           <br/>
-  //           {this.renderErrors()}
-  //           <div className="login-form">
-  //             <br/>
-  //               <input type="text"
-  //                 placeholder="Email"
-  //                 value={this.state.email}
-  //                 onChange={this.update("email")}
-  //                 className="login-input"/>
-  //             <br/>
-  //               <input type="password"
-  //                 placeholder="Password"
-  //                 value={this.state.password}
-  //                 onChange={this.update("password")}
-  //                 className="login-input"/>
-  //             <br/>
-  //             <input type="submit" value="Log in"/>
-  //           </div>
-  //
-  //           <div className="toggle-form">
-  //             <p>{"Not a member yet? Sign up!"}
-  //               <div
-  //                 className="toggle-session"
-  //                 onClick={this.toggleSession("signup")}/>
-  //             </p>
-  //           </div>
-  //         </form>
-  //       </div>
-  //     );
-  //   } else {
-  //     return (
-  //       <div className="signup-form-container">
-  //         <form onSubmit={this.handleSignupSubmit} className="signup-form-box">
-  //           Welcome to Happy Camper!
-  //           <br/>
-  //           {this.renderErrors()}
-  //           <div className="signup-form">
-  //             <br/>
-  //               <input type="text"
-  //                 placeholder="First name"
-  //                 value={this.state.fname}
-  //                 onChange={this.update("fname")}
-  //                 className="signup-input"/>
-  //             <br/>
-  //               <input type="text"
-  //                 placeholder="Last name"
-  //                 value={this.state.lname}
-  //                 onChange={this.update("lname")}
-  //                 className="signup-input"/>
-  //             <br/>
-  //               <input type="text"
-  //                 placeholder="Email"
-  //                 value={this.state.email}
-  //                 onChange={this.update("email")}
-  //                 className="signup-input"/>
-  //             <br/>
-  //               <input type="password"
-  //                 placeholder="Password"
-  //                 value={this.state.password}
-  //                 onChange={this.update("password")}
-  //                 className="signup-input"/>
-  //             <br/>
-  //             <input type="submit" value="Sign up"/>
-  //           </div>
-  //         </form>
-  //       </div>
-  //     );
-  //   }
-  // }
+  loginForm() {
+    return(
+      <div>
+        <form onSubmit={this.handleLoginSubmit} className="login-form-box">
+          Welcome back to Happy Camper!
+          <br/>
+          {this.renderErrors()}
+          <div className="login-form">
+            <br/>
+              <input type="text"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.update("email")}
+                className="login-input"/>
+            <br/>
+              <input type="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                className="login-input"/>
+            <br/>
+            <input type="submit" value="Log in"/>
+          </div>
+        </form>
+      </div>
+    );
+  }
+
+  signinForm() {
+    return(
+      <div className="signup-form-container">
+        <form onSubmit={this.handleSignupSubmit} className="signup-form-box">
+          Welcome to Happy Camper!
+          <br/>
+          {this.renderErrors()}
+          <div className="signup-form">
+            <br/>
+              <input type="text"
+                placeholder="First name"
+                value={this.state.fname}
+                onChange={this.update("fname")}
+                className="signup-input"/>
+            <br/>
+              <input type="text"
+                placeholder="Last name"
+                value={this.state.lname}
+                onChange={this.update("lname")}
+                className="signup-input"/>
+            <br/>
+              <input type="text"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.update("email")}
+                className="signup-input"/>
+            <br/>
+              <input type="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                className="signup-input"/>
+            <br/>
+            <input type="submit" value="Sign up"/>
+          </div>
+        </form>
+      </div>
+    );
+  }
 
   render() {
-    // if (this.formType === "login") {
-      return(
-        <div>
-          <form onSubmit={this.handleLoginSubmit} className="login-form-box">
-            Welcome back to Happy Camper!
-            <br/>
-            {this.renderErrors()}
-            <div className="login-form">
-              <br/>
-                <input type="text"
-                  placeholder="Email"
-                  value={this.state.email}
-                  onChange={this.update("email")}
-                  className="login-input"/>
-              <br/>
-                <input type="password"
-                  placeholder="Password"
-                  value={this.state.password}
-                  onChange={this.update("password")}
-                  className="login-input"/>
-              <br/>
-              <input type="submit" value="Log in"/>
-            </div>
-
-            <div className="toggle-form">
-              <div
-                  className="toggle-session"
-                  onClick={this.toggleSession("signup")}>
-                <p>{"Not a member yet? Sign up!"}</p>
-              </div>
-            </div>
-          </form>
-        </div>
-      );
-  //   } else {
-  //     // return signup
-  //   }
+    if (this.formType === "login") {
+      return this.loginForm();
+    } else {
+      return this.signinForm();
+    }
   }
 }
 
