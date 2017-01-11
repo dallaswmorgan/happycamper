@@ -56,12 +56,11 @@ class SessionForm extends React.Component {
 
   loginGuest() {
     this.setState({
-      email: "guest@happycamper.camps",
+      email: "guest@happycamper.camp",
       password: "camphappy"
     });
     const guest = this.state;
     this.props.login(guest);
-    debugger;
   }
 
   update(field) {

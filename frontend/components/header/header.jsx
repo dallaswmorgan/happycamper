@@ -5,7 +5,7 @@ import SessionFormContainer from '../session_form/session_form_container';
 
 const logo = <img  className="logo"
   src="http://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
-const searchBar = <input type="text" placeholder="Search"/>;
+const searchBar = <input className="search-bar" type="text" placeholder="Search"/>;
 
 const modalStyle = {
   content : {
@@ -49,9 +49,6 @@ class Header extends React.Component {
     Modal.setAppElement('body');
   }
 
-  loggedOutNav() {
-
-  }
 
   toggleModal() {
     this.closeModal();
@@ -61,6 +58,19 @@ class Header extends React.Component {
     } else {
       this.setState({ formType: "login" }, () => this.openModal("login"));
     }
+  }
+
+  handleGuestLogin() {
+    const guest = { email: "guest@happycamper.camps", password: "camphappy"};
+    this.props.login(guest);
+  }
+
+  handleListRequest() {
+    alert("Cannot handle list request at this time");
+  }
+
+  handleReservationsRequest() {
+    alert("Cannot handle reservations request at this time");
   }
 
   loginButtons() {
@@ -85,27 +95,57 @@ class Header extends React.Component {
     }
   }
 
+  sessionModal() {
+    return(
+      <Modal
+        isOpen={this.state.modalIsOpen}
+        contentLabel="Modal"
+        onRequestClose={this.closeModal}
+        style={modalStyle}>
+        <div className="auth-modal-container">
+          <SessionFormContainer
+            formType={this.state.formType}
+            openModal={this.openModal}/>
+        </div>
+        {this.loginButtons()}
+      </Modal>
+    );
+  }
+
+  loggedOutButtons() {
+    return(
+      <div className="buttons-box">
+        <button className="nav-button"
+          onClick={() => this.openModal("signup")}>Sign up</button>
+        <button className="nav-button"
+          onClick={() => this.openModal("login")}>Log in</button>
+        {this.sessionModal()}
+      </div>
+    );
+  }
+
+  loggedInButtons() {
+    return(
+      <div className="buttons-box">
+        <button className="nav-button"
+          onClick={() => this.handleListRequest()}>List a Campsite</button>
+        <button className="nav-button"
+          onClick={() => this.handleReservationsRequest()}>My Reservations</button>
+        {this.sessionModal()}
+      </div>
+    );
+  }
+
   render() {
+    const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons()
     return(
       <div className="nav-bar">
-          {logo}
-          {searchBar}
-          <button className="logged-out-button"
-            onClick={() => this.openModal("signup")}>Sign up</button>
-          <button className="logged-out-button"
-            onClick={() => this.openModal("login")}>Log in</button>
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            contentLabel="Modal"
-            onRequestClose={this.closeModal}
-            style={modalStyle}>
-            <div className="auth-modal-container">
-              <SessionFormContainer
-                formType={this.state.formType}
-                openModal={this.openModal}/>
-            </div>
-            {this.loginButtons()}
-          </Modal>
+          <nav className="logo-search-box">
+
+            {logo}
+            {searchBar}
+          </nav>
+          {buttons}
       </div>
     );
   }
