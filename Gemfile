@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+group :production do
+  gem 'newrelic_rpm'
+  gem 'rails_12factor' # error feedback
+end
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
