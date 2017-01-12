@@ -20,3 +20,17 @@ export const createSite = site => {
     data: { site }
   });
 };
+export const updateSite = site => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/sites/${site.id}`,
+    data: { site }
+  });
+};
+
+export const deleteSite = id => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/sites/${id}`
+  });
+};
