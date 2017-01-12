@@ -42,14 +42,16 @@ class Header extends React.Component {
     this.setState({ modalIsOpen: true, formType: formType });
   }
 
-  componentWillReceiveProps(props) {
-    if (props.loggedIn) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.loggedIn && nextProps.loggedIn !== this.props.loggedIn) {
       this.closeModal();
     }
   }
 
+
   closeModal() {
     this.setState({modalIsOpen: false});
+
   }
 
   componentWillMount() {
@@ -58,7 +60,7 @@ class Header extends React.Component {
 
 
   toggleModal() {
-    this.closeModal();
+
     let newForm;
     if (this.state.formType === "login") {
       this.setState({ formType: "signup" }, () => this.openModal("signup"));
@@ -120,7 +122,7 @@ class Header extends React.Component {
       <Modal
         isOpen={this.state.modalIsOpen}
         contentLabel="Modal"
-        onRequestClose={this.closeModal}
+        onRequestClose={() => this.closeModal().then(this.props.clearErrors())()}
         style={modalStyle}>
         <div className="auth-modal-container">
           <SessionFormContainer
@@ -165,7 +167,7 @@ class Header extends React.Component {
               </li>
                 <ul id="user-dropdown">
                   <li>
-                    <button id="logout" onClick={() => this.handleLogout()}>Log Out</button>
+                    <button id="logout" onClick={this.handleLogout}>Log Out</button>
                   </li>
                 </ul>
             </ul>
@@ -177,6 +179,7 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log(this.props.loggedIn);
     const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons();
     return(
       <div className="nav-bar">

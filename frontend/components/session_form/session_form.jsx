@@ -45,7 +45,6 @@ class SessionForm extends React.Component {
   handleLoginSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    // debugger;
     this.props.login(user);
   }
 
@@ -62,13 +61,11 @@ class SessionForm extends React.Component {
   }
 
   toggleSession(nextForm) {
-    // this.closeModal();
     if (nextForm === "signup") {
       this.formType = "signup";
     } else {
       this.formType = "login";
     }
-    // this.openModal();
   }
 
   renderErrors() {

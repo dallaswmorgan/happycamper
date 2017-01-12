@@ -7,5 +7,11 @@ class Site < ApplicationRecord
     class_name: "User"
   )
 
+  def in_bounds(geo_bounds)
+    self.where("lat < ?", geo_bounds[:northEast][:lat])
+      .where("lat > ?", geo_bounds[:southWest][:lat])
+      .where("lng > ?", geo_bounds[:southWest][:lng])
+      .where("lng < ?", geo_bounds[:northEast][:lng])
+  end
 
 end

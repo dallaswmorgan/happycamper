@@ -1,6 +1,12 @@
 class Api::SitesController < ApplicationController
   def index
-    @sites = geo_bounds ? Site.in_bounds(geo_bounds) : Site.all
+    debugger 
+    if geo_bounds
+      p "Searching within geo bounds"
+      @sites = Site.in_bounds(geo_bounds)
+    else
+      @sites = Site.all
+    end
   end
 
   def show

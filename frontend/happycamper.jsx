@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { login, logout } from './actions/session_actions';
-import { fetchSite, fetchSites } from './actions/site_actions';
+import { fetchSite, fetchSites } from './util/site_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
