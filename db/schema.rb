@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109191056) do
+ActiveRecord::Schema.define(version: 20170112090000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sites", force: :cascade do |t|
+    t.string   "name",                        null: false
+    t.text     "description"
+    t.integer  "user_id",                     null: false
+    t.integer  "region_id",                   null: false
+    t.boolean  "featured",    default: false, null: false
+    t.boolean  "public",      default: false, null: false
+    t.string   "state",                       null: false
+    t.string   "city",                        null: false
+    t.float    "lat",                         null: false
+    t.float    "lng",                         null: false
+    t.integer  "price",                       null: false
+    t.integer  "guest_limit",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["region_id"], name: "index_sites_on_region_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "fname",           null: false
