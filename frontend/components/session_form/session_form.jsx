@@ -85,76 +85,68 @@ class SessionForm extends React.Component {
     }
   }
 
-  navLink() {
-    if (this.props.formType === "login") {
-      return <Link to="/signup">sign up instead</Link>;
-    } else {
-      return <Link to="/login">log in instead</Link>;
-    }
-  }
-
   loginForm() {
     return(
       <div className="session-form-container">
-        <form onSubmit={this.handleLoginSubmit} className="login-form-box">
-          Welcome back to Happy Camper!
-          <br/>
+        <form onSubmit={this.handleLoginSubmit} className="session-form-box">
+          <h2>Welcome back!</h2>
+          <h4>(it's about time for another camping trip)</h4>
           {this.renderErrors()}
           <div className="login-form">
             <br/>
               <input type="text"
-                placeholder="Email"
+                placeholder=" Email..."
                 value={this.state.email}
                 onChange={this.update("email")}
                 className="login-input"/>
             <br/>
               <input type="password"
-                placeholder="Password"
+                placeholder=" Password..."
                 value={this.state.password}
                 onChange={this.update("password")}
                 className="login-input"/>
             <br/>
-            <input type="submit" value="Log in"/>
+            <button type="submit">Log in</button>
           </div>
         </form>
       </div>
     );
   }
 
-  signinForm() {
+  signupForm() {
     return(
       <div className="session-form-container">
-        <form onSubmit={this.handleSignupSubmit} className="signup-form-box">
-          <h1>Join Happy Camper</h1>
+        <form onSubmit={this.handleSignupSubmit} className="session-form-box">
+          <h2>Join Happy Camper</h2>
           <br/>
           {this.renderErrors()}
           <div className="signup-form">
             <br/>
               <input type="text"
-                placeholder="First name"
+                placeholder=" First name..."
                 value={this.state.fname}
                 onChange={this.update("fname")}
                 className="signup-input"/>
             <br/>
               <input type="text"
-                placeholder="Last name"
+                placeholder=" Last name..."
                 value={this.state.lname}
                 onChange={this.update("lname")}
                 className="signup-input"/>
             <br/>
               <input type="text"
-                placeholder="Email"
+                placeholder=" Email..."
                 value={this.state.email}
                 onChange={this.update("email")}
                 className="signup-input"/>
             <br/>
               <input type="password"
-                placeholder="Password"
+                placeholder=" Password..."
                 value={this.state.password}
                 onChange={this.update("password")}
                 className="signup-input"/>
             <br/>
-            <input type="submit" value="Sign up"/>
+            <button type="submit">Sign up</button>
           </div>
         </form>
       </div>
@@ -165,7 +157,7 @@ class SessionForm extends React.Component {
     if (this.formType === "login") {
       return this.loginForm();
     } else {
-      return this.signinForm();
+      return this.signupForm();
     }
   }
 }

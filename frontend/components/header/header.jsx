@@ -77,18 +77,18 @@ class Header extends React.Component {
   }
 
   handleListRequest() {
-    alert("Cannot handle list request at this time");
+    alert("Come back soon for the ability to add campsites!");
   }
 
   handleReservationsRequest() {
-    alert("Cannot handle reservations request at this time");
+    alert("Come back soon for the ability to reserve campsites!");
   }
 
   loginButtons() {
     if (this.state.formType==="login") {
       return(
-        <div className="toggle-modal-box-box">
-          <h3>Not a member yet?</h3>
+        <div className="toggle-modal-box">
+          <h4>Not a member yet?</h4>
           <button
             className="login-button"
             onClick={() => this.toggleModal()}>Sign up</button>
@@ -100,7 +100,7 @@ class Header extends React.Component {
     } else {
       return(
         <div className="toggle-modal-box">
-          <h3>Already a member?</h3>
+          <h4>Already a member?</h4>
           <br/>
           <div className="login-buttons-box">
             <button

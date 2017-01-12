@@ -3,10 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
  // Monteserrat font
 
+$button-blue: #28BC8C;
+
 .session-form-container {
   display: flex;
   text-align: center;
   vertical-align: space-around;
+  justify-content: center;
 }
 
 .login-buttons-box {
@@ -17,4 +20,44 @@
 .login-input{
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+
+}
+
+.signup-input {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+.session-form-box button {
+  background-color: inherit;
+  border-color: $button-blue;
+  color: $button-blue;
+  border-style: solid;
+  font-size: 15px;
+  padding: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 10px;
+}
+.session-form-box button:hover {
+  background-color: $button-blue;
+  color: white;
+  cursor: pointer;
+}
+.login-input button {
+  background-color: inherit;
+  border-color: $button-blue;
+  color: $button-blue;
+  border-style: solid;
+  font-size: 15px;
+  padding: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 10px;
 }
