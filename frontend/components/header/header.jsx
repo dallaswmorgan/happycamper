@@ -87,11 +87,11 @@ class Header extends React.Component {
   loginButtons() {
     if (this.state.formType==="login") {
       return(
-        <div className="login-buttons-box">
-          <p>{"Not a member yet?"}</p>
+        <div className="toggle-modal-box-box">
+          <h3>Not a member yet?</h3>
           <button
             className="login-button"
-            onClick={() => this.toggleModal()}>Sign up!</button>
+            onClick={() => this.toggleModal()}>Sign up</button>
           <button
             className="login-button"
             onClick={() => this.handleGuestLogin()}>Log in as Guest</button>
@@ -99,14 +99,17 @@ class Header extends React.Component {
       );
     } else {
       return(
-        <div className="login-buttons-box">
-          <p>{"Already a member?"}</p>
-          <button
-            className="login-button"
-            onClick={() => this.toggleModal()}>Sign in!</button>
-          <button
-            className="login-button"
-            onClick={() => this.handleGuestLogin()}>Log in as Guest</button>
+        <div className="toggle-modal-box">
+          <h3>Already a member?</h3>
+          <br/>
+          <div className="login-buttons-box">
+            <button
+              className="login-button"
+              onClick={() => this.toggleModal()}>Log in</button>
+            <button
+              className="login-button"
+              onClick={() => this.handleGuestLogin()}>Log in as Guest</button>
+          </div>
         </div>
       );
     }
@@ -137,6 +140,8 @@ class Header extends React.Component {
         <button className="nav-button"
           onClick={() => this.openModal("login")}>Log in</button>
         {this.sessionModal()}
+        <button className="nav-button"
+          onClick={() => this.handleGuestLogin()}>Log in as Guest</button>
       </div>
     );
   }

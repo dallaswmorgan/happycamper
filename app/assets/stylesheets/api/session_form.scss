@@ -6,5 +6,15 @@
 .session-form-container {
   display: flex;
   text-align: center;
-  vertical-align: center;
+  vertical-align: space-around;
+}
+
+.login-buttons-box {
+  display: flex;
+  text-align: center;
+}
+
+.login-input{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }

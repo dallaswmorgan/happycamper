@@ -125,7 +125,7 @@ class SessionForm extends React.Component {
     return(
       <div className="session-form-container">
         <form onSubmit={this.handleSignupSubmit} className="signup-form-box">
-          Welcome to Happy Camper!
+          <h1>Join Happy Camper</h1>
           <br/>
           {this.renderErrors()}
           <div className="signup-form">
