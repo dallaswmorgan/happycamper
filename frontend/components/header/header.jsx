@@ -155,17 +155,23 @@ class Header extends React.Component {
           onClick={() => this.handleReservationsRequest()}>My Reservations</button>
         <button className="nav-button"
           onClick={() => this.handleLogout()}>Log out</button>
-        <ul className="header-list">
-          <li id="user-icon">
-            <img src={this.props.currentUser.image_url}/>
+        <div className="user-info-box">
+
+          <li id="user-name">
+
             {this.props.currentUser.fname}
           </li>
-            <ul id="user-dropdown">
-              <li>
-                <button id="logout" onClick={() => this.handleLogout()}>Log Out</button>
-              </li>
-            </ul>
-        </ul>
+          <ul className="header-list">
+            <li id="user-icon">
+              <img src={this.props.currentUser.image_url}/>
+            </li>
+              <ul id="user-dropdown">
+                <li>
+                  <button id="logout" onClick={() => this.handleLogout()}>Log Out</button>
+                </li>
+              </ul>
+          </ul>
+        </div>
 
       </div>
     );
@@ -176,7 +182,6 @@ class Header extends React.Component {
     return(
       <div className="nav-bar">
           <nav className="logo-search-box">
-
             {logo}
             {searchBar}
           </nav>

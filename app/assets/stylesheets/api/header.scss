@@ -18,8 +18,19 @@ $button-blue: #28BC8C;
   justify-content: space-between;
 }
 
+.user-info-box {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.user-info-box:hover #user-dropdown {
+  display: block;
+}
+
+
 .buttons-box {
-  width: 40%;
+  width: 60%;
   display: flex;
   justify-content: flex-end;
   vertical-align: center;
@@ -50,6 +61,7 @@ $button-blue: #28BC8C;
 .logo{
   height: 25px;
   width: 275px;
+  margin-left: 10px;
   justify-content: flex-start;
 }
 
@@ -63,8 +75,15 @@ $button-blue: #28BC8C;
   padding-top: 5px;
   padding-bottom: 5px;
   border: none;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid white;
   justify-content: center;
+}
+
+.search-bar:hover {
+  border-bottom: 1px solid lightgray;
+}
+.search-bar:focus {
+  border-bottom: 1px solid lightgray;
 }
 .search-icon {
   height: 15px;
@@ -112,18 +131,21 @@ $button-blue: #28BC8C;
 }
 
 #user-icon img {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   background-color: $button-blue;
+  margin-bottom: 0px
 }
 
 #user-dropdown {
-  position: absolute;
+  position: relative;
   background: #faf8fd;
   display: none;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+  margin-top: 0px;
+  margin-right: 10px;
   overflow: hidden;
   top: 65px;
   left: 0px;
