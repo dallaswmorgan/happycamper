@@ -1,6 +1,6 @@
 class Api::SitesController < ApplicationController
   def index
-    @sites = Site.all
+    @sites = geo_bounds ? Site.in_bounds(geo_bounds) : Site.all
   end
 
   def show
@@ -33,6 +33,10 @@ class Api::SitesController < ApplicationController
     :price,
     :guest_limit
     )
+  end
+
+  def geo_bounds
+    params[:geo_bounds]
   end
 
 end
