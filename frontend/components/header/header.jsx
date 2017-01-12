@@ -38,8 +38,8 @@ class Header extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
   // Modal Management
-  openModal() {
-    this.setState({ modalIsOpen: true });
+  openModal(formType) {
+    this.setState({ modalIsOpen: true , formType});
   }
 
   componentWillReceiveProps(nextProps) {
@@ -61,12 +61,11 @@ class Header extends React.Component {
 
 
   toggleModal() {
-
-    let newForm;
+    this.props.clearErrors();
     if (this.state.formType === "login") {
-      this.setState({ formType: "signup" }, () => this.openModal());
+      this.setState({ formType: "signup" });
     } else {
-      this.setState({ formType: "login" }, () => this.openModal());
+      this.setState({ formType: "login" });
     }
   }
 

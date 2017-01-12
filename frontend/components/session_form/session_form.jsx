@@ -30,7 +30,9 @@ class SessionForm extends React.Component {
 
   }
 
-
+  componentWillReceiveProps(newProps) {
+    this.formType = newProps.formType;
+  }
 
   componentDidMount() {
     this.redirectIfLoggedIn();
@@ -152,7 +154,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    debugger;
     if (this.formType === "login") {
       return this.loginForm();
     } else {
