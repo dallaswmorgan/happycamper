@@ -88,7 +88,7 @@ class Header extends React.Component {
     if (this.state.formType==="login") {
       return(
         <div className="toggle-modal-box">
-          <h4>Not a member yet?</h4>
+          <h4>{"Not a member yet?"}</h4>
           <button
             className="login-button"
             onClick={() => this.toggleModal()}>Sign up</button>
@@ -100,7 +100,7 @@ class Header extends React.Component {
     } else {
       return(
         <div className="toggle-modal-box">
-          <h4>Already a member?</h4>
+          <h4>{"Already a member?"}</h4>
           <br/>
           <div className="login-buttons-box">
             <button
@@ -155,6 +155,18 @@ class Header extends React.Component {
           onClick={() => this.handleReservationsRequest()}>My Reservations</button>
         <button className="nav-button"
           onClick={() => this.handleLogout()}>Log out</button>
+        <ul className="header-list">
+          <li id="user-icon">
+            <img src={this.props.currentUser.image_url}/>
+            {this.props.currentUser.fname}
+          </li>
+            <ul id="user-dropdown">
+              <li>
+                <button id="logout" onClick={() => this.handleLogout()}>Log Out</button>
+              </li>
+            </ul>
+        </ul>
+
       </div>
     );
   }
