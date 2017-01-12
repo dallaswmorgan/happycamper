@@ -134,7 +134,7 @@ class Header extends React.Component {
 
   loggedOutButtons() {
     return(
-      <div className="buttons-box">
+      <div className="nav">
         <button className="nav-button"
           onClick={() => this.openModal("signup")}>Sign up</button>
         <button className="nav-button"
@@ -148,44 +148,43 @@ class Header extends React.Component {
 
   loggedInButtons() {
     return(
-      <div className="buttons-box">
+      <div className="nav">
         <button className="nav-button"
           onClick={() => this.handleListRequest()}>List a Campsite</button>
         <button className="nav-button"
           onClick={() => this.handleReservationsRequest()}>My Reservations</button>
-        <button className="nav-button"
-          onClick={() => this.handleLogout()}>Log out</button>
-        <div className="user-info-box">
+        <ul className="user-info-box">
 
           <li id="user-name">
-
             {this.props.currentUser.fname}
           </li>
-          <ul className="header-list">
-            <li id="user-icon">
-              <img src={this.props.currentUser.image_url}/>
-            </li>
-              <ul id="user-dropdown">
-                <li>
-                  <button id="logout" onClick={() => this.handleLogout()}>Log Out</button>
-                </li>
-              </ul>
-          </ul>
-        </div>
+          <li>
+            <ul className="header-list">
+              <li id="user-icon">
+                <img src={this.props.currentUser.image_url}/>
+              </li>
+                <ul id="user-dropdown">
+                  <li>
+                    <button id="logout" onClick={() => this.handleLogout()}>Log Out</button>
+                  </li>
+                </ul>
+            </ul>
+          </li>
+        </ul>
 
       </div>
     );
   }
 
   render() {
-    const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons()
+    const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons();
     return(
       <div className="nav-bar">
           <nav className="logo-search-box">
             {logo}
             {searchBar}
           </nav>
-          {buttons}
+            {buttons}
       </div>
     );
   }
