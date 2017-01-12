@@ -2,7 +2,7 @@ export const fetchSites = filters => {
   return $.ajax({
     method: 'GET',
     url: 'api/sites',
-    filters
+    data: filters
   });
 };
 
