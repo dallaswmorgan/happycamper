@@ -51,8 +51,9 @@ class Header extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
-
+    this.props.clearErrors();
   }
+
 
   componentWillMount() {
     Modal.setAppElement('body');
@@ -122,7 +123,7 @@ class Header extends React.Component {
       <Modal
         isOpen={this.state.modalIsOpen}
         contentLabel="Modal"
-        onRequestClose={() => this.closeModal().then(this.props.clearErrors())()}
+        onRequestClose={() => this.closeModal()}
         style={modalStyle}>
         <div className="auth-modal-container">
           <SessionFormContainer

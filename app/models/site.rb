@@ -14,4 +14,8 @@ class Site < ApplicationRecord
       .where("lng < ?", geo_bounds[:northEast][:lng])
   end
 
+  def featured_sites
+    self.where("featured = true")
+  end
+
 end
