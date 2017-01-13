@@ -1,4 +1,4 @@
-import { RECEIVE_SITES, RECEIVE_SITE } from '../actions/site_actions';
+import { RECEIVE_SITES, RECEIVE_SITE, RECEIVE_FEATURED_SITES } from '../actions/site_actions';
 import merge from 'lodash/merge';
 
 const sitesReducer = (state = {}, action) => {

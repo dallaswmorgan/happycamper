@@ -1,6 +1,7 @@
 import * as APIUtil from '../util/site_api_util';
 export const RECEIVE_SITES = "RECEIVE_SITES";
 export const RECEIVE_SITE = "RECEIVE_SITE";
+export const RECEIVE_FEATURED_SITES = "RECEIVE_FEATURED_SITES";
 
 export const fetchSites = filters => dispatch => (
   APIUtil.fetchSites(filters).then( sites => dispatch(receiveSites(sites)))

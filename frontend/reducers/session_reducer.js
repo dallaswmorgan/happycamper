@@ -7,9 +7,7 @@ const _nullUser = {
 };
 
 const SessionReducer = (oldState = _nullUser, action) => {
-  // debugger;
   Object.freeze(oldState);
-  console.log(action);
   switch (action.type) {
     case RECEIVE_ERRORS:
       const errors = action.errors;
@@ -18,7 +16,6 @@ const SessionReducer = (oldState = _nullUser, action) => {
       const currentUser = action.currentUser;
       return merge({}, _nullUser, { currentUser });
     case CLEAR_ERRORS:
-      console.log('IN CLEAR ERRORS');
       const clearedErrors = merge({}, oldState);
       clearedErrors.errors = [];
       return clearedErrors;

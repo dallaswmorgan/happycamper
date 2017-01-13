@@ -179,7 +179,6 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props.loggedIn);
     const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons();
     return(
       <div className="nav-bar">
