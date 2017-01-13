@@ -3,13 +3,15 @@ import { Link, hashHistory, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 
-const logo = <img  className="logo"
+const logo = <img  className="logo" onClick={() => hashHistory.push('/')}
   src="http://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
 
 const searchBar = (
   <div className="search-bar-box">
     <i className="fa fa-search" aria-hidden="true"></i>
-    <input className="search-bar" type="text" placeholder="Search"/>
+    <input className="search-bar" type="text" placeholder="Search"
+
+      />
   </div>);
 
 const modalStyle = {
@@ -103,15 +105,12 @@ class Header extends React.Component {
       return(
         <div className="toggle-modal-box">
           <h4>{"Already a member?"}</h4>
-          <br/>
-          <div className="login-buttons-box">
             <button
               className="login-button"
               onClick={() => this.toggleModal()}>Log in</button>
             <button
               className="login-button"
               onClick={() => this.handleGuestLogin()}>Log in as Guest</button>
-          </div>
         </div>
       );
     }

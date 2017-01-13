@@ -7,6 +7,12 @@ export const fetchSites = filters => dispatch => (
   APIUtil.fetchSites(filters).then( sites => dispatch(receiveSites(sites)))
 );
 
+export const fetchFeaturedSites = () => dispatch => (
+  APIUtil.fetchFeaturedSites().then( sites => dispatch(receiveSites(sites)))
+);
+
+
+
 export const fetchSite = id => dispatch => (
   APIUtil.fetchSite(id).then( site => dispatch(receiveSite(site)))
 );

@@ -2,7 +2,7 @@ import SiteIndex from './site_index';
 import { fetchSites } from '../../actions/site_actions';
 import { connect } from 'react-redux';
 
-const mapStateToProps = ({sites}) => ({
+const mapStateToProps = (sites) => ({
   sites: sites
 });
 

@@ -1,7 +1,7 @@
 import { RECEIVE_SITES, RECEIVE_SITE, RECEIVE_FEATURED_SITES } from '../actions/site_actions';
 import merge from 'lodash/merge';
 
-const sitesReducer = (state = {}, action) => {
+const SitesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_SITES:
@@ -14,4 +14,4 @@ const sitesReducer = (state = {}, action) => {
   }
 };
 
-export default sitesReducer;
+export default SitesReducer;

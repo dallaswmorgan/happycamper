@@ -1,8 +1,10 @@
 class Api::SitesController < ApplicationController
   def index
-    if geo_bounds
+    if params[:geo_bounds]
       p "Searching within geo bounds"
       @sites = Site.in_bounds(geo_bounds)
+    elsif params[:featured]
+      @sites = Site.featured_sites
     else
       @sites = Site.all
     end
@@ -14,7 +16,7 @@ class Api::SitesController < ApplicationController
 
   def create
     @site = Site.new(site_params)
-    if @site.create
+    if @site.save
       render :show
     else
       render json: @user.errors.full_messages, status: 422
@@ -40,8 +42,10 @@ class Api::SitesController < ApplicationController
     )
   end
 
+
   def geo_bounds
     params.require(:geo_bounds)
   end
+
 
 end

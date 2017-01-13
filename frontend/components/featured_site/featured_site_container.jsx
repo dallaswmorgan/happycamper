@@ -1,19 +1,18 @@
 import FeaturedSite from './featured_site';
 import { connect } from 'react-redux';
+import {fetchFeaturedSites} from '../../actions/site_actions';
 
 const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.currentUser),
-  currentUser: state.session.currentUser
+  sites: Object.keys(state.sites).map( id => (state.sites[id]))
+
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout()),
-  login: user => dispatch(login(user)),
-  signup: user => dispatch(signup(user)),
-  clearErrors: () => dispatch(clearErrors())
+  fetchFeaturedSites: () => dispatch(fetchFeaturedSites())
 });
+
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Header);
+)(FeaturedSite);

@@ -6,6 +6,14 @@ export const fetchSites = filters => {
   });
 };
 
+export const fetchFeaturedSites = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/sites',
+    data: { featured: true }
+  });
+};
+
 export const fetchSite = id => {
   return $.ajax({
     method: 'GET',
@@ -13,9 +21,10 @@ export const fetchSite = id => {
   });
 };
 
+
 export const createSite = site => {
   return $.ajax({
-    method: 'PUT',
+    method: 'POST',
     url: 'api/sites',
     data: { site }
   });
