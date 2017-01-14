@@ -7,6 +7,9 @@ class FeaturedSite extends React.Component {
   componentWillMount() {
     this.props.fetchFeaturedSites();
   }
+  handleSiteClick() {
+
+  }
 
   render() {
     const currentSite = this.props.sites[0];
@@ -15,12 +18,18 @@ class FeaturedSite extends React.Component {
       <div className="featured-sites-box">
         <div className="featured-site-text">
           <h3>Find your happy place at camps like</h3>
-          <br/>
           <h1>{currentSite.name}</h1>
+          <h3 onClick={this.handleSiteClick(currentSite.id)}>in {currentSite.city}, {currentSite.state}</h3>
+            <button onClick={this.handleSiteClick(currentSite.id)} id="featured-book">
+              Reserve this site
+            </button>
+            <br/>
+            <button onClick={this.handleSearchClick} className="featured-search">
+              Discover sites near me</button>
         </div>
         <br/>
         <div className="featured-site-pic" key={currentSite.id}>
-          <img
+          <img onClick={this.handleSiteClick(currentSite.id)}
             src="http://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg"/>
         </div>
       </div>
