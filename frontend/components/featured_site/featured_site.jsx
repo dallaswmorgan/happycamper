@@ -30,7 +30,7 @@ class FeaturedSite extends React.Component {
         <br/>
         <div className="featured-site-pic" key={currentSite.id}>
           <img onClick={this.handleSiteClick(currentSite.id)}
-            src="http://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg"/>
+            src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg"/>
         </div>
       </div>
     );
