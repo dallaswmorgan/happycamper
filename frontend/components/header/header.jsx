@@ -9,9 +9,7 @@ const logo = <img  className="logo" onClick={() => hashHistory.push('/')}
 const searchBar = (
   <div className="search-bar-box">
     <i className="fa fa-search" aria-hidden="true"></i>
-    <input className="search-bar" type="text" placeholder="Search"
-
-      />
+    <input className="search-bar" type="text" placeholder="Search"/>
   </div>);
 
 const modalStyle = {

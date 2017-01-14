@@ -25,7 +25,8 @@ class FeaturedSite extends React.Component {
             </button>
             <br/>
             <button onClick={this.handleSearchClick} className="featured-search">
-              Discover sites near me</button>
+              Discover more...
+            </button>
         </div>
         <br/>
         <div className="featured-site-pic" key={currentSite.id}>
