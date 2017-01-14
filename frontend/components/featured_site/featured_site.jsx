@@ -37,7 +37,6 @@ class FeaturedSite extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     let currentSite = this.state.featuredSite || this.props.sites[0];
     if (currentSite) {
     return(
@@ -59,7 +58,7 @@ class FeaturedSite extends React.Component {
         <br/>
         <div className="featured-site-pic" key={currentSite.id}>
           <img onClick={() => this.handleSiteClick(currentSite.id)}
-            src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg"/>
+            src={currentSite.site_images[0].url}/>
         </div>
       </div>
     );

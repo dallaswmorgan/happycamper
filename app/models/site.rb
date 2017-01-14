@@ -7,6 +7,8 @@ class Site < ApplicationRecord
     class_name: "User"
   )
 
+  has_many :site_images
+
   def self.in_bounds(geo_bounds)
     p geo_bounds
     self.where("lat < ?", geo_bounds[:northEast][:lat])
