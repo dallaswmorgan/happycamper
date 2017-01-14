@@ -22,7 +22,7 @@ class SessionForm extends React.Component {
       password: "",
       fname: "",
       lname: "",
-      image_url: "http://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png"
+      image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png"
     };
     this.formType = this.props.formType;
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);

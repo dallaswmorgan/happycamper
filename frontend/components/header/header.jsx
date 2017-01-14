@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 
 const logo = <img  className="logo" onClick={() => hashHistory.push('/')}
-  src="http://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
+  src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
 
 const searchBar = (
   <div className="search-bar-box">

@@ -18,7 +18,7 @@ class IndexItem extends React.Component {
           onClick={this.handleClick}>
           <div className="index-item-info">
             <img className="index-item-img"
-              src={"http://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg"}/>
+              src={"https://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg"}/>
             <h3 className="index-item-title">{this.props.site.name}</h3>
             <h5 className="index-item-description">{this.props.site.description}</h5>
           </div>
