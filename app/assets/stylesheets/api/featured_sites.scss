@@ -8,19 +8,21 @@ $button-blue: #28BC8C;
 
 .featured-site-text {
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 10px;
   display: flex;
   align-items: center;
-
   flex-direction: column;
   min-width: 300px;
 }
 
-// .featured-button-box {
-//   margin-top: 50px;
-//   justify-content: center;
-//   flex-direction: column;
-// }
+.site-specific-info {
+  display: flex;
+  width: 500px;
+  height: 250px;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-left: 140px;
+}
 
 .featured-site-text h3 {
   font-size: 20px;
