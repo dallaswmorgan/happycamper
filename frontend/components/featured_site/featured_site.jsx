@@ -9,6 +9,7 @@ class FeaturedSite extends React.Component {
       featuredSiteIdx: 1,
       featuredSite: null
     };
+    this.featuredTimer;
     this.nextFeaturedSite = this.nextFeaturedSite.bind(this);
   }
   componentWillMount() {
@@ -19,9 +20,13 @@ class FeaturedSite extends React.Component {
     this.setState({
       featuredSite: this.props.sites[this.state.featuredSiteIdx]
     });
-    setInterval(() => {
+    this.featuredtimer = setInterval(() => {
       this.nextFeaturedSite();
     }, 6000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.featuredTimer);
   }
 
   nextFeaturedSite() {

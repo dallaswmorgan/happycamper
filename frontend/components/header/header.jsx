@@ -31,6 +31,7 @@ class Header extends React.Component {
       modalIsOpen: false,
       formType: "login"
     };
+    this.handleListRequest = this.handleListRequest.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
@@ -79,7 +80,7 @@ class Header extends React.Component {
   }
 
   handleListRequest() {
-    alert("Come back soon for the ability to add campsites!");
+    this.props.router.push('sites/new');
   }
 
   handleReservationsRequest() {
@@ -149,7 +150,7 @@ class Header extends React.Component {
     return(
       <div className="nav">
         <button className="nav-button"
-          onClick={() => this.handleListRequest()}>List a Campsite</button>
+          onClick={this.handleListRequest}>List a Campsite</button>
         <button className="nav-button"
           onClick={() => this.handleReservationsRequest()}>My Reservations</button>
         <ul className="user-info-box">

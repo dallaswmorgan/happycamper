@@ -3,13 +3,13 @@ import { createSite, updateSite, deleteSite } from '../../actions/site_actions';
 import SiteForm from './site_form';
 
 const mapStateToProps = state => ({
-  sites: Object.keys(state.sites).map( id => (state.sites[id]))
+  currentUser: state.session.currentUser,
+  loggedIn: Boolean(state.session.currentUser)
 });
 
 const mapDispatchToProps = dispatch => ({
   createSite: site => dispatch(createSite(site)),
-  updateSite: site => dispatch(updateSite(site)),
-  deleteSite: id => dispatch(deleteSite(id))
+  updateSite: site => dispatch(updateSite(site))
 });
 
 export default connect(

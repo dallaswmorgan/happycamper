@@ -16,8 +16,8 @@ const Root = ({ store }) => {
         <Route path="/" component={ App }>
           <IndexRoute component={FeaturedSiteContainer}/>
           <Route path="/index" component={ SiteIndex } />
+          <Route path="/sites/new" component={ SiteFormContainer } />
           <Route path="/sites/:id" component={ SiteShowContainer } />
-          <Route path="sites/new" component={SiteFormContainer} />
         </Route>
 
       </Router>
