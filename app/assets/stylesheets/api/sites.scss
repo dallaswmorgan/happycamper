@@ -1,3 +1,36 @@
 // Place all the styles related to the api/sites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.site-show {
+  min-height: calc(100vh - 50px);
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.site-images-box {
+  // margin-left: 15px;
+  // margin-right: 15px;
+  background-color: #faf8fe;
+  display: flex;
+  justify-content: space-around;
+}
+
+.site-images-list {
+  overflow: auto;
+  display: flex;
+  overflow-y: hidden;
+  height: calc(100vh/2);
+}
+
+.site-image {
+  width: calc(100vw/3);
+  height: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.show-text {
+  margin: 20px 20px 20px 80px;
+  width: 60%;
+  position: relative;
+}
