@@ -8,16 +8,18 @@ class SiteForm extends React.Component {
     this.state = {
       name: "",
       description: "",
-      user_id: this.props.currentUser.id,
+      user_id: props.currentUser.id,
+      region_id: 2,
       featured: false,
       public: false,
       state: "",
       city: "",
       price: "",
       guest_limit:"",
-      lat: "",
-      lng: ""
+      lat: "37.574515",
+      lng: "-122.310791"
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToHome = this.navigateToHome.bind(this);
   }
 
@@ -26,6 +28,7 @@ class SiteForm extends React.Component {
   }
 
   update(field) {
+    console.log(this.state);
     return e => this.setState({
       [field]: e.currentTarget.value
     });
@@ -41,6 +44,18 @@ class SiteForm extends React.Component {
         console.log(results[0].secure_url);
       }
     });
+  }
+
+  handleSubmit(e) {
+    console.log('submitting');
+
+    e.preventDefault();
+    let site = Object.assign({}, this.state);
+    site.lat = parseFloat(site.lat);
+    site.lng = parseFloat(site.lng);
+    site.price = parseInt(site.price);
+    site.guest_limit = parseInt(site.guest_limit);
+    this.props.createSite(site);
   }
 
   render() {
@@ -85,6 +100,7 @@ class SiteForm extends React.Component {
             </div>
 
             <div className="site-button-holder">
+              <input type="submit" value="List Site"/>
               <button
                 className="new-site-button"
                 onClick={this.navigateToHome}>
