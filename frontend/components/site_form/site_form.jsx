@@ -55,7 +55,7 @@ class SiteForm extends React.Component {
     site.lng = parseFloat(site.lng);
     site.price = parseInt(site.price);
     site.guest_limit = parseInt(site.guest_limit);
-    this.props.createSite(site);
+    this.props.createSite(site).then( newSite => this.props.router.replace(`/sites/${newSite.id}`));
   }
 
   render() {

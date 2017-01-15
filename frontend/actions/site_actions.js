@@ -18,7 +18,10 @@ export const fetchSite = id => dispatch => (
 );
 
 export const createSite = site => dispatch => (
-  APIUtil.createSite(site).then( newSite => dispatch(receiveSite(newSite)))
+  APIUtil.createSite(site).then( newSite => {
+    dispatch(receiveSite(newSite));
+    return(newSite);
+  })
 );
 
 export const updateSite = site => dispatch => (
