@@ -45,6 +45,8 @@ class FeaturedSite extends React.Component {
     let currentSite = this.state.featuredSite || this.props.sites[0];
     if (currentSite) {
     return(
+      <div className="home-box">
+
       <div className="featured-sites-box">
         <div className="featured-site-text">
           <h3>Find your happy place at camps like</h3>
@@ -66,6 +68,11 @@ class FeaturedSite extends React.Component {
             src={currentSite.site_images[0].url}/>
         </div>
       </div>
+      <div className="description-box">
+        <h1>Happy Camper is the best way to plan your next camping trip</h1>
+        <h3>Search our extensive collection of public and private campgrounds, or list your own land for others to enjoy</h3>
+      </div>
+    </div>
     );
   } else {
     return(<div></div>);

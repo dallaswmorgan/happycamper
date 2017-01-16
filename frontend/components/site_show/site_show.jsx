@@ -12,10 +12,12 @@ class Site extends React.Component {
   }
 
   render() {
-
     if (this.props.site) {
-      console.log(this.props.site);
-      const {name, description, site_images } = this.props.site;
+      let {name, description, site_images } = this.props.site;
+      // Adding default pic if no pics added yet
+      if (site_images.length === 0) {
+        site_images = [{id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484527141/Logomakr_7iM8J2_xwg0qw.png", caption: "Default pic"}]
+      }
       return (
         <div className="site-show">
 

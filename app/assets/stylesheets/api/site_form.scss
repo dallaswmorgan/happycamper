@@ -15,14 +15,16 @@ $button-blue: #28BC8C;
   color: white;
 }
 
-.new-site-container button {
+.new-site-button {
   opacity: 1;
   background: $button-blue;
+  opacity: 1;
   border: 1px solid $button-blue;
   font-size: 20px;
   color: white;
   margin: 15px;
   padding: 10px;
+  width: 150px;
 }
 .new-site-container button:hover {
   background: white;
@@ -53,11 +55,11 @@ $button-blue: #28BC8C;
 }
 
 .site-button-holder {
-  opacity: 1;
-  background: $button-blue;
-  border: 1px solid $button-blue;
-  font-size: 20px;
-  color: white;
-  margin: 15px;
-  padding: 10px;
+  // opacity: 1;
+  // background: $button-blue;
+  // border: 1px solid $button-blue;
+  // font-size: 20px;
+  // color: white;
+  // margin: 15px;
+  // padding: 10px;
 }

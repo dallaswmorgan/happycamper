@@ -13,6 +13,7 @@
   background-color: #faf8fe;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .site-images-list {
@@ -23,8 +24,8 @@
 }
 
 .site-image {
-  width: calc(100vw/3);
-  height: 100%;
+  width: 400px;
+  height: 400px;
   margin-left: 20px;
   margin-right: 20px;
 }

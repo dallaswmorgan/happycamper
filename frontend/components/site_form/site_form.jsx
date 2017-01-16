@@ -17,7 +17,8 @@ class SiteForm extends React.Component {
       price: "",
       guest_limit:"",
       lat: "37.574515",
-      lng: "-122.310791"
+      lng: "-122.310791",
+      modalIsOpen: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToHome = this.navigateToHome.bind(this);
@@ -28,14 +29,12 @@ class SiteForm extends React.Component {
   }
 
   update(field) {
-    console.log(this.state);
     return e => this.setState({
       [field]: e.currentTarget.value
     });
   }
 
   handleCloudinary(e) {
-    console.log('trying cloudinary');
     e.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, (error, results) => {
       if(error) {
@@ -47,7 +46,6 @@ class SiteForm extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log('submitting');
 
     e.preventDefault();
     let site = Object.assign({}, this.state);
@@ -97,15 +95,20 @@ class SiteForm extends React.Component {
                 className="new-site-button">
                 Add Location
               </button>
-            </div>
-
-            <div className="site-button-holder">
-              <input type="submit" value="List Site"/>
+              <br/>
+              <button
+                className="new-site-button"
+                onClick={this.handleSubmit}>
+                List Site
+              </button>
               <button
                 className="new-site-button"
                 onClick={this.navigateToHome}>
                 Cancel
               </button>
+            </div>
+
+            <div className="site-button-holder">
             </div>
           </form>
         </div>
