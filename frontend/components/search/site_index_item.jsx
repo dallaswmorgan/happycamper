@@ -22,9 +22,13 @@ class IndexItem extends React.Component {
       <div className="site-index-item"
           onClick={this.handleClick}>
           <div className="index-item-info">
-            <img src={site_images[0].url}/>
-            <h3 className="index-item-title">{name}</h3>
-            <h5 className="index-item-description">{description}</h5>
+            <div className="index-item-img-box">
+              <img src={site_images[0].url}/>
+            </div>
+            <div className="index-item-text">
+              <h3 className="index-item-title">{name}</h3>
+              <h5 className="index-item-description">{description}</h5>
+            </div>
           </div>
       </div>
     );

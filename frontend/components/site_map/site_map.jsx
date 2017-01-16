@@ -15,8 +15,14 @@ class SiteMap extends React.Component {
       center: {lat: 37.773972, lng: -122.431297}, // San Francisco coords
       zoom: 13
     };
-
+    console.log(this.mapNode);
+    this.map = new google.maps.Map(this.mapNode, _mapOptions);
+    console.log(this.map);
   }
 
-  compon
+  render() {
+    return <div id="map-container" ref={ map => this.mapNode = map }>Map</div>;
+  }
 }
+
+export default withRouter(SiteMap);

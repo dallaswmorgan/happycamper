@@ -3,7 +3,7 @@ import React from 'react';
 // import FilterForm from './filter_form';
 import { withRouter } from 'react-router';
 import SiteIndex from './site_index';
-// import SiteMap from './../site_map/site_map';
+import SiteMap from '../site_map/site_map';
 
 class Search extends React.Component {
   constructor(props) {
@@ -21,6 +21,9 @@ class Search extends React.Component {
         <div className="search-page">
           <div className="search-left-half">
             <SiteIndex sites={sites} />
+          </div>
+          <div className="search-right-half">
+            <SiteMap />
           </div>
         </div>
       );

@@ -1,0 +1,35 @@
+$button-blue: #28BC8C;
+
+.search-page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-left-half {
+  width: 800px;
+  margin-left: 15px;
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+}
+
+.index-item-img-box img{
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+}
+
+.index-item-info {
+  display: flex;
+  margin: 10px;
+  border: 1px solid lightgray;
+}
+.index-item-info:hover {
+  background: #faf8fe;
+}
+
+.search-right-half {
+  width: 50%;
+  height: 750px;
+  background-color: $button-blue;
+  margin-right: 15px;
+}
