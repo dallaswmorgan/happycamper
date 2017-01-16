@@ -13,15 +13,16 @@ class IndexItem extends React.Component {
   }
 
   render() {
-    const { name, description, site_images } = this.props.site;
+    let { name, description, site_images } = this.props.site;
     // to account for sites without images uploaded
-    const site_image_url = site_images[0].url || "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png";
+    if (site_images.length === 0) {
+      site_images = [{id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png", caption: "Default pic"}];
+    }
     return (
       <div className="site-index-item"
           onClick={this.handleClick}>
           <div className="index-item-info">
-            <img className="index-item-img"
-              src={site_image_url}/>
+            <img src={site_images[0].url}/>
             <h3 className="index-item-title">{name}</h3>
             <h5 className="index-item-description">{description}</h5>
           </div>

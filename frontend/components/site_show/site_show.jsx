@@ -46,4 +46,4 @@ class Site extends React.Component {
   }
 }
 
-export default Site;
+export default withRouter(Site);

@@ -5,10 +5,10 @@ class SiteIndex extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  componentDidMount() {
-    this.props.fetchSites();
-  }
+  // 
+  // componentDidMount() {
+  //   this.props.fetchSites();
+  // }
 
   render() {
     let sites = this.props.sites;

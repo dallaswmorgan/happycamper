@@ -3,8 +3,8 @@ import { Link, hashHistory, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 
-const logo = <img  className="logo" onClick={() => hashHistory.push('/')}
-  src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
+// const logo = <img  className="logo" onClick={() => this.props.router.push('/')}
+  // src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
 
 const searchBar = (
   <div className="search-bar-box">
@@ -31,6 +31,8 @@ class Header extends React.Component {
       modalIsOpen: false,
       formType: "login"
     };
+    this.logo = <img  className="logo" onClick={() => this.props.router.push('/')}
+      src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
     this.handleListRequest = this.handleListRequest.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -181,7 +183,7 @@ class Header extends React.Component {
     return(
       <div className="nav-bar">
           <nav className="logo-search-box">
-            {logo}
+            {this.logo}
             {searchBar}
           </nav>
             {buttons}
