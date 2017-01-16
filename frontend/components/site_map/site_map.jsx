@@ -20,9 +20,16 @@ class SiteMap extends React.Component {
       zoom: 7
     };
     this.map = new google.maps.Map(this.mapNode, _mapOptions);
-    this.MarkerManager = new MarkerManager(this.map);
-    console.log(this.sites);
+    this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
     this.MarkerManager.updateMarkers(this.props.sites);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.MarkerManager.updateMarkers(newProps.sites);
+  }
+
+  _handleMarkerClick(site) {
+    this.props.router.push(`sites/${site.id}`);
   }
 
   render() {

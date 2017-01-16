@@ -12,6 +12,7 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.props.fetchSites();
+    this.setState({sites: this.props.sites});
   }
 
   render() {

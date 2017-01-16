@@ -1,8 +1,8 @@
 export default class MarkerManager {
-  constructor(map) {
+  constructor(map, handleClick) {
     this.map = map;
     this.markers = [];
-
+    this.handleClick = handleClick;
     this._createMarkerFromSite = this._createMarkerFromSite.bind(this);
     this._removeMarker = this._removeMarker.bind(this);
     this._markersToRemove = this._markersToRemove.bind(this);
@@ -33,7 +33,7 @@ export default class MarkerManager {
       map: this.map,
       siteId: site.id
     });
-    console.log(marker);
+    marker.addListener('click', () => this.handleClick(site));
     this.markers.push(marker);
   }
 
