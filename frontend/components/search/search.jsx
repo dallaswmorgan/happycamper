@@ -23,7 +23,7 @@ class Search extends React.Component {
             <SiteIndex sites={sites} />
           </div>
           <div className="search-right-half">
-            <SiteMap />
+            <SiteMap sites={sites}/>
           </div>
         </div>
       );

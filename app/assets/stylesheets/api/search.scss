@@ -21,6 +21,7 @@ $button-blue: #28BC8C;
 .index-item-info {
   display: flex;
   margin: 10px;
+  margin-top: 0px;
   border: 1px solid lightgray;
 }
 .index-item-info:hover {
@@ -29,7 +30,7 @@ $button-blue: #28BC8C;
 
 .search-right-half {
   width: 50%;
-  height: 750px;
+  height: calc(100vh - 50px);
   background-color: $button-blue;
   margin-right: 15px;
 }

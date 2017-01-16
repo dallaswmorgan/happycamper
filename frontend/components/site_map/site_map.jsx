@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MarkerManager from '../../util/marker_manager';
 import { withRouter } from 'react-router';
 
 const _getCoordsObj = latLng => ({
@@ -9,15 +10,19 @@ const _getCoordsObj = latLng => ({
 
 
 class SiteMap extends React.Component {
+  constructor(props) {
+    super(props);
 
+  }
   componentDidMount() {
     let _mapOptions = {
       center: {lat: 37.773972, lng: -122.431297}, // San Francisco coords
-      zoom: 13
+      zoom: 7
     };
-    console.log(this.mapNode);
     this.map = new google.maps.Map(this.mapNode, _mapOptions);
-    console.log(this.map);
+    this.MarkerManager = new MarkerManager(this.map);
+    console.log(this.sites);
+    this.MarkerManager.updateMarkers(this.props.sites);
   }
 
   render() {
