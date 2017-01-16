@@ -1,12 +1,21 @@
 import React from 'react';
-import SiteIndexItem from './site_index_item';
+import { withRouter } from 'react-router';
+// import SiteIndexItem from './site_index_item';
 
-const SiteIndex = sites => (
-  <div>
-    {sites.map( site => (
-      <SiteIndexItem site={site} key={site.id} />
-    ))}
-  </div>
-);
 
-export default SiteIndex;
+class SiteIndex extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    this.props.fetchSites();
+  }
+  render() {
+    return(
+      <div><h1>Sites search page</h1></div>
+    );
+  }
+}
+
+export default withRouter(SiteIndex);

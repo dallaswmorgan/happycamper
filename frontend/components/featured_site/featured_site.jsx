@@ -10,6 +10,7 @@ class FeaturedSite extends React.Component {
       featuredSite: null
     };
     this.featuredTimer;
+    this.handleSearchClick = this.handleSearchClick.bind(this);
     this.nextFeaturedSite = this.nextFeaturedSite.bind(this);
   }
   componentWillMount() {
@@ -39,6 +40,9 @@ class FeaturedSite extends React.Component {
   }
   handleSiteClick(id) {
     this.props.router.push(`sites/${id}`);
+  }
+  handleSearchClick() {
+    this.props.router.push('sites');
   }
 
   render() {

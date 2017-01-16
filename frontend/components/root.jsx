@@ -7,7 +7,7 @@ import SearchContainer from './search/search_container';
 import FeaturedSiteContainer from './featured_site/featured_site_container';
 import SiteShowContainer from './site_show/site_show_container';
 import SiteFormContainer from './site_form/site_form_container';
-import SiteIndex from './search/site_index';
+import SiteIndex from './search/search_container';
 
 const Root = ({ store }) => {
   return (
@@ -15,9 +15,9 @@ const Root = ({ store }) => {
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={FeaturedSiteContainer}/>
-          <Route path="/index" component={ SiteIndex } />
           <Route path="/sites/new" component={ SiteFormContainer } />
           <Route path="/sites/:id" component={ SiteShowContainer } />
+          <Route path="/sites" component={ SiteIndex } />
         </Route>
 
       </Router>

@@ -8,7 +8,6 @@ class SiteForm extends React.Component {
     this.state = {
       name: "",
       description: "",
-      user_id: props.currentUser.id,
       region_id: 2,
       featured: false,
       public: false,

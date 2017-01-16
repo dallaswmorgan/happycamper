@@ -16,6 +16,7 @@ class Api::SitesController < ApplicationController
 
   def create
     @site = Site.new(site_params)
+    @site.user_id = current_user.id
     if @site.save
       render :show
     else
