@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114104144) do
+ActiveRecord::Schema.define(version: 20170117081515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "site_id",          null: false
+    t.integer  "user_id",          null: false
+    t.date     "check_in_date",    null: false
+    t.date     "check_out_date",   null: false
+    t.integer  "number_of_guests", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["site_id"], name: "index_reservations_on_site_id", using: :btree
+    t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
+  end
+
+  create_table "site_amenities", force: :cascade do |t|
+    t.integer  "site_id",        null: false
+    t.boolean  "drinking_water"
+    t.boolean  "shower"
+    t.boolean  "fire_ring"
+    t.boolean  "pets_allowed"
+    t.boolean  "toilet"
+    t.boolean  "picnic_table"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["site_id"], name: "index_site_amenities_on_site_id", using: :btree
+  end
 
   create_table "site_images", force: :cascade do |t|
     t.integer  "site_id",    null: false
