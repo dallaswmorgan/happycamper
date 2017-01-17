@@ -39,7 +39,7 @@ class Site extends React.Component {
 
           <div className="show-text">
               <h1>{name}</h1>
-              <SiteImageForm/>
+              <SiteImageForm site={this.props.site}/>
               <h3>{description}</h3>
           </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import SiteMap from '../site_map/site_map';
 import Modal from 'react-modal';
+import MaskedInput from 'react-input-mask';
 
 const modalStyle = {
   content : {
@@ -167,12 +168,12 @@ class SiteForm extends React.Component {
               	<option value="WI">Wisconsin</option>
               	<option value="WY">Wyoming</option>
               </datalist>
+              <MaskedInput mask="999" value={price} placeholder="Price per night"
+                onChange={this.update("price")} className="site-field" maskChar=" "/>
 
-              <input type="text" value={price} placeholder="Price per night"
-                onChange={this.update("price")} className="site-field"/>
 
-              <input type="text" value={guest_limit} placeholder="Guest limit"
-                onChange={this.update("guest_limit")} className="site-field"/>
+              <MaskedInput mask="99" value={guest_limit} placeholder="Guest limit"
+                onChange={this.update("guest_limit")} className="site-field" maskChar=" "/>
 
               <input type="textarea" value={description} placeholder="Description"
                 onChange={this.update("description")} className="site-field"/>
