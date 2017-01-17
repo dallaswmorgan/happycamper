@@ -9,14 +9,12 @@ export default class MarkerManager {
   }
 
   updateMarkers(sites) {
-    console.log(sites);
     this.sites = Object.keys(sites).map(id => sites[id]);
     this._sitesToAdd().forEach(this._createMarkerFromSite);
     this._markersToRemove().forEach(this._removeMarker);
   }
 
   _sitesToAdd() {
-    console.log(this.sites);
     const currentSites = this.markers.map(marker => marker.siteId);
     return this.sites.filter( site => !currentSites.includes(site.id));
   }

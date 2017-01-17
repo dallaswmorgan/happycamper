@@ -10,13 +10,21 @@ class Site extends React.Component {
     let siteId = parseInt(this.props.params.id);
     this.props.fetchSite(siteId);
   }
+  componentWillReceiveProps(newProps) {
+    let siteId = parseInt(newProps.params.id);
+    this.props.fetchSite(siteId);
+  }
+
+  componentWillUnmount() {
+    // debugger;
+  }
 
   render() {
     if (this.props.site) {
       let {name, description, site_images } = this.props.site;
       // Adding default pic if no pics added yet
       if (site_images.length === 0) {
-        site_images = [{id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484527141/Logomakr_7iM8J2_xwg0qw.png", caption: "Default pic"}]
+        site_images = [{id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484527141/Logomakr_7iM8J2_xwg0qw.png", caption: "Default pic"}];
       }
       return (
         <div className="site-show">
@@ -46,4 +54,4 @@ class Site extends React.Component {
   }
 }
 
-export default withRouter(Site);
+export default Site;

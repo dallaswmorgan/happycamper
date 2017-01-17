@@ -9,7 +9,6 @@ class FeaturedSite extends React.Component {
       featuredSiteIdx: 1,
       featuredSite: null
     };
-    this.featuredTimer;
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.nextFeaturedSite = this.nextFeaturedSite.bind(this);
   }
@@ -17,30 +16,37 @@ class FeaturedSite extends React.Component {
     this.props.fetchFeaturedSites();
   }
 
-  componentDidMount() {
-    this.setState({
-      featuredSite: this.props.sites[this.state.featuredSiteIdx]
-    });
-    this.featuredtimer = setInterval(() => {
-      this.nextFeaturedSite();
-    }, 6000);
+  componentWillReceiveProps(newProps) {
+    if (newProps.sites) {
+      this.setState({
+        featuredSite: this.props.sites[this.state.featuredSiteIdx]
+      });
+      this.featuredTimer = setInterval(() => {
+        this.nextFeaturedSite();
+      }, 6000);
+      console.log(this.featuredTimer);
+    }
   }
 
   componentWillUnmount() {
+    debugger;
     clearInterval(this.featuredTimer);
   }
 
   nextFeaturedSite() {
+    let featuredSiteIdx;
     if (this.state.featuredSiteIdx >= this.props.sites.length) {
-      this.state = { featuredSiteIdx: 1};
+      featuredSiteIdx = 1;
     } else {
-      this.state = {featuredSiteIdx: (this.state.featuredSiteIdx + 1)};
+      featuredSiteIdx = this.state.featuredSiteIdx + 1;
     }
-    this.setState({featuredSite: this.props.sites[this.state.featuredSiteIdx]});
+    this.setState({featuredSite: this.props.sites[this.state.featuredSiteIdx], featuredSiteIdx});
   }
+
   handleSiteClick(id) {
     this.props.router.push(`sites/${id}`);
   }
+
   handleSearchClick() {
     this.props.router.push('sites');
   }
@@ -48,6 +54,9 @@ class FeaturedSite extends React.Component {
   render() {
     let currentSite = this.state.featuredSite || this.props.sites[0];
     if (currentSite) {
+      if (currentSite.site_images.length === 0) {
+        currentSite.site_images = [{id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484527141/Logomakr_7iM8J2_xwg0qw.png", caption: "Default pic"}];
+      }
     return(
       <div className="home-box">
 

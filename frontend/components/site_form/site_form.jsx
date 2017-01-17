@@ -1,5 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import SiteMap from '../site_map/site_map';
+import Modal from 'react-modal';
+
+const modalStyle = {
+  content : {
+    top                   : '55%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+  }
+};
 
 class SiteForm extends React.Component {
 
@@ -19,8 +32,38 @@ class SiteForm extends React.Component {
       lng: "-122.310791",
       modalIsOpen: false
     };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.handleMap = this.handleMap.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToHome = this.navigateToHome.bind(this);
+  }
+
+  openModal() {
+    console.log('opening modal');
+    this.setState({ modalIsOpen: true });
+  }
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
+  mapModal() {
+    return(
+      <Modal
+        isOpen={this.state.modalIsOpen}
+        contentLabel="Modal"
+        onRequestClose={() => this.closeModal()}
+        style={modalStyle}>
+        <div className="auth-modal-container">
+          <SiteMap />
+        </div>
+      </Modal>
+    );
+  }
+
+  handleMap(e) {
+    e.preventDefault();
+    this.openModal();
   }
 
   navigateToHome() {
@@ -142,7 +185,7 @@ class SiteForm extends React.Component {
                 Add Images
               </button>
               <button
-                onClick={this.handleGoogleMaps}
+                onClick={this.handleMap}
                 id="add-images-button"
                 className="new-site-button">
                 Add Location
