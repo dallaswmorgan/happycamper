@@ -7,30 +7,15 @@ class FeaturedSite extends React.Component {
     super(props);
     this.state = {
       featuredSiteIdx: 1,
-      featuredSite: null
+      featuredSite: null,
+      featuredTimer: null
     };
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.nextFeaturedSite = this.nextFeaturedSite.bind(this);
+    this.prevFeaturedSite = this.prevFeaturedSite.bind(this);
   }
   componentWillMount() {
     this.props.fetchFeaturedSites();
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.sites) {
-      this.setState({
-        featuredSite: this.props.sites[this.state.featuredSiteIdx]
-      });
-      this.featuredTimer = setInterval(() => {
-        this.nextFeaturedSite();
-      }, 6000);
-      console.log(this.featuredTimer);
-    }
-  }
-
-  componentWillUnmount() {
-    debugger;
-    clearInterval(this.featuredTimer);
   }
 
   nextFeaturedSite() {
@@ -39,6 +24,15 @@ class FeaturedSite extends React.Component {
       featuredSiteIdx = 1;
     } else {
       featuredSiteIdx = this.state.featuredSiteIdx + 1;
+    }
+    this.setState({featuredSite: this.props.sites[this.state.featuredSiteIdx], featuredSiteIdx});
+  }
+  prevFeaturedSite() {
+    let featuredSiteIdx;
+    if (this.state.featuredSiteIdx === 1) {
+      featuredSiteIdx = this.props.sites.length;
+    } else {
+      featuredSiteIdx = this.state.featuredSiteIdx - 1;
     }
     this.setState({featuredSite: this.props.sites[this.state.featuredSiteIdx], featuredSiteIdx});
   }
@@ -59,7 +53,10 @@ class FeaturedSite extends React.Component {
       }
     return(
       <div className="home-box">
-
+      <img id="right-featured-site-button" onClick={this.nextFeaturedSite}
+        src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484627939/right-arrow_gupy9c.png"/>
+      <img id="left-featured-site-button" onClick={this.prevFeaturedSite}
+        src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484627907/left-arrow_cf7aar.png"/>
       <div className="featured-sites-box">
         <div className="featured-site-text">
           <h3>Find your happy place at camps like</h3>

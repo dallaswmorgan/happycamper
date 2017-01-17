@@ -11,8 +11,10 @@ class Site extends React.Component {
     this.props.fetchSite(siteId);
   }
   componentWillReceiveProps(newProps) {
-    let siteId = parseInt(newProps.params.id);
-    this.props.fetchSite(siteId);
+    if (newProps !== this.props) {  
+      let siteId = parseInt(newProps.params.id);
+      this.props.fetchSite(siteId);
+    }
   }
 
   componentWillUnmount() {
