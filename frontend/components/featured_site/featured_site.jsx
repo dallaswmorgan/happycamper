@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import SiteImageForm from '../site_show/site_image_form';
 
 class FeaturedSite extends React.Component {
   constructor(props) {
@@ -8,7 +9,6 @@ class FeaturedSite extends React.Component {
     this.state = {
       featuredSiteIdx: 1,
       featuredSite: null,
-      featuredTimer: null
     };
     this.handleSearchClick = this.handleSearchClick.bind(this);
     this.nextFeaturedSite = this.nextFeaturedSite.bind(this);
@@ -17,6 +17,10 @@ class FeaturedSite extends React.Component {
   componentWillMount() {
     this.props.fetchFeaturedSites();
   }
+
+  // componentWillReceiveProps() {
+  //   this.props.fetchFeaturedSites();
+  // }
 
   nextFeaturedSite() {
     let featuredSiteIdx;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import SiteImageForm from './site_image_form';
 
 class Site extends React.Component {
   constructor(props) {
@@ -10,16 +11,8 @@ class Site extends React.Component {
     let siteId = parseInt(this.props.params.id);
     this.props.fetchSite(siteId);
   }
-  componentWillReceiveProps(newProps) {
-    if (newProps !== this.props) {  
-      let siteId = parseInt(newProps.params.id);
-      this.props.fetchSite(siteId);
-    }
-  }
 
-  componentWillUnmount() {
-    // debugger;
-  }
+
 
   render() {
     if (this.props.site) {
@@ -46,6 +39,7 @@ class Site extends React.Component {
 
           <div className="show-text">
               <h1>{name}</h1>
+              <SiteImageForm/>
               <h3>{description}</h3>
           </div>
 
