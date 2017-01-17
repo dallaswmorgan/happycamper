@@ -4,7 +4,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = reservation.new(reservation_params)
+    @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
     if @reservation.save
       render 'api/reservations/show'
@@ -32,7 +32,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   private
-  
+
   def reservation_params
     params.require(:reservation).permit(:site_id, :check_in_date, :check_out_date, :number_of_guests)
   end

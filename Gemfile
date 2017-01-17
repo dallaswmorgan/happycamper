@@ -29,6 +29,8 @@ gem 'font-awesome-rails', '~> 4.7.0.1'
 gem 'figaro'
 
 gem 'cloudinary'
+
+gem 'validates_overlap'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -5,6 +5,7 @@ import { createReservation, receiveReservationErrors } from '../../actions/reser
 
 const mapStateToProps = (state, ownProps) => {
   const siteId = parseInt(ownProps.params.id);
+  console.log(state);
   const site = state.sites[siteId];
   return ({
     site,
