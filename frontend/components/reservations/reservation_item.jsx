@@ -60,45 +60,53 @@ class ReservationItem extends React.Component {
   }
 
   render() {
-    const {user, place_id, place_title, place_main_image, check_in_date, check_out_date, host_image_url, host_id, region_name, stars} = this.props.reservation;
-
-    if (this.props.reservation) {
-      return (
-        <ul className="reservation">
-          <img className="place-main-image" src={place_main_image} />
-          <img className="host-image-url"
-            src={host_image_url}
-            onClick={this.handleProfileClick}/>
-          <div className="reservation-details">
-            <li><h2>{region_name}</h2></li>
-            <div className="display-dates">
-              <li>{this.calculateDate(check_in_date)} - {this.calculateDate(check_out_date)}</li>
-            </div>
-            <li><h3>{place_title}</h3></li>
-            <li className="reservation-rating"><span>{"♛".repeat(stars)}</span></li>
-            <li className="reservation-link">
-              <Link to={`places/${place_id}`}>Listing Info</Link>
-            </li>
-            <br/>
-          </div>
-          <button className="reservation-edit-button" onClick={() => this.openModal()}>Edit Reservation</button>
-            <Modal
-              isOpen={this.state.modalIsOpen}
-              style={customStyles}>
-              <div>
-                <EditFormContainer
-                  key={this.props.reservation.id}
-                  reservation={this.props.reservation}
-                  closeModal={this.closeModal}/>
-              </div>
-            </Modal>
-          <button className="reservation-delete-button" onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Cancel Reservation</button>
-          </ul>
-        );
-    } else {
+    // const {user, site_id, site_title, site_main_image, check_in_date, check_out_date, host_image_url, host_id, region_name, stars} = this.props.reservation;
+    console.log(this.props.reservation);
       return (<div></div>);
-    }
+
   }
 }
 
 export default withRouter(ReservationItem);
+
+
+
+
+
+
+
+
+
+// if (this.props.reservation) {
+//   return (
+//     <ul className="reservation">
+//       <img className="site-main-image" src={site_main_image} />
+//       <img className="host-image-url"
+//         src={host_image_url}
+//         onClick={this.handleProfileClick}/>
+//       <div className="reservation-details">
+//         <li><h2>{region_name}</h2></li>
+//         <div className="display-dates">
+//           <li>{this.calculateDate(check_in_date)} - {this.calculateDate(check_out_date)}</li>
+//         </div>
+//         <li><h3>{site_title}</h3></li>
+//         <li className="reservation-rating"><span>{"♛".repeat(stars)}</span></li>
+//         <li className="reservation-link">
+//           <Link to={`sites/${site_id}`}>Listing Info</Link>
+//         </li>
+//         <br/>
+//       </div>
+//       <button className="reservation-edit-button" onClick={() => this.openModal()}>Edit Reservation</button>
+//       <Modal
+//         isOpen={this.state.modalIsOpen}
+//         style={customStyles}>
+//         <div>
+//           <EditFormContainer
+//             key={this.props.reservation.id}
+//             reservation={this.props.reservation}
+//             closeModal={this.closeModal}/>
+//         </div>
+//       </Modal>
+//       <button className="reservation-delete-button" onClick={() => this.props.deleteReservation(this.props.reservation.id)}>Cancel Reservation</button>
+//     </ul>
+//   );
