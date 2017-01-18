@@ -92,11 +92,11 @@ class Site extends React.Component {
           </input>
         </label>
         </div>
-        <label className="num-guests">Guests
+        <label className="num-guests">Number of Guests
           <select
             onChange={this.update("number_of_guests")}
             className="reservation-input">
-            <option value="" disabled selected>Select guests</option>
+            <option value="" disabled selected>Number of campers</option>
             {guestOptions.map(option => option)}
           </select>
         </label>
@@ -138,15 +138,17 @@ class Site extends React.Component {
               )}
             </ul>
           </div>
+          <div className="site-info">
 
-          <div className="show-text">
-              <h1>{name}</h1>
+            <div className="site-text">
+                <h1>{name}</h1>
 
-              <h3>{description}</h3>
-          </div>
+                <h3>{description}</h3>
+            </div>
 
-          <div className="make-reservation-box">
-            {this.reservationForm()}
+            <div className="reservation-box">
+              {this.reservationForm()}
+            </div>
           </div>
 
         </div>
