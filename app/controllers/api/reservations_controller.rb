@@ -5,12 +5,14 @@ class Api::ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
-    @reservation.user = current_user
+    @reservation.user_id = current_user.id
     if @reservation.save
+      p @reservation
       render 'api/reservations/show'
     elsif !current_user
       render(json: ["Must be logged in to reserve site"], status: 404)
     else
+      p @reservation.errors.full_messages
       render json: @reservation.errors.full_messages, status: 422
     end
   end
