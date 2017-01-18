@@ -1,1 +1,1 @@
-json.extract! site_image, :url, :caption 
+json.extract! site_image, :url, :caption, :id 

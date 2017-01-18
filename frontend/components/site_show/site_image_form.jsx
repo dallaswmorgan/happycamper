@@ -6,7 +6,7 @@ class SiteImageForm extends React.Component {
     super(props);
     this.state = {
       image: {
-        image_url: "",
+        url: "",
         site_id: ""
       }
     };
@@ -15,10 +15,11 @@ class SiteImageForm extends React.Component {
 
   upload(id) {
     // e.preventDefault();
+    let that= this;
     cloudinary.openUploadWidget(window.cloudinary_options, function(error, results){
       if(!error){
-        const newImage = { image_url: results[0].secure_url, site_id: id};
-        console.log(newImage);
+        const newImage = { url: results[0].secure_url, site_id: id};
+        that.props.createImage(newImage);
       }
     });
   }

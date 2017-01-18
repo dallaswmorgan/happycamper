@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
 import Site from './site_show';
-import { fetchSite } from '../../actions/site_actions';
+import { fetchSite, createImage } from '../../actions/site_actions';
 import { createReservation, receiveReservationErrors } from '../../actions/reservations_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const siteId = parseInt(ownProps.params.id);
-  console.log(state);
   const site = state.sites[siteId];
   return ({
     site,
@@ -17,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
   fetchSite: id => dispatch(fetchSite(id)),
   createReservation: reservation => dispatch(createReservation(reservation)),
+  createImage: image => dispatch(createImage(image)),
   clearErrors: () => dispatch(receiveReservationErrors([]))
 });
 //

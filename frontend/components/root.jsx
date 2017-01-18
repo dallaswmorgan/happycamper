@@ -13,19 +13,16 @@ import SiteIndex from './search/search_container';
 import ReservationsContainer from './reservations/reservations_container';
 
 const Root = ({ store }) => {
-  const _fetchReservations = () => {
-    fetchReservations();
-  };
+
 
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ App } onEnter={fetchFeaturedSites()}>
+        <Route path="/" component={ App }>
           <IndexRoute component={FeaturedSiteContainer}/>
           <Route path="/sites/new" component={ SiteFormContainer } />
           <Route path="/sites/:id" component={ SiteShowContainer } />
           <Route path="/sites" component={ SiteIndex } />
-          <Route path="/reservations" component={ ReservationsContainer } onEnter={_fetchReservations()}/>
         </Route>
 
       </Router>

@@ -43,3 +43,11 @@ export const deleteSite = id => {
     url: `api/sites/${id}`
   });
 };
+
+export const createImage = image => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/site_images',
+    data: { image }
+  })
+);

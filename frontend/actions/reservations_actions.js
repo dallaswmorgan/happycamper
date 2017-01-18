@@ -5,7 +5,7 @@ export const REMOVE_RESERVATION = "REMOVE_RESERVATION";
 export const RECEIVE_RESERVATION_ERRORS = "RECEIVE_RESERVATION_ERRORS";
 
 export const fetchReservations = () => dispatch => (
-  APIUtil.fetchReservatios().then( reservations => dispatch(receiveReservations(reservations)))
+  APIUtil.fetchReservations().then( reservations => dispatch(receiveReservations(reservations)))
 );
 
 export const fetchReservation = id => dispatch => (

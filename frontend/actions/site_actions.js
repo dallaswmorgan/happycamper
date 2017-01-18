@@ -24,6 +24,13 @@ export const createSite = site => dispatch => (
   })
 );
 
+export const createImage = image => dispatch => (
+  APIUtil.createImage(image).then( site => {
+    dispatch(receiveSite(site));
+    return(site);
+  })
+);
+
 export const updateSite = site => dispatch => (
   APIUtil.updateSite(site).then( newSite => dispatch(receiveSite(newSite)))
 );

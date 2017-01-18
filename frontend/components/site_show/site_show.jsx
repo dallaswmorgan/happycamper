@@ -67,7 +67,7 @@ class Site extends React.Component {
     let guestOptions = [];
     for(let i = 1; i < guestLimit + 1; i++) {
       guestOptions.push(
-        <option value={i}>{i}</option>
+        <option value={i} key={`guest-option-${i}`}>{i}</option>
       );
     }
 
@@ -96,7 +96,7 @@ class Site extends React.Component {
           <select
             onChange={this.update("number_of_guests")}
             className="reservation-input">
-            <option value="" disabled selected>Number of campers</option>
+            <option value="" disabled defaultValue>Number of campers</option>
             {guestOptions.map(option => option)}
           </select>
         </label>
@@ -125,11 +125,10 @@ class Site extends React.Component {
       }
       return (
         <div className="site-show">
-
           <div className="site-images-box">
             <ul className="site-images-list">
               {site_images.map(image =>
-                <li className="site-image-li" key={`image-${image.id}`}>
+                <li className="site-image-li" key={`image-${image.id}`} >
                   <img
                     className="site-image"
                     src={image.url}
@@ -139,7 +138,7 @@ class Site extends React.Component {
             </ul>
           </div>
           <div className="site-info">
-
+            <SiteImageForm site={this.props.site} createImage={this.props.createImage}/>
             <div className="site-text">
                 <h1>{name}</h1>
 

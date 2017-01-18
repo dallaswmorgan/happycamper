@@ -7,7 +7,6 @@ class Api::ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.user_id = current_user.id
     if @reservation.save
-      p @reservation
       render 'api/reservations/show'
     elsif !current_user
       render(json: ["Must be logged in to reserve site"], status: 404)

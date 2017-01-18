@@ -61,7 +61,7 @@ class ReservationItem extends React.Component {
 
   render() {
     // const {user, site_id, site_title, site_main_image, check_in_date, check_out_date, host_image_url, host_id, region_name, stars} = this.props.reservation;
-    console.log(this.props.reservation);
+    // console.log(this.props.reservation);
       return (<div></div>);
 
   }

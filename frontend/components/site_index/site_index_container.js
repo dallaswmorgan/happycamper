@@ -3,7 +3,6 @@ import { fetchSites } from '../../actions/site_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({sites}) => {
-  console.log(sites);
   return({
     sites
   });

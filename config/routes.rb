@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :sites
     resources :reservations
+    resources :site_images, only: [:create]
   end
 end

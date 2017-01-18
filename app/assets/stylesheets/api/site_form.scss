@@ -53,7 +53,7 @@ $button-blue: #28BC8C;
 }
 
 .site-field {
-  font-size: 30px;
+  font-size: 20px;
   border: 1px solid gray;
   color: black;
   text-align: left;
@@ -70,4 +70,22 @@ $button-blue: #28BC8C;
   // color: white;
   // margin: 15px;
   // padding: 10px;
+}
+
+#city {
+  width: 160px;;
+}
+
+#state {
+  width: 160px;
+}
+#guest {
+  width: 160px;
+}
+#price {
+  width: 160px;
+}
+
+#textarea {
+  resize: vertical;
 }
