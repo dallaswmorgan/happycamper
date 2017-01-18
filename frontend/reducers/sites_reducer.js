@@ -10,7 +10,7 @@ const SitesReducer = (state = {}, action) => {
       return action.sites;
     case RECEIVE_SITE:
       const newSite = {[action.site.id]: action.site};
-      return newSite;
+      return merge(newState, newSite);
     default:
       return state;
   }

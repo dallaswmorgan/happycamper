@@ -11,7 +11,6 @@ class Api::ReservationsController < ApplicationController
     elsif !current_user
       render(json: ["Must be logged in to reserve site"], status: 404)
     else
-      p @reservation.errors.full_messages
       render json: @reservation.errors.full_messages, status: 422
     end
   end

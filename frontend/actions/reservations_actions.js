@@ -16,9 +16,9 @@ export const createReservation = reservation => dispatch => (
   APIUtil.createReservation(reservation).then( newReservation => dispatch(receiveReservation(newReservation)))
 );
 
-export const updateReservation = reservation => dispatch => (
-  APIUtil.updateReservation(reservation).then( updatedReservation => receiveReservation(updatedReservation))
-);
+export const updateReservation = reservation => dispatch => {
+  return(APIUtil.updateReservation(reservation).then( updatedReservation => dispatch(receiveReservation(updatedReservation))));
+};
 
 export const deleteReservation = id => dispatch => (
   APIUtil.deleteReservation(id).then( deletedReservation => dispatch(removeReservation(deletedReservation)))

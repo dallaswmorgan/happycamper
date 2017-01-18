@@ -7,6 +7,7 @@ class ReservationEditForm extends React.Component {
 		this.state = {
 			id:this.props.reservation.id,
 			site_id: this.props.reservation.site_id,
+
 			check_in_date: "",
       check_out_date: "",
 			number_of_guests: ""
@@ -25,7 +26,7 @@ class ReservationEditForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const reservation = this.state;
-		this.props.updateReservation(reservation);
+		this.props.updateReservation(reservation).then(this.props.closeModal);
 	}
 
 	renderErrors() {

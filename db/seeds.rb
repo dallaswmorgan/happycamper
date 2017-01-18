@@ -26,3 +26,5 @@ SiteImage.create(site_id: 1, url: "https://res.cloudinary.com/dallaswmorgan/imag
 
 SiteImage.create(site_id: 2, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484391834/mt-rainier_ecyauh.jpg", caption: "View of the mountain from one of the many hiking trails")
 SiteImage.create(site_id: 3, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484421586/briones-retreat_eum1bf.jpg", caption: "It's hard to beat watching the sunrise from your cozy canvas tent")
+
+Review.create(site_id: 1, user_id: 2, rating: 5, body: "I love this site! I had my 18th birthday party here :)")

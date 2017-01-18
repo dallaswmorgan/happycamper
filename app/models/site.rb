@@ -8,6 +8,8 @@ class Site < ApplicationRecord
   )
 
   has_many :site_images
+  has_many :reservations
+  has_many :reviews
 
   def self.in_bounds(geo_bounds)
     p geo_bounds

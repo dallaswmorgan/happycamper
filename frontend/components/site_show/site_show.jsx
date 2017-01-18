@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import SiteImageForm from './site_image_form';
+import ReviewsContainer from '../reviews/reviews_container';
 
 class Site extends React.Component {
   constructor(props) {
@@ -17,11 +18,9 @@ class Site extends React.Component {
   componentWillMount() {
     let siteId = parseInt(this.props.params.id);
     this.props.fetchSite(siteId);
+    this.props.fetchReviews(siteId);
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   debugger;
-  // }
 
   handleCreateSubmit(e) {
     e.preventDefault();
@@ -152,6 +151,7 @@ class Site extends React.Component {
             <div className="reservation-box">
               {this.reservationForm()}
             </div>
+            <ReviewsContainer/>
           </div>
 
         </div>

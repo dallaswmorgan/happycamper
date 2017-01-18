@@ -14,7 +14,6 @@ class SiteImageForm extends React.Component {
   }
 
   upload(id) {
-    // e.preventDefault();
     let that= this;
     cloudinary.openUploadWidget(window.cloudinary_options, function(error, results){
       if(!error){
@@ -25,7 +24,6 @@ class SiteImageForm extends React.Component {
   }
 
   render() {
-    // debugger;
     return (
       <div className="photo-upload-form">
         <button onClick={() => this.upload(this.props.site.id)}>Add image</button>

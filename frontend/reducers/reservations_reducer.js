@@ -13,7 +13,8 @@ const ReservationsReducer = (oldState = _nullState, action) => {
     case RECEIVE_RESERVATIONS:
       return merge({}, _nullState,  action.reservations);
     case RECEIVE_RESERVATION:
-      return merge(newState, { [action.reservation.id]: action.reservation });
+      newState[action.reservation.id] = action.reservation;
+      return newState;
     case REMOVE_RESERVATION:
       delete newState[action.reservation.id];
       return newState;

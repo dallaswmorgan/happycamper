@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :sites
     resources :reservations
     resources :site_images, only: [:create]
+    resources :reviews
   end
 end
