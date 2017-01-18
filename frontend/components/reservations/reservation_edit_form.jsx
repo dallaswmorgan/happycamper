@@ -52,7 +52,7 @@ class ReservationEditForm extends React.Component {
   				<button id="close" onClick={this.props.closeModal}>close</button>
   			</div>
         <form onSubmit={this.handleSubmit} className="reservation-edit-form-box">
-  				<img id="logo" src="https://res.cloudinary.com/dbsxgncvx/image/upload/v1478035701/logo3_up1bhc.png"/>
+  				<img id="logo" src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>
           {this.renderErrors()}
           <div className="reservation-edit-form">
             <label> <span>*</span> Check In

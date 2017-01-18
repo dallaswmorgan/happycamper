@@ -14,7 +14,7 @@ class Site extends React.Component {
     this.handleCreateSubmit = this.handleCreateSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     let siteId = parseInt(this.props.params.id);
     this.props.fetchSite(siteId);
   }

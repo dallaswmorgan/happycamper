@@ -81,7 +81,8 @@ class ReservationItem extends React.Component {
           <button className="reservation-edit-button" onClick={() => this.openModal()}>Edit Reservation</button>
           <Modal
             isOpen={this.state.modalIsOpen}
-            style={customStyles}>
+            style={customStyles}
+            contentLabel="Modal">
             <div>
               <EditFormContainer
                 key={this.props.reservation.id}

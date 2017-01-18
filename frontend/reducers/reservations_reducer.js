@@ -5,12 +5,13 @@ import { RECEIVE_RESERVATIONS,
         } from '../actions/reservations_actions';
 import merge from 'lodash/merge';
 
-const ReservationsReducer = (oldState = { errors: [] }, action) => {
+const _nullState = { errors: [] };
+const ReservationsReducer = (oldState = _nullState, action) => {
   Object.freeze(oldState);
   let newState = merge({}, oldState);
   switch (action.type) {
     case RECEIVE_RESERVATIONS:
-      return merge({}, action.reservations);
+      return merge({}, _nullState,  action.reservations);
     case RECEIVE_RESERVATION:
       return merge(newState, { [action.reservation.id]: action.reservation });
     case REMOVE_RESERVATION:
