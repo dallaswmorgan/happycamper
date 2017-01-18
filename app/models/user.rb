@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   after_initialize :ensure_session_token
 
+  has_many :reservations
+
 
   attr_reader :password
 

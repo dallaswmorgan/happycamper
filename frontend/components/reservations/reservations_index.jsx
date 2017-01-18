@@ -6,6 +6,7 @@ class ReservationsIndex extends React.Component {
     super(props);
   }
 
+
   render() {
     if (this.props.reservations) {
       let reservations = this.props.reservations.map(reservation => {
@@ -16,11 +17,10 @@ class ReservationsIndex extends React.Component {
               reservation={reservation}
               errors={this.props.errors}
               deleteReservation={this.props.deleteReservation}
-              key={reservation.id} />
+              key={`reservation-${reservation.id}`} />
             );
           }
         });
-
       return (
         <div className="reservations-container">
           <h2>Upcoming Trips</h2>

@@ -86,7 +86,7 @@ class Header extends React.Component {
   }
 
   handleReservationsRequest() {
-    alert("Come back soon for the ability to reserve campsites!");
+    this.props.router.push('reservations');
   }
 
   loginButtons() {

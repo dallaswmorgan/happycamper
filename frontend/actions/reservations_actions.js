@@ -13,7 +13,7 @@ export const fetchReservation = id => dispatch => (
 );
 
 export const createReservation = reservation => dispatch => (
-  APIUtil.createReservation(reservation).then( newReservation => dispatch(receiveReservation(reservation)))
+  APIUtil.createReservation(reservation).then( newReservation => dispatch(receiveReservation(newReservation)))
 );
 
 export const updateReservation = reservation => dispatch => (
