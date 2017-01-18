@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $button-blue: #28BC8C;
+$edit-orange: #D4632E;
+$delete-red: #BC3C28;
 
 .reservations-container {
   text-align: center;
@@ -79,12 +81,32 @@ $button-blue: #28BC8C;
   text-decoration: underline;
 }
 
-.reservation-edit-button, .reservation-delete-button {
+.reservation-edit-button, {
   padding: 5px 10px;
   margin: 5px 10px 20px 10px;
   font-size: 16px;
-  background-color: #4d4e50;
+  background-color: $edit-orange;
+  border-color: $edit-orange;
   color: white;
+}
+
+.reservation-edit-button:hover {
+  color: $edit-orange;
+  background-color: white;
+}
+
+.reservation-delete-button, {
+  padding: 5px 10px;
+  margin: 5px 10px 20px 10px;
+  font-size: 16px;
+  background-color: $delete-red;
+  border-color: $delete-red;
+  color: white;
+}
+
+.reservation-delete-button:hover {
+  color: $delete-red;
+  background-color: white;
 }
 
 .reservation-edit-button {
@@ -92,7 +114,7 @@ $button-blue: #28BC8C;
 }
 
 .reservation-edit-form-container {
-  background-color: #f7f6f4;
+  background: mix(white, $button-blue, 85%);
 }
 
 .reservation-edit-form {

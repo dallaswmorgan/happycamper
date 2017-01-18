@@ -19,11 +19,15 @@ class Site extends React.Component {
     this.props.fetchSite(siteId);
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   debugger;
+  // }
+
   handleCreateSubmit(e) {
     e.preventDefault();
     const reservation = this.state;
     reservation.number_of_guests = parseInt(reservation.number_of_guests);
-    this.props.createReservation(reservation);
+    this.props.createReservation(reservation).then(this.props.router.push('reservations'));
   }
 
   renderErrors() {

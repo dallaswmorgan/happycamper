@@ -5,7 +5,7 @@ import EditFormContainer from './edit_form_container';
 
 const customStyles = {
   content : {
-    top                   : '55%',
+    top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
@@ -71,16 +71,14 @@ class ReservationItem extends React.Component {
             <div className="display-dates">
               <li>{this.calculateDate(check_in_date)} - {this.calculateDate(check_out_date)}</li>
             </div>
-            <li><h3>{site_name}</h3></li>
+            <li><Link to={`sites/${site_id}`}><h3>{site_name}</h3></Link></li>
 
-            <li className="reservation-link">
-              <Link to={`sites/${site_id}`}>Site Info</Link>
-            </li>
             <br/>
           </div>
           <button className="reservation-edit-button" onClick={() => this.openModal()}>Edit Reservation</button>
           <Modal
             isOpen={this.state.modalIsOpen}
+            onRequestClose={this.closeModal}
             style={customStyles}
             contentLabel="Modal">
             <div>

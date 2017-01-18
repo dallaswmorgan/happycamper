@@ -27,7 +27,7 @@ class Api::ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = reservation.find(params[:id])
+    @reservation = Reservation.find(params[:id])
     @reservation.destroy
     render 'api/reservations/show'
   end

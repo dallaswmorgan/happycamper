@@ -34,6 +34,8 @@ $button-blue: #28BC8C;
   margin-left: 140px;
 }
 
+
+
 .featured-site-text h3 {
   font-size: 20px;
 }
@@ -69,6 +71,7 @@ $button-blue: #28BC8C;
   margin-right: 125px;
   min-width: 600px;
   z-index: -1;
+  // overflow: hidden;
 }
 .featured-site-pic img {
   // height: 100%;

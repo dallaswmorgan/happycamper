@@ -72,7 +72,7 @@ class ReservationEditForm extends React.Component {
                 <select
                   onChange={this.update("number_of_guests")}
                   className="reservation-input">
-									<option value="" disabled selected>Select guests</option>
+									<option value="" disabled defaultValue>Select guests</option>
 									<option value="1">1</option>
                   <option value="2">2</option>
 									<option value="3">3</option>
