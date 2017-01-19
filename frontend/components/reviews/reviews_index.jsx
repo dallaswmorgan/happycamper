@@ -4,16 +4,24 @@ import ReviewItem from './review_item';
 class ReviewsIndex extends React.Component {
   constructor(props) {
     super(props);
+    debugger;
   }
 
+
   render() {
-    debugger;
     if (this.props.reviews) {
       let reviews = this.props.reviews.map(review => {
         if (review) {
-          return <h1>{review.body}</h1>;
-          }
-        });
+          return (
+            <ReviewItem
+              clearErrors={this.props.clearErrors}
+              review={review}
+              errors={this.props.errors}
+              deleteReview={this.props.deleteReview}
+              key={`review-${review.id}`} />
+          );
+        }
+      });
       return (
         <div className="reviews-container">
           <h2>Reviews</h2>
@@ -29,11 +37,3 @@ class ReviewsIndex extends React.Component {
 }
 
 export default ReviewsIndex;
-
-// <ReviewItem
-//   clearErrors={this.props.clearErrors}
-//   review={review}
-//   errors={this.props.errors}
-//   deleteReview={this.props.deleteReview}
-//   key={`review-${review.id}`} />
-// );

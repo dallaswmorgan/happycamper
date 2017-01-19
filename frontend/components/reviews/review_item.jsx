@@ -9,9 +9,15 @@ class ReviewItem extends React.Component {
 
 
   render() {
-    // const { user } = this.props.review.author;
+    console.log(this.props.review);
+    const { author  } = this.props.review;
     return(
-      <h1>{`This is a review item written by me!`}</h1>
+      <div className='review-box'>  
+        <h1>{`This is a review item written by ${this.props.review.author}`}</h1>
+        <h3>{this.props.review.body}</h3>
+      </div>
     );
   }
 }
+
+export default ReviewItem;
