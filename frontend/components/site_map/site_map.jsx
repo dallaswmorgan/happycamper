@@ -17,7 +17,8 @@ class SiteMap extends React.Component {
   componentDidMount() {
     let _mapOptions = {
       center: {lat: 37.773972, lng: -122.431297}, // San Francisco coords
-      zoom: 7
+      zoom: 7,
+      mapTypeId: 'terrain'
     };
     this.map = new google.maps.Map(this.mapNode, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));

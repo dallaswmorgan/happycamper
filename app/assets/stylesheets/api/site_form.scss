@@ -41,13 +41,14 @@ $button-blue: #28BC8C;
 
 .new-site-form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  // flex-direction: column;
   text-align: center;
   vertical-align: space-between;
   justify-content: center;
-  height: 65%;
-  min-height: 650px;
-  max-width: 600px;
+  // height: 65%;
+  // min-height: 650px;
+  min-width: 1500px;
   background: rgba(255,255,255, .5);
   border-radius: 3px
 }
@@ -88,4 +89,17 @@ $button-blue: #28BC8C;
 
 #textarea {
   resize: vertical;
+}
+
+.form-map-holder {
+  width: 500px;
+  height: 500px;
+}
+
+#form-map-container {
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+  z-index: 100;
+
 }

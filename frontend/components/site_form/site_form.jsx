@@ -29,8 +29,8 @@ class SiteForm extends React.Component {
       city: "",
       price: "",
       guest_limit:"",
-      lat: "37.574515",
-      lng: "-122.310791",
+      lat: "",
+      lng: "",
       modalIsOpen: false
     };
     this.openModal = this.openModal.bind(this);
@@ -38,6 +38,22 @@ class SiteForm extends React.Component {
     this.handleMap = this.handleMap.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToHome = this.navigateToHome.bind(this);
+  }
+
+
+  componentDidMount() {
+    let _mapOptions = {
+      center: {lat: 37.773972, lng: -122.431297}, // San Francisco coords
+      zoom: 7,
+      mapTypeId: 'terrain'
+    };
+    this.map = new google.maps.Map(this.mapNode, _mapOptions);
+    this.marker = new google.maps.Marker({
+      position: {lat: 37.773972, lng: -122.431297},
+      draggable: true,
+      map: this.map,
+      title: "Place marker on campsite location"
+    });
   }
 
   openModal() {
@@ -88,11 +104,10 @@ class SiteForm extends React.Component {
   }
 
   handleSubmit(e) {
-
     e.preventDefault();
     let site = Object.assign({}, this.state);
-    site.lat = parseFloat(site.lat);
-    site.lng = parseFloat(site.lng);
+    site.lat = this.marker.getPosition().lat();
+    site.lng = this.marker.getPosition().lng();
     site.price = parseInt(site.price);
     site.guest_limit = parseInt(site.guest_limit);
     this.props.createSite(site).then( newSite => this.props.router.replace(`/sites/${newSite.id}`));
@@ -105,6 +120,7 @@ class SiteForm extends React.Component {
       <div className="new-site-container">
         <div className="new-site-form">
           <form onSubmit={this.handleSubmit}>
+            <div className="site-form-info">
 
               <input type="text" value={name} placeholder="Name of campsite"
                 onChange={this.update("name")} className="site-field"/>
@@ -180,17 +196,6 @@ class SiteForm extends React.Component {
 
 
             <div className="site-button-holder">
-              <button
-                onClick={this.handleCloudinary}
-                className="new-site-button">
-                Add Images
-              </button>
-              <button
-                onClick={this.handleMap}
-                id="add-images-button"
-                className="new-site-button">
-                Add Location
-              </button>
               <br/>
               <button
                 className="new-site-button"
@@ -203,9 +208,10 @@ class SiteForm extends React.Component {
                 Cancel
               </button>
             </div>
-
-            <div className="site-button-holder">
-            </div>
+          </div>
+          <div className="site-form-map">
+            <div id="form-map-container" ref={ map => this.mapNode = map }>Map</div>
+          </div>
           </form>
         </div>
         <h1>Help People Meet Nature</h1>
