@@ -18,6 +18,7 @@ class ReviewsIndex extends React.Component {
               review={review}
               errors={this.props.errors}
               deleteReview={this.props.deleteReview}
+              currentUser={this.props.currentUser}
               key={`review-${review.id}`} />
           );
         }

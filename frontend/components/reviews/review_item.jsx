@@ -9,8 +9,13 @@ class ReviewItem extends React.Component {
   }
 
 
+
   render() {
-    const { author, rating  } = this.props.review;
+    const { author, rating, id, user_id } = this.props.review;
+    let deleteButton = <div></div>;
+    if (user_id === this.props.currentUser.id) {
+      deleteButton = <button className="review-delete-button" onClick={() => this.props.deleteReview(id)}>Delete Review</button>;
+    }
     return(
       <div className='review-box'>
         <div className='review-user-box'>
@@ -26,6 +31,7 @@ class ReviewItem extends React.Component {
             color2={'#28BC8C'}
             edit={false} />
           <h3>{this.props.review.body}</h3>
+          {deleteButton}
         </div>
       </div>
     );
