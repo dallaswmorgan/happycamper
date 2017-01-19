@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import ReviewForm from './review_form';
+import Stars from 'react-stars';
 
 class ReviewItem extends React.Component {
   constructor(props) {
@@ -10,11 +11,23 @@ class ReviewItem extends React.Component {
 
   render() {
     console.log(this.props.review);
-    const { author  } = this.props.review;
+    const { author, rating  } = this.props.review;
     return(
-      <div className='review-box'>  
-        <h1>{`This is a review item written by ${this.props.review.author}`}</h1>
-        <h3>{this.props.review.body}</h3>
+      <div className='review-box'>
+        <div className='review-user-box'>
+          <h1>{this.props.review.author}</h1>
+        </div>
+        <div className='review-text-box'>
+          <Stars
+            className="stars"
+            count={5}
+            size={24}
+            value={rating}
+            color1={'white'}
+            color2={'#28BC8C'}
+            edit={false} />
+          <h3>{this.props.review.body}</h3>
+        </div>
       </div>
     );
   }

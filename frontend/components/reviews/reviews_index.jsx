@@ -4,7 +4,6 @@ import ReviewItem from './review_item';
 class ReviewsIndex extends React.Component {
   constructor(props) {
     super(props);
-    debugger;
   }
 
 
