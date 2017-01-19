@@ -130,7 +130,6 @@ $button-blue: #28BC8C;
 #user-icon img {
   height: 45px;
   width: 45px;
-  background-color: $button-blue;
   border-radius: 50%;
   margin-bottom: 0px
 }
@@ -171,6 +170,7 @@ $button-blue: #28BC8C;
   width: 100px;
   color: black;
   border-color: lightgray;
+  z-index: 150;
 }
 
 #logout:hover {
@@ -185,6 +185,7 @@ $button-blue: #28BC8C;
   width: 100px;
   color: black;
   border-color: lightgray;
+  z-index: 150;
 }
 
 #add-user-pic:hover {

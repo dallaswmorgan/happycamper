@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { StickyContainer, Sticky } from 'react-sticky';
 import SiteImageForm from './site_image_form';
 import ReviewsContainer from '../reviews/reviews_container';
 
@@ -147,11 +148,19 @@ class Site extends React.Component {
 
                 <h3>{description}</h3>
             </div>
+            <div className='site-bottom'>
+              <div className='site-bottom-left'>
 
-            <div className="reservation-box">
-              {this.reservationForm()}
+                <ReviewsContainer site={this.props.site}/>
+              </div>
+              <div className='site-bottom-right'>
+                <StickyContainer className='site-sticky-box'>
+                  <Sticky className="reservation-box">
+                    {this.reservationForm()}
+                  </Sticky>
+                </StickyContainer>
+              </div>
             </div>
-            <ReviewsContainer site={this.props.site}/>
           </div>
 
         </div>
