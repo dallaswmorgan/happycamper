@@ -2,14 +2,14 @@ import { connect } from 'react-redux';
 import ReservationsIndex from './reservations_index';
 import { deleteReservation, receiveReservationErrors, fetchReservations } from '../../actions/reservations_actions';
 
-const mapStateToProps = ({reservations}) => ({
-    reservations: Object.keys(reservations).map(id => {
+const mapStateToProps = (state, {params}) => ({
+    reservations: Object.keys(state.reservations).map(id => {
       if (id !== "errors") {
-        return reservations[id];
+        return state.reservations[id];
       }
     }),
-    errors: reservations.errors
-});
+    errors: state.reservations.errors
+  });
 
 const mapDispatchToProps = (dispatch) => ({
   deleteReservation: id => dispatch(deleteReservation(id)),

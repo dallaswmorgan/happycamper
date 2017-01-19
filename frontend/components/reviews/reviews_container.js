@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ReviewsIndex from './reviews_index';
-import { deleteReview, receiveReviewErrors, fetchReviews } from '../../actions/reviews_actions';
+import { deleteReview, receiveReviewErrors, fetchReviews, createReview } from '../../actions/reviews_actions';
 
 const mapStateToProps = ({reviews}) => {
   let reviewKeys = Object.keys(reviews).filter(key => key !=="errors");
@@ -21,7 +21,8 @@ const mapStateToProps = ({reviews}) => {
 
 const mapDispatchToProps = (dispatch) => ({
   deleteReview: id => dispatch(deleteReview(id)),
-  clearErrors: () => dispatch(receiveReviewErrors([]))
+  clearErrors: () => dispatch(receiveReviewErrors([])),
+  createReview: review => dispatch(createReview(review))
 });
 
 export default connect(

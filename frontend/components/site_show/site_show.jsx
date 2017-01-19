@@ -151,7 +151,7 @@ class Site extends React.Component {
             <div className="reservation-box">
               {this.reservationForm()}
             </div>
-            <ReviewsContainer/>
+            <ReviewsContainer site={this.props.site}/>
           </div>
 
         </div>

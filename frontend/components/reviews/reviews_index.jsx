@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewItem from './review_item';
+import ReviewForm from './review_form';
 
 class ReviewsIndex extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class ReviewsIndex extends React.Component {
           <div className="reviews">
             {reviews}
           </div>
+          <ReviewForm site={this.props.site} createReview={this.props.createReview}/>
         </div>
       );
     } else {

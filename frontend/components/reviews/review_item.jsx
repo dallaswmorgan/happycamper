@@ -10,7 +10,6 @@ class ReviewItem extends React.Component {
 
 
   render() {
-    console.log(this.props.review);
     const { author, rating  } = this.props.review;
     return(
       <div className='review-box'>
@@ -21,9 +20,9 @@ class ReviewItem extends React.Component {
           <Stars
             className="stars"
             count={5}
-            size={24}
+            size={25}
             value={rating}
-            color1={'white'}
+            color1={'lightgray'}
             color2={'#28BC8C'}
             edit={false} />
           <h3>{this.props.review.body}</h3>

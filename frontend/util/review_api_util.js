@@ -13,13 +13,14 @@ export const fetchReview = id => (
   })
 );
 
-export const createReview = review => (
+export const createReview = review => {
+  return(
   $.ajax({
     method: 'POST',
     url: '/api/reviews',
     data: { review },
-  })
-);
+  }));
+};
 
 export const updateReview = review => (
   $.ajax({
