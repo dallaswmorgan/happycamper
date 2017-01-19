@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, hashHistory, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
+import UserImageForm from './user_image_form';
 
 // const logo = <img  className="logo" onClick={() => this.props.router.push('/')}
   // src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
@@ -166,6 +167,11 @@ class Header extends React.Component {
                 <img src={this.props.currentUser.image_url}/>
               </li>
                 <ul id="user-dropdown">
+                  <li>
+                    <UserImageForm
+                      updateUser={this.props.updateUser}
+                      currentUser={this.props.currentUser}/>
+                  </li>
                   <li>
                     <button id="logout" onClick={this.handleLogout}>Log Out</button>
                   </li>

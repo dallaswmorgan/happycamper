@@ -167,12 +167,26 @@ $button-blue: #28BC8C;
   top: 58px;
   right: 15px;
   margin: 0px;
-  width: 75px;
+  width: 100px;
   color: black;
   border-color: lightgray;
 }
 
 #logout:hover {
+  color: white;
+  border: none;
+}
+#add-user-pic {
+  position: fixed;
+  top: 97px;
+  right: 15px;
+  margin: 0px;
+  width: 100px;
+  color: black;
+  border-color: lightgray;
+}
+
+#add-user-pic:hover {
   color: white;
   border: none;
 }

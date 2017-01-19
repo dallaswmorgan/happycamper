@@ -18,6 +18,11 @@ export const signup = user => dispatch => (
                       err => dispatch(receiveErrors(err.responseJSON)))
 );
 
+export const updateUser = user => dispatch => (
+  APIUtil.updateUser(user).then( updatedUser => dispatch(receiveCurrentUser(updatedUser)))
+);
+
+
 
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
