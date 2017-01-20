@@ -17,7 +17,7 @@ class SiteMap extends React.Component {
   componentDidMount() {
     let _mapOptions = {
       center: this.props.center, // San Francisco coords
-      zoom: 7,
+      zoom: 9,
       mapTypeId: 'terrain'
     };
     this.map = new google.maps.Map(this.mapNode, _mapOptions);
@@ -27,6 +27,10 @@ class SiteMap extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    if (newProps.center.lng !== this.props.center.lng &&
+        newProps.center.lat !== this.props.center.lat) {
+      this.map.panTo(newProps.center);
+    }
     this.MarkerManager.updateMarkers(newProps.sites);
   }
 
@@ -41,7 +45,7 @@ class SiteMap extends React.Component {
       const geo_bounds = {
         northEast: { lat:north, lng: east },
         southWest: { lat: south, lng: west } };
-      this.props.updateFilter('center', center);
+      // this.props.updateFilter('center', center);
       this.props.updateFilter('geo_bounds', geo_bounds);
     });
   }

@@ -15,6 +15,7 @@ class Search extends React.Component {
     this.setState({sites: this.props.sites});
   }
 
+
   render() {
     const sites = this.props.sites;
     const updateFilter = this.props.updateFilter;
