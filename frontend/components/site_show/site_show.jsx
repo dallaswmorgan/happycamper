@@ -88,6 +88,7 @@ class Site extends React.Component {
               min={today}>
             </input>
           </label>
+
           <label className="reservation-category">Check Out
             <input
               onChange={this.update("check_out_date")}
@@ -99,15 +100,16 @@ class Site extends React.Component {
         </div>
 
         <div className='num-guests'>
-          <label className="num-guests">Number of Guests
+          <label className="reservation-category">Number of Guests
             <select
               onChange={this.update("number_of_guests")}
-              className="reservation-input">
+              className="guest-input">
               <option value="" disabled defaultValue>Number of campers</option>
               {guestOptions.map(option => option)}
             </select>
           </label>
         </div>
+
         <div className='reservation-submit'>
           <button id="reservation-submit-button"
             onClick={this.handleCreateSubmit}
@@ -115,6 +117,7 @@ class Site extends React.Component {
             Reserve Site
           </button>
         </div>
+
       </form>
     );
   }
@@ -179,6 +182,9 @@ class Site extends React.Component {
 
             <StickyContainer className='site-bottom-right'>
                 <Sticky className="reservation-box">
+                  <div className="price-box">
+                    <h1>{`$${this.props.site.price} per night`}</h1>
+                  </div>
                   {this.reservationForm()}
                 </Sticky>
             </StickyContainer>

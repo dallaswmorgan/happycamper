@@ -20,7 +20,7 @@ $edit-orange: #D4632E;
 }
 
 .site-images-list {
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   // overflow-y: hidden;
   height: calc(100vh/2);
@@ -31,6 +31,17 @@ $edit-orange: #D4632E;
   height: 400px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  background: mix(black, $button-blue, 45%);
+  // background: mix(black, $edit-orange, 25%);
 }
 
 
@@ -74,7 +85,7 @@ $edit-orange: #D4632E;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content:flex-start;
   // align-items: center;
 }
 
@@ -86,7 +97,14 @@ $edit-orange: #D4632E;
 
 .num-guests {
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+}
+
+.guest-input  {
+  // width: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .reservation-submit {
@@ -100,6 +118,11 @@ $edit-orange: #D4632E;
   background-color: $button-blue;
   display: flex;
   justify-content: center;
+  font-size: 30px;
+}
+#reservation-submit-button:hover {
+  background-color: white;
+  color: $button-blue;
   font-size: 30px;
 }
 
@@ -118,6 +141,7 @@ $edit-orange: #D4632E;
 .site-bottom-right {
   width: 40%;
   max-width: 500px;
+  margin-right: 50px;
 }
 
 .reservation-input {
