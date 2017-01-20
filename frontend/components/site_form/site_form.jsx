@@ -169,6 +169,7 @@ class SiteForm extends React.Component {
           </div>
           </form>
           <div className="site-form-map">
+            <h2 id="map-label">Place marker on site location</h2>
             <div id="form-map-container" ref={ map => this.mapNode = map }>Map</div>
           </div>
         </div>

@@ -48,7 +48,7 @@ $button-blue: #28BC8C;
   justify-content: center;
   // height: 65%;
   // min-height: 650px;
-  min-width: 1500px;
+  // min-width: 1500px;
   background: rgba(255,255,255, .5);
   border-radius: 3px
 }
@@ -95,11 +95,12 @@ $button-blue: #28BC8C;
   width: 500px;
   height: 500px;
 }
-
+#map-label {
+  color: black
+}
 #form-map-container {
   width: 500px;
   height: 500px;
   background-color: blue;
   z-index: 100;
-
 }
