@@ -18,13 +18,13 @@ user_id: 2, region_id: 1, featured: true, public: true, state: "California", cit
 briones_retreat = Site.create(name: "Briones Retreat", description: "Nestled in the Mt Diablo foothills, this quiet piece of land is ideal for taking in the beauty of the rolling hills. Come relax the night away in our sturdy wood-platform canvas tent, and be gently awoken by birdsong in the morning. NO PETS",
 user_id: 1, region_id: 1, featured: true, public: false, state: "California", city: "Danville", lat: 37.865438, lng: -121.967040, price: 80, guest_limit: 4 )
 
-SiteImage.create(site_id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg", caption: "The river at dawn")
-SiteImage.create(site_id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484447737/russian-river-pic_raa3rr.jpg", caption: "Site overlooking the river")
-SiteImage.create(site_id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448367/Campfire_guitar_wcauws.jpg", caption: "Songs by the campfire at night")
+SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg", caption: "The river at dawn")
+SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484447737/russian-river-pic_raa3rr.jpg", caption: "Site overlooking the river")
+SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448367/Campfire_guitar_wcauws.jpg", caption: "Songs by the campfire at night")
 
-SiteImage.create(site_id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448112/russian-river-float_lgfnqz.jpg", caption: "Nothing more relaxing that floating down the river with a beer in hand")
+SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448112/russian-river-float_lgfnqz.jpg", caption: "Nothing more relaxing that floating down the river with a beer in hand")
 
-SiteImage.create(site_id: 2, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484391834/mt-rainier_ecyauh.jpg", caption: "View of the mountain from one of the many hiking trails")
-SiteImage.create(site_id: 3, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484421586/briones-retreat_eum1bf.jpg", caption: "It's hard to beat watching the sunrise from your cozy canvas tent")
+SiteImage.create(site_id: caswell_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484391834/mt-rainier_ecyauh.jpg", caption: "View of the mountain from one of the many hiking trails")
+SiteImage.create(site_id: briones_retreat.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484421586/briones-retreat_eum1bf.jpg", caption: "It's hard to beat watching the sunrise from your cozy canvas tent")
 
 Review.create(site_id: 1, user_id: 2, rating: 5, body: "I love this site! I had my 18th birthday party here :)")

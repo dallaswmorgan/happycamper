@@ -39,7 +39,7 @@ class ReviewsIndex extends React.Component {
       });
 
       if (reviews.length === 0) {
-        reviews = [<h3 className="review-filler">Be the first to leave a review!</h3>];
+        reviews = [<h3  key='review-null' className="review-filler">Be the first to leave a review!</h3>];
       }
 
       return (

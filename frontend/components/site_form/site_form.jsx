@@ -151,9 +151,19 @@ class SiteForm extends React.Component {
 
               </div>
 
-              <input type="textarea" value={description} placeholder="Description"
-                onChange={this.update("description")} className="site-field" id="description"/>
+              <div className="description-holder">
 
+                <textarea
+                  className='site-form-description'
+                  name={this.description}
+                  cols='40'
+                  rows='5'
+                  value={description}
+                  onChange={this.update("description")}
+                  placeholder="Description (3-5 sentences)">
+
+                </textarea>
+              </div>
 
             <div className="site-button-holder">
               <br/>
