@@ -207,34 +207,30 @@ class Header extends React.Component {
   }
 
   updateLocation() {
-  let lat = this.autocomplete.getPlace().geometry.location.lat();
-  let lng = this.autocomplete.getPlace().geometry.location.lng();
-  let searchAddress = this.autocomplete.getPlace().formatted_address;
-  let latlng = {
-    lat: lat,
-    lng: lng
-  };
-  this.redirect('search');
-  this.setState({ searchAddress, latlng });
-  this.props.receiveCenter(latlng);
-}
-
-  geolocate() {
-  let that = this;
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      var circle = new google.maps.Circle({
-        center: geolocation,
-        radius: position.coords.accuracy
-      });
-      that.autocomplete.setBounds(circle.getBounds());
-    });
+    let lat = this.autocomplete.getPlace().geometry.location.lat();
+    let lng = this.autocomplete.getPlace().geometry.location.lng();
+    let latlng = {
+      lat: lat,
+      lng: lng
+    };
+    // debugger;
+    this.props.updateFilter('center', latlng);
+    this.props.router.replace('sites');
+    // this.setState({ center: latlng });
+    // this.props.receiveCenter(latlng);
   }
-}
+  //
+  geolocate() {
+    let that = this;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+      });
+    }
+  }
 
   render() {
     const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons();

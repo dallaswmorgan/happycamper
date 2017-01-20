@@ -16,7 +16,7 @@ class SiteMap extends React.Component {
   }
   componentDidMount() {
     let _mapOptions = {
-      center: {lat: 37.773972, lng: -122.431297}, // San Francisco coords
+      center: this.props.center, // San Francisco coords
       zoom: 7,
       mapTypeId: 'terrain'
     };
@@ -36,10 +36,12 @@ class SiteMap extends React.Component {
 
   _registerListeners() {
     google.maps.event.addListener(this.map, 'idle', () => {
+      const center = this.map.getCenter().toJSON;
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const geo_bounds = {
         northEast: { lat:north, lng: east },
         southWest: { lat: south, lng: west } };
+      this.props.updateFilter('center', center);
       this.props.updateFilter('geo_bounds', geo_bounds);
     });
   }

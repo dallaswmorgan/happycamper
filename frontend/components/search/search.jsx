@@ -17,6 +17,8 @@ class Search extends React.Component {
 
   render() {
     const sites = this.props.sites;
+    const updateFilter = this.props.updateFilter;
+    const center = this.props.center;
     if (sites) {
       return(
         <div className="search-page">
@@ -24,7 +26,10 @@ class Search extends React.Component {
             <SiteIndex sites={sites} />
           </div>
           <div className="search-right-half">
-            <SiteMap sites={sites} updateFilter={this.props.updateFilter}/>
+            <SiteMap
+              sites={sites}
+              updateFilter={updateFilter}
+              center={center}/>
           </div>
         </div>
       );

@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 
 const _defaultFilters = Object.freeze({
   geo_bounds: {},
+  center: { lat: 37.773972, lng: -122.431297 } //San Francisco coords
 });
 
 const FiltersReducer = (state = _defaultFilters, action) => {
