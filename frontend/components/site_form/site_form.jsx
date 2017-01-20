@@ -33,11 +33,10 @@ class SiteForm extends React.Component {
       lng: "",
       modalIsOpen: false
     };
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleMap = this.handleMap.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.navigateToHome = this.navigateToHome.bind(this);
+    this.getAddressFromCoords = this.getAddressFromCoords.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
@@ -48,6 +47,7 @@ class SiteForm extends React.Component {
       mapTypeId: 'terrain'
     };
     this.map = new google.maps.Map(this.mapNode, _mapOptions);
+    this.geocoder = new google.maps.Geocoder;
     this.marker = new google.maps.Marker({
       position: {lat: 37.773972, lng: -122.431297},
       draggable: true,
@@ -56,31 +56,6 @@ class SiteForm extends React.Component {
     });
   }
 
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-  closeModal() {
-    this.setState({modalIsOpen: false});
-  }
-
-  mapModal() {
-    return(
-      <Modal
-        isOpen={this.state.modalIsOpen}
-        contentLabel="Modal"
-        onRequestClose={() => this.closeModal()}
-        style={modalStyle}>
-        <div className="auth-modal-container">
-          <SiteMap />
-        </div>
-      </Modal>
-    );
-  }
-
-  handleMap(e) {
-    e.preventDefault();
-    this.openModal();
-  }
 
   navigateToHome() {
     this.props.router.push('/');
@@ -103,14 +78,53 @@ class SiteForm extends React.Component {
     });
   }
 
+  getAddressFromCoords(coords, resolve, reject) {
+    let city;
+    let state;
+    let addressArray;
+    let that = this;
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let site = Object.assign({}, this.state);
-    site.lat = this.marker.getPosition().lat();
-    site.lng = this.marker.getPosition().lng();
     site.price = parseInt(site.price);
     site.guest_limit = parseInt(site.guest_limit);
-    this.props.createSite(site).then( newSite => this.props.router.replace(`/sites/${newSite.id}`));
+    site.lat = this.marker.getPosition().lat();
+    site.lng = this.marker.getPosition().lng();
+    const coords = {lat: site.lat, lng: site.lng};
+
+    // pulling out city and state from coords. Beware when refactoring
+    // as geocoder is asynch
+    let that = this;
+    this.geocoder.geocode({'location': coords}, (results, status) => {
+      if (status === 'OK') {
+        if (results[1]) {
+          let address = results[1].address_components;
+
+          // Parsing out city and state from varying map specificity
+          if (address.length >= 5) {
+            site.city = address[1];
+            site.state = address[3];
+          } else if (address.length === 3) {
+            site.city = address[0].long_name;
+            site.state = address[1].short_name;
+          } else if (address.length === 4) {
+            site.city = address[1].long_name;
+            site.state = address[2].short_name;
+          } else if (address.length < 3) {
+            site.city = address[0];
+            site.state = address[1];
+          }
+
+          // creating the site
+          that.props.createSite(site).then( newSite => (
+            that.props.router.replace(`/sites/${newSite.id}`)));
+        }
+      } else {
+        window.alert(`Google maps failed to recognize location. Please update location and try again`);
+      }
+    });
   }
 
   render() {
@@ -124,71 +138,15 @@ class SiteForm extends React.Component {
 
               <input type="text" value={name} placeholder="Name of campsite"
                 onChange={this.update("name")} className="site-field"/>
-              <div className="city/state">
-                <input type="text" value={city} placeholder="City"
-                  onChange={this.update("city")} className="site-field" id="city"/>
 
-                <input type="text" value={state} list="states" placeholder="State"
-                  onChange={this.update("state")} className="site-field" id="state"/>
-              </div>
-              <datalist id="states">
-                <option value="AL">Alabama</option>
-              	<option value="AK">Alaska</option>
-              	<option value="AZ">Arizona</option>
-              	<option value="AR">Arkansas</option>
-              	<option value="CA">California</option>
-              	<option value="CO">Colorado</option>
-              	<option value="CT">Connecticut</option>
-              	<option value="DE">Delaware</option>
-              	<option value="DC">District of Columbia</option>
-              	<option value="FL">Florida</option>
-              	<option value="GA">Georgia</option>
-              	<option value="HI">Hawaii</option>
-              	<option value="ID">Idaho</option>
-              	<option value="IL">Illinois</option>
-              	<option value="IN">Indiana</option>
-              	<option value="IA">Iowa</option>
-              	<option value="KS">Kansas</option>
-              	<option value="KY">Kentucky</option>
-              	<option value="LA">Louisiana</option>
-              	<option value="ME">Maine</option>
-              	<option value="MD">Maryland</option>
-              	<option value="MA">Massachusetts</option>
-              	<option value="MI">Michigan</option>
-              	<option value="MN">Minnesota</option>
-              	<option value="MS">Mississippi</option>
-              	<option value="MO">Missouri</option>
-              	<option value="MT">Montana</option>
-              	<option value="NE">Nebraska</option>
-              	<option value="NV">Nevada</option>
-              	<option value="NH">New Hampshire</option>
-              	<option value="NJ">New Jersey</option>
-              	<option value="NM">New Mexico</option>
-              	<option value="NY">New York</option>
-              	<option value="NC">North Carolina</option>
-              	<option value="ND">North Dakota</option>
-              	<option value="OH">Ohio</option>
-              	<option value="OK">Oklahoma</option>
-              	<option value="OR">Oregon</option>
-              	<option value="PA">Pennsylvania</option>
-              	<option value="RI">Rhode Island</option>
-              	<option value="SC">South Carolina</option>
-              	<option value="SD">South Dakota</option>
-              	<option value="TN">Tennessee</option>
-              	<option value="TX">Texas</option>
-              	<option value="UT">Utah</option>
-              	<option value="VT">Vermont</option>
-              	<option value="VA">Virginia</option>
-              	<option value="WA">Washington</option>
-              	<option value="WV">West Virginia</option>
-              	<option value="WI">Wisconsin</option>
-              	<option value="WY">Wyoming</option>
-              </datalist>
               <div className="price/guest">
+
                 <MaskedInput mask="999" value={price} placeholder="Price per night"
                   onChange={this.update("price")} className="site-field" maskChar=" " id="price"/>
+
                 <MaskedInput mask="99" value={guest_limit} placeholder="Guest limit"
                   onChange={this.update("guest_limit")} className="site-field" maskChar=" " id="guest"/>
+
               </div>
 
               <input type="textarea" value={description} placeholder="Description"
@@ -209,10 +167,10 @@ class SiteForm extends React.Component {
               </button>
             </div>
           </div>
+          </form>
           <div className="site-form-map">
             <div id="form-map-container" ref={ map => this.mapNode = map }>Map</div>
           </div>
-          </form>
         </div>
         <h1>Help People Meet Nature</h1>
         <h3>List your site today</h3>

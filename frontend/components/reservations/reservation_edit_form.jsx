@@ -8,7 +8,7 @@ class ReservationEditForm extends React.Component {
 			id:this.props.reservation.id,
 			site_id: this.props.reservation.site_id,
 
-			check_in_date: "",
+			check_in_date: this.props.reservation.check_in_date,
       check_out_date: "",
 			number_of_guests: ""
 		};
@@ -59,6 +59,7 @@ class ReservationEditForm extends React.Component {
             <label> <span>*</span> Check In
 							<br/>
               <input type="date"
+								value={this.state.check_in_date}
                 onChange={this.update("check_in_date")}
                 />
             </label>

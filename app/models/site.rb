@@ -23,4 +23,14 @@ class Site < ApplicationRecord
     self.where("featured = true")
   end
 
+  def average_review
+    total_stars = 0
+    total_reviews = 0
+    Review.where(site_id: self.id).each do |review|
+      total_stars += review.rating
+      total_reviews += 1
+    end
+    return 0 if total_reviews == 0
+    total_stars / total_reviews
+  end
 end
