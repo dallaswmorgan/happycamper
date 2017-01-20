@@ -62,8 +62,10 @@ class Header extends React.Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     Modal.setAppElement('body');
+  }
+  componentDidMount() {
     this.initAutocomplete();
   }
 
