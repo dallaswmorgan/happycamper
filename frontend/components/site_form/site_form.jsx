@@ -112,16 +112,19 @@ class SiteForm extends React.Component {
           } else if (address.length === 4) {
             site.city = address[1].long_name;
             site.state = address[2].short_name;
-          } else if (address.length < 3) {
+          } else {
             site.city = address[0];
             site.state = address[1];
           }
 
           // creating the site
+          site.city = site.city.long_name;
+          site.state = site.state.long_name;
           that.props.createSite(site).then( newSite => (
             that.props.router.replace(`/sites/${newSite.id}`)));
         }
       } else {
+        debugger;
         window.alert(`Google maps failed to recognize location. Please update location and try again`);
       }
     });

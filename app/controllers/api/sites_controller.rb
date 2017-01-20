@@ -20,7 +20,7 @@ class Api::SitesController < ApplicationController
     if @site.save
       render :show
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: @site.errors.full_messages, status: 422
     end
   end
 

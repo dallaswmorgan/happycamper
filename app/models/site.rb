@@ -30,7 +30,7 @@ class Site < ApplicationRecord
       total_stars += review.rating
       total_reviews += 1
     end
-    return 0 if total_reviews == 0
+    return 0 if total_reviews == 0 || total_stars == 0
     total_stars / total_reviews
   end
 end

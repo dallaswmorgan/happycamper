@@ -20,7 +20,7 @@ $edit-orange: #D4632E;
 }
 
 .site-images-list {
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   // overflow-y: hidden;
   height: calc(100vh/2);
