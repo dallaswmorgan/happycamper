@@ -17,6 +17,7 @@ $delete-red: #BC3C28;
 
 .reservations{
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
   min-height: 500px;
 }

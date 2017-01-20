@@ -131,11 +131,19 @@ $edit-orange: #D4632E;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  min-width: 1200px;
 }
 
 .site-bottom-left {
   width: 60%;
   overflow: none;
+}
+
+.title-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .site-bottom-right {

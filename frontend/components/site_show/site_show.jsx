@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { StickyContainer, Sticky } from 'react-sticky';
 import SiteImageForm from './site_image_form';
 import ReviewsContainer from '../reviews/reviews_container';
+import Stars from 'react-stars';
 
 class Site extends React.Component {
   constructor(props) {
@@ -132,7 +133,7 @@ class Site extends React.Component {
 
   render() {
     if (this.props.site) {
-      let {name, description, site_images, city, state } = this.props.site;
+      let {name, description, site_images, city, state, average_review } = this.props.site;
       // Adding default pic if no pics added yet
       if (site_images.length === 0) {
         site_images =
@@ -140,6 +141,16 @@ class Site extends React.Component {
             url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484527141/Logomakr_7iM8J2_xwg0qw.png",
             caption: "Default pic"}];
       }
+
+      // Will not display stars if no rating yet
+      const stars = average_review === 0 ? <div></div> :  <Stars
+                                                            className="stars"
+                                                            count={5}
+                                                            size={25}
+                                                            value={average_review}
+                                                            color1={'lightgray'}
+                                                            color2={'#28BC8C'}
+                                                            edit={false} />;
       return (
         <div className="site-show">
 
@@ -168,6 +179,7 @@ class Site extends React.Component {
                   <div className="site-text-top">
                     <div className="title-location">
                       <h1>{name}</h1>
+                      {stars}
                       <h3>{`Near ${city}, ${state}`}</h3>
                     </div>
                     <SiteImageForm site={this.props.site}
