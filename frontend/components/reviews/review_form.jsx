@@ -41,36 +41,73 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    return (
-      <div className="review-form">
-        <h3>Write a Review</h3>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <h4>Rating</h4>
-              <Stars
-                className="stars"
-                count={5}
-                size={25}
-                value={this.state.rating}
-                color1={'lightgray'}
-                color2={'#28BC8C'}
-                half={false}
-                onChange={this.updateRating}/>
+    // return (
+    const author_image = this.props.currentUser.image_url;
+    const author_fname = this.props.currentUser.fname;
+    const author_lname = this.props.currentUser.lname;
+      return(
+        <div className='review-box'>
+          <div className='review-user-box'>
+            <img className='review-user-image' src={author_image}/>
+            <h4>{`${author_fname} ${author_lname.slice(0,1)}.`}</h4>
           </div>
-          <div>
-            <input
-              className="review-form-body"
-              type="text"
+          <div className='review-text-box'>
+            <Stars
+              className="stars"
+              count={5}
+              size={25}
+              value={this.state.rating}
+              color1={'lightgray'}
+              color2={'#28BC8C'}
+              half={false}
+              onChange={this.updateRating} />
+            <textarea
+              className="form-body"
               name={this.body}
+              cols='40'
+              rows='5'
               value={this.state.body}
               onChange={this.updateBody()}
-              placeholder="Add a review"/>
+              placeholder="Add comment...">
+            </textarea>
+            <div className="review-button-container">
+              <button
+                className="review-submit-button"
+                onClick={this.handleSubmit}>Submit Review</button>
+            </div>
           </div>
-          <input type="submit"/>
-        </form>
-      </div>
-    );
+        </div>
+      );
+    // );
   }
 }
 
 export default ReviewForm;
+//
+// <div className="review-form">
+//   <h3>Write a Review</h3>
+//   <form onSubmit={this.handleSubmit}>
+//     <div>
+//       <h4>Rating</h4>
+//       <Stars
+//         className="stars"
+//         count={5}
+//         size={25}
+//         value={this.state.rating}
+//         color1={'lightgray'}
+//         color2={'#28BC8C'}
+//         half={false}
+//         onChange={this.updateRating}/>
+//     </div>
+//     <div>
+//       <input
+//         className="review-form-body"
+//         type="text"
+//         name={this.body}
+//         value={this.state.body}
+//         onChange={this.updateBody()}
+//         placeholder="Add a review"/>
+//     </div>
+    // <input type="submit"/>
+//   </form>
+// </div>

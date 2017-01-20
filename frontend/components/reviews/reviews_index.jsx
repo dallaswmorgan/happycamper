@@ -14,6 +14,7 @@ class ReviewsIndex extends React.Component {
     if (this.props.currentUser) {
       this.reviewForm = <ReviewForm
                       site={this.props.site}
+                      currentUser={this.props.currentUser}
                       createReview={this.props.createReview}/>;
       if (this.props.reviews.some(review => review.user_id === this.props.currentUser.id)) {
         this.reviewForm = <h5 className='review-warning'>Looks like you have already reviewed this site! Please delete previous review before reviewing again</h5>;
@@ -37,6 +38,9 @@ class ReviewsIndex extends React.Component {
         }
       });
 
+      if (reviews.length === 0) {
+        reviews = [<h3 className="review-filler">Be the first to leave a review!</h3>];
+      }
 
       return (
         <div className="reviews-container">

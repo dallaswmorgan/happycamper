@@ -32,7 +32,7 @@ class ReviewItem extends React.Component {
             color2={'#28BC8C'}
             edit={false} />
           <p>{this.props.review.body}</p>
-          <div className='delete-button-container'>
+          <div className='review-button-container'>
             {deleteButton}
           </div>
         </div>
