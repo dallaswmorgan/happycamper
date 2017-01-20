@@ -31,6 +31,10 @@ gem 'figaro'
 gem 'cloudinary'
 
 gem 'validates_overlap'
+
+gem 'geocoder'
+
+gem 'httparty'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
