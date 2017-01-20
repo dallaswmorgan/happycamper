@@ -1,20 +1,52 @@
 // Place all the styles related to the api/reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$delete-red: #BC3C28;
 
 .review-box {
   display: flex;
+  align-items: flex-start;;
+  // border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
 }
 
 .review-user-box {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;;
-  justify-content: center;
+
+  align-items: center;
+  min-width: 75px;
+  padding: 15px;
 }
 
-// .review-delete-button {
-//   width: 100px;
-//   height: 100px;
-//   background-color: red;
-// }
+.review-user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.delete-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-delete-button {
+  border: 1px solid $delete-red;
+  color: $delete-red;
+  background-color: white;
+  padding: 5px;
+  font-size: 15px;
+  margin-right: 35px;
+}
+.review-delete-button:hover {
+  border: 1px solid $delete-red;
+  color: white;
+  background-color: $delete-red
+}
+.review-text-box {
+  height: 100%;
+  width: 100%;
+}

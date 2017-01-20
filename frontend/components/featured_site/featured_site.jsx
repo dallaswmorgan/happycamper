@@ -66,7 +66,7 @@ class FeaturedSite extends React.Component {
           <h3>Find your happy place at camps like</h3>
           <div className="site-specific-info">
             <h1>{currentSite.name}</h1>
-            <h3>in {currentSite.city}, {currentSite.state}</h3>
+            <h3>Near {currentSite.city}, {currentSite.state}</h3>
           </div>
             <button onClick={() => this.handleSiteClick(currentSite.id)} id="featured-book">
               Reserve this site

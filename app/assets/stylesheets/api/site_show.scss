@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $button-blue: #28BC8C;
+$edit-orange: #D4632E;
 
 .site-show {
   min-height: calc(100vh - 50px);
@@ -32,24 +33,13 @@ $button-blue: #28BC8C;
   margin-right: 20px;
 }
 
-.show-text {
-  margin: 20px 20px 20px 80px;
-  width: 60%;
-  position: relative;
-}
 
 .reservation-box {
-  // display: inline;
   background-color: rgba(255,255,255, .5);
-  padding: 20px;
-  margin: 15px;
-  // position: fixed;
-  // right: 0;
-  // top: 200px;
   flex-direction: column;
   border: 1px solid black;
   border-radius: 3px;
-  width: 30%;
+  height: 450px;
 }
 .reservation-box form {
   margin: 0px;
@@ -61,19 +51,101 @@ $button-blue: #28BC8C;
 .reservation-category {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  background-color: $button-blue;
+  color: white;
   margin: 15px;
   width: 200px;
+  border: 1px solid lightgray;
+}
+
+.reservation-category input{
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  font-size: 20px;
+  // width: 120px;
+
+}
+
+.site-reservation-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  // align-items: center;
+}
+
+.dates {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.num-guests {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reservation-submit {
+  display: flex;
+  justify-content: center;
+}
+
+#reservation-submit-button {
+  width: 250px;
+  height: 100px;
+  background-color: $button-blue;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
 }
 
 .site-bottom {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+}
+
+.site-bottom-left {
+  width: 60%;
+  overflow: none;
 }
 
 .site-bottom-right {
-  // width: 500px;
+  width: 40%;
+  max-width: 500px;
 }
 
-.reservation-box {
+.reservation-input {
+  display: flex;
+  justify-content: center;
+}
+
+.site-text-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 25px;
+}
+.site-text-top button {
+  background-color: white;
+  color: $button-blue;
+  border: 1px solid $button-blue;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  height: 50px;
+  // padding: 10px;
+}
+
+.site-text-top button:hover {
+  background-color: $button-blue;
+  color: white;
 }

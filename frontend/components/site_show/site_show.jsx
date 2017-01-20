@@ -76,38 +76,45 @@ class Site extends React.Component {
     }
 
     return(
-      <form onSubmit={this.handleCreateSubmit}>
+      <form className='site-reservation-form'onSubmit={this.handleCreateSubmit}>
+
         {this.renderErrors()}
         <div className="dates">
-        <label className="reservation-category">Check In
-          <input
-            onChange={this.update("check_in_date")}
-            className="reservation-input"
-            type="date"
-            min={today}>
-          </input>
-        </label>
-        <label className="reservation-category">Check Out
-          <input
-            onChange={this.update("check_out_date")}
-            className="reservation-input"
-            type="date"
-            min={this.state.check_in_date}>
-          </input>
-        </label>
+          <label className="reservation-category">Check In
+            <input
+              onChange={this.update("check_in_date")}
+              className="reservation-input"
+              type="date"
+              min={today}>
+            </input>
+          </label>
+          <label className="reservation-category">Check Out
+            <input
+              onChange={this.update("check_out_date")}
+              className="reservation-input"
+              type="date"
+              min={this.state.check_in_date}>
+            </input>
+          </label>
         </div>
-        <label className="num-guests">Number of Guests
-          <select
-            onChange={this.update("number_of_guests")}
-            className="reservation-input">
-            <option value="" disabled defaultValue>Number of campers</option>
-            {guestOptions.map(option => option)}
-          </select>
-        </label>
-        <input
-          className="submit-reservation"
-          type="submit"
-          value="Make a Reservation" />
+
+        <div className='num-guests'>
+          <label className="num-guests">Number of Guests
+            <select
+              onChange={this.update("number_of_guests")}
+              className="reservation-input">
+              <option value="" disabled defaultValue>Number of campers</option>
+              {guestOptions.map(option => option)}
+            </select>
+          </label>
+        </div>
+        <div className='reservation-submit'>
+          <button id="reservation-submit-button"
+            onClick={this.handleCreateSubmit}
+            className="submit-reservation">
+            Reserve Site
+          </button>
+        </div>
       </form>
     );
   }
@@ -122,45 +129,59 @@ class Site extends React.Component {
 
   render() {
     if (this.props.site) {
-      let {name, description, site_images } = this.props.site;
+      let {name, description, site_images, city, state } = this.props.site;
       // Adding default pic if no pics added yet
       if (site_images.length === 0) {
-        site_images = [{id: 1, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484527141/Logomakr_7iM8J2_xwg0qw.png", caption: "Default pic"}];
+        site_images =
+          [{id: 1,
+            url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484527141/Logomakr_7iM8J2_xwg0qw.png",
+            caption: "Default pic"}];
       }
       return (
         <div className="site-show">
-          <div className="site-images-box">
-            <ul className="site-images-list">
-              {site_images.map(image =>
-                <li className="site-image-li" key={`image-${image.id}`} >
-                  <img
-                    className="site-image"
-                    src={image.url}
-                    alt={image.caption}/>
-                </li>
-              )}
-            </ul>
+
+          <div className="site-top">
+
+            <div className="site-images-box">
+              <ul className="site-images-list">
+                {site_images.map(image =>
+                  <li className="site-image-li" key={`image-${image.id}`} >
+                    <img
+                      className="site-image"
+                      src={image.url}
+                      alt={image.caption}/>
+                  </li>
+                )}
+              </ul>
+            </div>
+
           </div>
-          <div className="site-info">
-            <SiteImageForm site={this.props.site} createImage={this.props.createImage}/>
-            <div className="site-text">
-                <h1>{name}</h1>
 
-                <h3>{description}</h3>
-            </div>
-            <div className='site-bottom'>
-              <div className='site-bottom-left'>
+          <div className='site-bottom'>
 
-                <ReviewsContainer site={this.props.site}/>
+            <div className='site-bottom-left'>
+              <div className="site-info">
+                <div className="site-text">
+                  <div className="site-text-top">
+                    <div className="title-location">
+                      <h1>{name}</h1>
+                      <h3>{`Near ${city}, ${state}`}</h3>
+                    </div>
+                    <SiteImageForm site={this.props.site}
+                      createImage={this.props.createImage}/>
+                  </div>
+
+                  <h3>{description}</h3>
+                </div>
               </div>
-              <div className='site-bottom-right'>
-                <StickyContainer className='site-sticky-box'>
-                  <Sticky className="reservation-box">
-                    {this.reservationForm()}
-                  </Sticky>
-                </StickyContainer>
-              </div>
+              <ReviewsContainer site={this.props.site}/>
             </div>
+
+            <StickyContainer className='site-bottom-right'>
+                <Sticky className="reservation-box">
+                  {this.reservationForm()}
+                </Sticky>
+            </StickyContainer>
           </div>
 
         </div>

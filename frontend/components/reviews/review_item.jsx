@@ -11,7 +11,7 @@ class ReviewItem extends React.Component {
 
 
   render() {
-    const { author_fname, author_lname, rating, id, user_id } = this.props.review;
+    const { author_fname, author_lname, author_image, rating, id, user_id } = this.props.review;
     let deleteButton = <div></div>;
     if (this.props.currentUser && user_id === this.props.currentUser.id) {
       deleteButton = <button className="review-delete-button" onClick={() => this.props.deleteReview(id)}>Delete Review</button>;
@@ -19,7 +19,8 @@ class ReviewItem extends React.Component {
     return(
       <div className='review-box'>
         <div className='review-user-box'>
-          <h1>{`${author_fname} ${author_lname.slice(0,1)}.`}</h1>
+          <img className='review-user-image' src={author_image}/>
+          <h4>{`${author_fname} ${author_lname.slice(0,1)}.`}</h4>
         </div>
         <div className='review-text-box'>
           <Stars
@@ -30,8 +31,10 @@ class ReviewItem extends React.Component {
             color1={'lightgray'}
             color2={'#28BC8C'}
             edit={false} />
-          <h3>{this.props.review.body}</h3>
-          {deleteButton}
+          <p>{this.props.review.body}</p>
+          <div className='delete-button-container'>
+            {deleteButton}
+          </div>
         </div>
       </div>
     );

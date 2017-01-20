@@ -9,6 +9,19 @@ class ReviewsIndex extends React.Component {
 
 
   render() {
+    // Logged out users cannot review
+    // Users cannot review same site twice
+    if (this.props.currentUser) {
+      this.reviewForm = <ReviewForm
+                      site={this.props.site}
+                      createReview={this.props.createReview}/>;
+      if (this.props.reviews.some(review => review.user_id === this.props.currentUser.id)) {
+        this.reviewForm = <h5 className='review-warning'>Looks like you have already reviewed this site! Please delete previous review before reviewing again</h5>;
+      }
+    } else {
+      this.reviewForm = <h3>Log in to review</h3>;
+    }
+
     if (this.props.reviews) {
       let reviews = this.props.reviews.map(review => {
         if (review) {
@@ -23,13 +36,15 @@ class ReviewsIndex extends React.Component {
           );
         }
       });
+
+
       return (
         <div className="reviews-container">
           <h2>Reviews</h2>
           <div className="reviews">
             {reviews}
           </div>
-          {this.props.currentUser ? <ReviewForm site={this.props.site} createReview={this.props.createReview}/> : <h3>Log in to review</h3>}
+          {this.reviewForm}
         </div>
       );
     } else {
