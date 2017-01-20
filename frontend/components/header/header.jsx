@@ -3,6 +3,7 @@ import { Link, hashHistory, withRouter } from 'react-router';
 import Modal from 'react-modal';
 import SessionFormContainer from '../session_form/session_form_container';
 import UserImageForm from './user_image_form';
+import FontAwesome from 'react-fontawesome';
 
 // const logo = <img  className="logo" onClick={() => this.props.router.push('/')}
   // src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
@@ -42,7 +43,11 @@ class Header extends React.Component {
 
     this.searchBar = (
       <div className="search-bar-box">
-        <i className="fa fa-search" aria-hidden="true"></i>
+        <FontAwesome
+            className='fa-search fa'
+            name="search"
+            style={{ textShadow: '0 1px 0 rgba(0, 0, 0, 0.5)' }}
+          />
         <input
           onFocus={this.geolocate()}
           id="autocomplete"
