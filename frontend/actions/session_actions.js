@@ -9,8 +9,9 @@ export const login = user => dispatch => (
 );
 
 export const logout = () => dispatch => (
-  APIUtil.logout().then( prevUser => dispatch(receiveCurrentUser(null)),
-                      err => dispatch(receiveErrors(err.responseJSON)))
+  APIUtil.logout().then( prevUser => {
+    dispatch(receiveCurrentUser(null));
+  }, err => dispatch(receiveErrors(err.responseJSON)))
 );
 
 export const signup = user => dispatch => (

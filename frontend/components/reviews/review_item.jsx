@@ -13,7 +13,7 @@ class ReviewItem extends React.Component {
   render() {
     const { author_fname, author_lname, rating, id, user_id } = this.props.review;
     let deleteButton = <div></div>;
-    if (user_id === this.props.currentUser.id) {
+    if (this.props.currentUser && user_id === this.props.currentUser.id) {
       deleteButton = <button className="review-delete-button" onClick={() => this.props.deleteReview(id)}>Delete Review</button>;
     }
     return(

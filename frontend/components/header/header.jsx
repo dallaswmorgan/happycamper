@@ -79,7 +79,7 @@ class Header extends React.Component {
   }
 
   handleLogout() {
-    this.props.logout();
+    this.props.logout().then(hashHistory.replace('/'));
   }
 
   handleListRequest() {

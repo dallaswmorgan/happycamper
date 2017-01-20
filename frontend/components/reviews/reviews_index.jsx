@@ -29,7 +29,7 @@ class ReviewsIndex extends React.Component {
           <div className="reviews">
             {reviews}
           </div>
-          <ReviewForm site={this.props.site} createReview={this.props.createReview}/>
+          {this.props.currentUser ? <ReviewForm site={this.props.site} createReview={this.props.createReview}/> : <h3>Log in to review</h3>}
         </div>
       );
     } else {
