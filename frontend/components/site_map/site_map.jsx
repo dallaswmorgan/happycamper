@@ -22,6 +22,7 @@ class SiteMap extends React.Component {
     };
     this.map = new google.maps.Map(this.mapNode, _mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this._handleMarkerClick.bind(this));
+    this._registerListeners();
     this.MarkerManager.updateMarkers(this.props.sites);
   }
 
@@ -31,6 +32,16 @@ class SiteMap extends React.Component {
 
   _handleMarkerClick(site) {
     this.props.router.push(`sites/${site.id}`);
+  }
+
+  _registerListeners() {
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const geo_bounds = {
+        northEast: { lat:north, lng: east },
+        southWest: { lat: south, lng: west } };
+      this.props.updateFilter('geo_bounds', geo_bounds);
+    });
   }
 
   render() {

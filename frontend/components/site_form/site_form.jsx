@@ -124,7 +124,6 @@ class SiteForm extends React.Component {
             that.props.router.replace(`/sites/${newSite.id}`)));
         }
       } else {
-        debugger;
         window.alert(`Google maps failed to recognize location. Please update location and try again`);
       }
     });

@@ -24,7 +24,7 @@ class Search extends React.Component {
             <SiteIndex sites={sites} />
           </div>
           <div className="search-right-half">
-            <SiteMap sites={sites}/>
+            <SiteMap sites={sites} updateFilter={this.props.updateFilter}/>
           </div>
         </div>
       );
