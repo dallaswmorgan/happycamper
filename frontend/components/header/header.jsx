@@ -7,12 +7,6 @@ import UserImageForm from './user_image_form';
 // const logo = <img  className="logo" onClick={() => this.props.router.push('/')}
   // src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
 
-const searchBar = (
-  <div className="search-bar-box">
-    <i className="fa fa-search" aria-hidden="true"></i>
-    <input className="search-bar" type="text" placeholder="Search"/>
-  </div>);
-
 const modalStyle = {
   content : {
     top                   : '55%',
@@ -32,47 +26,43 @@ class Header extends React.Component {
       modalIsOpen: false,
       formType: "login"
     };
-    this.logo = <img  className="logo" onClick={() => this.props.router.push('/')}
-      src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
+
     this.handleListRequest = this.handleListRequest.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-  }
-  // Modal Management
-  openModal(formType) {
-    this.setState({ modalIsOpen: true , formType});
-  }
+    this.geolocate = this.geolocate.bind(this);
+    this.initAutocomplete = this.initAutocomplete.bind(this);
+    this.updateLocation = this.updateLocation.bind(this);
 
+    this.logo = <img  className="logo" onClick={() => this.props.router.push('/')}
+      src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
+
+    this.searchBar = (
+      <div className="search-bar-box">
+        <i className="fa fa-search" aria-hidden="true"></i>
+        <input
+          onFocus={this.geolocate()}
+          id="autocomplete"
+          className="searchbar"
+          placeholder="Search for campsites near..."/>
+      </div>);
+  }
+  // Lifecycle methods
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn && nextProps.loggedIn !== this.props.loggedIn) {
       this.closeModal();
     }
   }
 
-
-  closeModal() {
-    this.setState({modalIsOpen: false});
-    this.props.clearErrors();
-  }
-
-
-  componentWillMount() {
+  componentDidMount() {
     Modal.setAppElement('body');
+    this.initAutocomplete();
   }
 
-
-  toggleModal() {
-    this.props.clearErrors();
-    if (this.state.formType === "login") {
-      this.setState({ formType: "signup" });
-    } else {
-      this.setState({ formType: "login" });
-    }
-  }
-
+  // Button helpers
   handleGuestLogin() {
     const guest = { email: "guest@happycamper.camp", password: "camphappy"};
     this.props.login(guest);
@@ -90,6 +80,44 @@ class Header extends React.Component {
     this.props.router.push('reservations');
   }
 
+  // Modal Management
+  openModal(formType) {
+    this.setState({ modalIsOpen: true , formType});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+    this.props.clearErrors();
+  }
+
+  toggleModal() {
+    this.props.clearErrors();
+    if (this.state.formType === "login") {
+      this.setState({ formType: "signup" });
+    } else {
+      this.setState({ formType: "login" });
+    }
+  }
+
+  // Modal holds signup or login form depending on input from openModal
+  sessionModal() {
+    return(
+      <Modal
+        isOpen={this.state.modalIsOpen}
+        contentLabel="Modal"
+        onRequestClose={() => this.closeModal()}
+        style={modalStyle}>
+        <div className="auth-modal-container">
+          <SessionFormContainer
+            formType={this.state.formType}
+            openModal={this.openModal}/>
+        </div>
+        {this.loginButtons()}
+      </Modal>
+    );
+  }
+
+  // Buttons within Modal
   loginButtons() {
     if (this.state.formType==="login") {
       return(
@@ -118,23 +146,7 @@ class Header extends React.Component {
     }
   }
 
-  sessionModal() {
-    return(
-      <Modal
-        isOpen={this.state.modalIsOpen}
-        contentLabel="Modal"
-        onRequestClose={() => this.closeModal()}
-        style={modalStyle}>
-        <div className="auth-modal-container">
-          <SessionFormContainer
-            formType={this.state.formType}
-            openModal={this.openModal}/>
-        </div>
-        {this.loginButtons()}
-      </Modal>
-    );
-  }
-
+  // Buttons on the nav bar
   loggedOutButtons() {
     return(
       <div className="nav">
@@ -184,13 +196,53 @@ class Header extends React.Component {
     );
   }
 
+  // handling Google Maps for search
+
+  initAutocomplete() {
+    let autocomplete = new google.maps.places.Autocomplete(
+        /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+        {types: ['geocode']});
+    autocomplete.addListener('place_changed', this.updateLocation);
+    this.autocomplete = autocomplete;
+  }
+
+  updateLocation() {
+  let lat = this.autocomplete.getPlace().geometry.location.lat();
+  let lng = this.autocomplete.getPlace().geometry.location.lng();
+  let searchAddress = this.autocomplete.getPlace().formatted_address;
+  let latlng = {
+    lat: lat,
+    lng: lng
+  };
+  this.redirect('search');
+  this.setState({ searchAddress, latlng });
+  this.props.receiveCenter(latlng);
+}
+
+  geolocate() {
+  let that = this;
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      that.autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+
   render() {
     const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons();
     return(
       <div className="nav-bar">
           <nav className="logo-search-box">
             {this.logo}
-            {searchBar}
+            {this.searchBar}
           </nav>
             {buttons}
       </div>

@@ -48,10 +48,14 @@ class ReservationItem extends React.Component {
   }
 
   calculateDate(date) {
-    const monthNames = ["January", "February", "March", "April", "May", "June",
+    const monthNames = ["Null", "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"];
-    let newDate = new Date(date);
-    return monthNames[newDate.getMonth()] + " " + newDate.getDate() + ", " + newDate.getFullYear();
+    const dateArray = date.split('-');
+    const year = dateArray[0];
+    const monthIdx = parseInt(dateArray[1]);
+    const day = dateArray[2];
+
+    return monthNames[monthIdx] + " " + day + ", " + year;
   }
 
   handleProfileClick() {
