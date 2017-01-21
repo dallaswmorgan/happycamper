@@ -17,6 +17,13 @@ const Root = ({ store }) => {
     store.dispatch(fetchReservations());
   };
 
+  const _ensureLoggedIn = (nextState, replace) => {
+  const currentUser = store.getState().session.currentUser;
+  if (!currentUser) {
+    replace('/');
+  }
+};
+
   const _fetchSites = () => {
   store.dispatch(fetchSites());
 };
@@ -28,7 +35,7 @@ const Root = ({ store }) => {
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={FeaturedSiteContainer}/>
-          <Route path="/sites/new" component={ SiteFormContainer } />
+          <Route path="/sites/new" component={ SiteFormContainer } onEnter={ _ensureLoggedIn } />
           <Route path="/sites/:id" component={ SiteShowContainer } />
           <Route path="/sites" component={ SiteIndex } />
           <Route path="/reservations" component={ ReservationsContainer } onEnter={_fetchReservations}/>
