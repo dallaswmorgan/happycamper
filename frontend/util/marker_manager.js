@@ -6,6 +6,7 @@ export default class MarkerManager {
     this._createMarkerFromSite = this._createMarkerFromSite.bind(this);
     this._removeMarker = this._removeMarker.bind(this);
     this._markersToRemove = this._markersToRemove.bind(this);
+    this._addWindow = this._addWindow.bind(this);
   }
 
   updateMarkers(sites) {
@@ -32,7 +33,40 @@ export default class MarkerManager {
       siteId: site.id
     });
     marker.addListener('click', () => this.handleClick(site));
+    this._addWindow(site, marker);
     this.markers.push(marker);
+  }
+
+  _addWindow(site, marker) {
+    const windowString = "<div class='map-window'>" +
+    `<h1 class='map-name'>${site.name}</h1>` +
+    `<h2>${site.city}, ${site.state}</h2>` +
+    "</div>";
+    const window = new google.maps.InfoWindow({
+      content: windowString,
+      maxWidth: 200
+    });
+
+    marker.addListener('mouseover', () => {
+      window.open(this.map, marker);
+    });
+
+    marker.addListener('mouseout', () => {
+      window.close(this.map, marker);
+    });
+
+    // hovering over html element
+    const htmlElement = document.getElementById(`site-${site.id}`);
+    if (htmlElement) {
+      htmlElement.onmouseover = () => {
+        window.open(this.map, marker);
+      };
+
+      htmlElement.onmouseout = () => {
+        window.close(this.map, marker);
+      };
+    }
+
   }
 
   _removeMarker(marker) {

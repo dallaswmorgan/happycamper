@@ -14,7 +14,7 @@ class IndexItem extends React.Component {
   }
 
   render() {
-    let { name, description, site_images, average_review } = this.props.site;
+    let { name, description, site_images, average_review, id } = this.props.site;
     // to account for sites without images uploaded
     if (name) {
 
@@ -32,8 +32,10 @@ class IndexItem extends React.Component {
                                                             color2={'#28BC8C'}
                                                             edit={false} />;
       return (
-        <div className="site-index-item"
-            onClick={this.handleClick}>
+        <div
+            className="site-index-item"
+            onClick={this.handleClick}
+            id={`site-${id}`}>
             <div className="index-item-info">
               <div className="index-item-img-box">
                 <img src={site_images[0].url}/>

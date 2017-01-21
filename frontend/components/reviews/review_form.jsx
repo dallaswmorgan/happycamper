@@ -68,7 +68,7 @@ class ReviewForm extends React.Component {
               rows='5'
               value={this.state.body}
               onChange={this.updateBody()}
-              placeholder="Add comment...">
+              placeholder="Add review...">
             </textarea>
             <div className="review-button-container">
               <button
