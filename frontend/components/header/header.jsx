@@ -74,7 +74,7 @@ class Header extends React.Component {
 
   // Button helpers
   handleGuestLogin() {
-    const guest = { email: "guest@happycamper.camp", password: "camphappy"};
+    const guest = { email: "muir@happycamper.camp", password: "yosemite" };
     this.props.login(guest);
   }
 

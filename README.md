@@ -23,3 +23,7 @@ Happy Camper allows you to search for sites near any location using location aut
 Happy Camper integrates google maps and updates a list of campsites within the view pane in real time
 ![search-screenshot]
 [search-screenshot]:https://res.cloudinary.com/dallaswmorgan/image/upload/v1484955452/Screen_Shot_2017-01-20_at_3.37.01_PM_yrbgxa.png
+
+<!-- Happy Camper allows users to view and upload pictures of campsites
+![image-screenshot]
+[image-screenshot]:  -->

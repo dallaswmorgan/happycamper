@@ -30,7 +30,8 @@ export default class MarkerManager {
     const marker = new google.maps.Marker({
       position: pos,
       map: this.map,
-      siteId: site.id
+      siteId: site.id,
+      icon: 'http://res.cloudinary.com/dallaswmorgan/image/upload/c_scale,w_30/v1484173946/Logomakr_9Hu3Jp_mppdcg.png'
     });
     marker.addListener('click', () => this.handleClick(site));
     this._addWindow(site, marker);
@@ -38,9 +39,10 @@ export default class MarkerManager {
   }
 
   _addWindow(site, marker) {
+
+
     const windowString = "<div class='map-window'>" +
-    `<h1 class='map-name'>${site.name}</h1>` +
-    `<h2>${site.city}, ${site.state}</h2>` +
+    `<h3 class='map-name'>${site.name}</h3>` +
     "</div>";
     const window = new google.maps.InfoWindow({
       content: windowString,
@@ -49,6 +51,7 @@ export default class MarkerManager {
 
     marker.addListener('mouseover', () => {
       window.open(this.map, marker);
+      // marker.setIcon("yellow");
     });
 
     marker.addListener('mouseout', () => {

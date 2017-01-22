@@ -178,7 +178,7 @@ $button-blue: #28BC8C;
 
 #logout {
   position: fixed;
-  top: 58px;
+  top: 114px;
   right: 15px;
   margin: 0px;
   width: 100px;
@@ -189,11 +189,10 @@ $button-blue: #28BC8C;
 
 #logout:hover {
   color: white;
-  border: none;
 }
 #add-user-pic {
   position: fixed;
-  top: 97px;
+  top: 58px;
   right: 15px;
   margin: 0px;
   width: 100px;
@@ -204,5 +203,4 @@ $button-blue: #28BC8C;
 
 #add-user-pic:hover {
   color: white;
-  border: none;
 }
