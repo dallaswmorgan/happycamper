@@ -160,10 +160,12 @@ class Site extends React.Component {
               <ul className="site-images-list">
                 {site_images.map(image =>
                   <li className="site-image-li" key={`image-${image.id}`} >
-                    <img
-                      className="site-image"
-                      src={image.url}
-                      alt={image.caption}/>
+                    <div className="site-image-box">  
+                      <img
+                        className="site-image"
+                        src={image.url}
+                        alt={image.caption}/>
+                    </div>
                   </li>
                 )}
               </ul>

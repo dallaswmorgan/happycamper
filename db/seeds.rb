@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# guest = User.create!(fname: "Guest", lname: "Camper", email: "guest@happycamper.camp", password: "camphappy", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484816721/Logomakr_5YRquQ_t90pks.png")
+
 users = []
 users << dallas = User.create!(fname: "Dallas", lname: "Morgan", email: "dallaswmorgan@gmail.com", password: "happycamperrulez", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485077078/Dallas_Morgan_uagewq.jpg")
 users << darwin = User.create!(fname: "Charles", lname: "Darwin", email: "darwin@happycamper.camp", password: "finches", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485077006/800px-1878_Darwin_photo_by_Leonard_from_Woodall_1884_-_cropped_grayed_partially_cleaned_jpqjq6.jpg")
@@ -139,27 +139,78 @@ def generate_random_site(urls1, urls2, urls3, users, descriptions)
   _public = false
   featured = false
   region_id = 1
-  users = users.dup.shuffle!
   user_id = users.pop.id
   price = rand(5..25) * 5
   guest_limit = rand(1..6) * 2
   site = Site.create(lat: lat, lng: lng, city: city, state: state, name: name,
           description: description, public: _public, featured: featured,
           region_id: region_id, user_id: user_id, price: price, guest_limit: guest_limit)
-  SiteImage.create(site_id: site.id, url: urls1.sample)
-  SiteImage.create(site_id: site.id, url: urls2.sample)
-  SiteImage.create(site_id: site.id, url: urls3.sample)
+  SiteImage.create(site_id: site.id, url: urls1.pop)
+  SiteImage.create(site_id: site.id, url: urls1.pop)
+  SiteImage.create(site_id: site.id, url: urls2.pop)
+  SiteImage.create(site_id: site.id, url: urls2.pop)
+  SiteImage.create(site_id: site.id, url: urls3.pop)
 
   generate_random_reviews(site, users)
 end
 
-image_one = HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=camping+tent&image_type=photo')
-image_two = HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=sunset+view&image_type=photo')
-image_three = HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=forest_hiking&image_type=photo')
-urls1 = image_one["hits"].map { |pic| pic["webformatURL"] }
-urls2 = image_two["hits"].map { |pic| pic["webformatURL"] }
-urls3 = image_three["hits"].map { |pic| pic["webformatURL"] }
+# HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=camping+tent&image_type=photo')
+# HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=sunset+view&image_type=photo')
+# HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=forest_hiking&image_type=photo')
+
+urls1 = [
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121148/site_urls_1/ec31b90f2af61c2ad65a5854e24c4596e177e7c818b5194494f2c17ca7e5_640_ygndyd.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121179/site_urls_1/e83db50a21f4073ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_chmzzi.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121194/site_urls_1/e83db7082af3043ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_ymbdxj.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121205/site_urls_1/e83db50f2df1063ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_hsafc2.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121218/site_urls_1/e83db20a2bf1033ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_etufmk.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121242/site_urls_1/e837b1072af4003ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_asp1y1.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121259/site_urls_1/e83db7082bfc043ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_csapo0.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121286/site_urls_1/e83db40e28fd033ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_bmuubf.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121304/site_urls_1/e837b50a2efd023ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_wekhad.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121332/site_urls_1/e835b20e2bf2013ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_v3f039.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121406/site_urls_1/e832b70c2ef4043ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_x1fxnn.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121418/site_urls_1/e830b5072ffc063ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_vjxhvq.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121432/site_urls_1/e830b8072af0023ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_luedpk.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121446/site_urls_1/e034b9062df01c2ad65a5854e24c4596e177e7c818b5194494f2c17ca7e5_640_fbh7hz.jpg"
+]
+
+urls2 = [
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122402/e835b60d20f6073ed95c4518b7484695e375e2d004b0154990f1c37ba4ecb4_640_putjgt.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122410/e832b40d2ffd073ed95c4518b7484695e375e2d004b0154990f1c37ba4ecb4_640_g8wx0h.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122418/e13db80e2bf51c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_efqml7.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122425/ef30b60e2cfc1c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_fu7bti.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122460/ee33b90928f51c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_dlqzp1.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122468/ec31b10e29f31c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_rxagsx.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122485/ec37b60c20fc1c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_vvoyzm.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122493/ee31b60820e90825d0471401e64f4694e372ffd41db9144097f2c278a6_640_pvusro.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122500/eb35b20620e90825d0471401e64f4694e372ffd41db9144097f2c278a6_640_ur9wj1.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122545/ee36b7072ff11c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_s87l1r.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122553/e13cb7072ff21c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_mlyw3t.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122573/ec36b90d20f21c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_g2ggd5.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122581/eb31b30829f71c2ad65a5854e24c4596e177e7c818b5194494f2c37aa6ec_640_m31rsf.jpg"
+]
+
+urls3 = [
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122962/e833b20720f3023ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_pqcxa6.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122970/ef3db30f28f71c2ad65a5854e24c4596e177e7c818b5194494f2c370a7e9_640_xw2kgg.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122978/e830b10c2bf0013ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_ypayke.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122985/e830b20a2af4003ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_d6prew.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485122992/ed36b90b2bf61c2ad65a5854e24c4596e177e7c818b5194494f2c370a7e9_640_k04ebl.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123000/e831b20d2af1033ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_oawcn9.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123008/e83cb90620f0093ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_gqb9dj.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123017/ee32b8072af31c2ad65a5854e24c4596e177e7c818b5194494f2c370a7e9_640_twux1s.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123024/e83cb90d2cf0023ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_biomft.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123032/e83cb90d29f2023ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_ezmtrn.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123040/e83db5092cf2023ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_anixhv.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123047/e83cb50f2af0083ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_gsjazz.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123057/e83cb10a2df1073ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_arnb1m.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123124/e83cb2092ef7093ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_hahs2i.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123132/e83db40f2ef3003ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_fgpz8e.jpg",
+  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123140/e83cb20d2ef5003ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_psif7b.jpg"
+]
 
 100.times do
-  generate_random_site(urls1, urls2, urls3, users, descriptions)
+  urls = [urls1, urls2, urls3].shuffle!
+  generate_random_site(urls[0].dup.shuffle!, urls[1].dup.shuffle!, urls[2].dup.shuffle!, users.dup.shuffle!, descriptions)
 end

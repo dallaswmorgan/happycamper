@@ -136,16 +136,23 @@ $button-blue: #28BC8C;
   width: 275px;
   height: 25px;
 }
-#user-icon {
+.user-icon {
   margin: 10px 15px 0px 15px;
   z-index: 10;
 }
 
-#user-icon img {
+.profile-pic-box {
   height: 45px;
   width: 45px;
   border-radius: 50%;
-  margin-bottom: 0px
+  overflow: hidden;
+  // display: flex;
+  // justify-content: center;
+}
+
+.profile-pic-box img {
+  height: auto;
+  width: 45px;
 }
 
 
@@ -203,4 +210,5 @@ $button-blue: #28BC8C;
 
 #add-user-pic:hover {
   color: white;
+
 }

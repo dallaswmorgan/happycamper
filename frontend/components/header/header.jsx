@@ -74,7 +74,7 @@ class Header extends React.Component {
 
   // Button helpers
   handleGuestLogin() {
-    const guest = { email: "muir@happycamper.camp", password: "yosemite" };
+    const guest = { email: "goodall@happycamper.camp", password: "chimpz" };
     this.props.login(guest);
   }
 
@@ -189,8 +189,10 @@ class Header extends React.Component {
           </li>
           <li>
             <ul className="header-list">
-              <li id="user-icon">
-                <img src={this.props.currentUser.image_url}/>
+              <li className="user-icon">
+                <div className="profile-pic-box">
+                  <img src={this.props.currentUser.image_url}/>
+                </div>
               </li>
                 <ul id="user-dropdown">
                   <li>
