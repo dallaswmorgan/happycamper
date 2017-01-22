@@ -8,7 +8,6 @@ $delete-red: #BC3C28;
 .review-box {
   display: flex;
   align-items: flex-start;;
-  // border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -75,4 +74,9 @@ $delete-red: #BC3C28;
 .review-text-box {
   height: 100%;
   width: 100%;
+}
+
+.reviews-header {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 15px;
 }

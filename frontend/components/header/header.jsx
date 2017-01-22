@@ -5,8 +5,6 @@ import SessionFormContainer from '../session_form/session_form_container';
 import UserImageForm from './user_image_form';
 import FontAwesome from 'react-fontawesome';
 
-// const logo = <img  className="logo" onClick={() => this.props.router.push('/')}
-  // src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
 
 const modalStyle = {
   content : {
@@ -19,7 +17,7 @@ const modalStyle = {
   }
 };
 
-
+// Header lives at top of screen and is always displayed.
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +26,7 @@ class Header extends React.Component {
       formType: "login"
     };
 
+    // Methods that get passed around but should maintain scope
     this.handleListRequest = this.handleListRequest.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
@@ -38,6 +37,7 @@ class Header extends React.Component {
     this.initAutocomplete = this.initAutocomplete.bind(this);
     this.updateLocation = this.updateLocation.bind(this);
 
+    // Static elements within nav-bar
     this.logo = <img  className="logo" onClick={() => this.props.router.push('/')}
       src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png"/>;
 
@@ -55,6 +55,7 @@ class Header extends React.Component {
           placeholder="Search for campsites near..."/>
       </div>);
   }
+
   // Lifecycle methods
   componentWillReceiveProps(nextProps) {
     if (nextProps.loggedIn && nextProps.loggedIn !== this.props.loggedIn) {
@@ -65,9 +66,11 @@ class Header extends React.Component {
   componentWillMount() {
     Modal.setAppElement('body');
   }
+
   componentDidMount() {
     this.initAutocomplete();
   }
+
 
   // Button helpers
   handleGuestLogin() {
@@ -87,6 +90,7 @@ class Header extends React.Component {
     this.props.router.push('reservations');
   }
 
+
   // Modal Management
   openModal(formType) {
     this.setState({ modalIsOpen: true , formType});
@@ -96,7 +100,7 @@ class Header extends React.Component {
     this.setState({modalIsOpen: false});
     this.props.clearErrors();
   }
-
+  // For switching forms without closing Modal
   toggleModal() {
     this.props.clearErrors();
     if (this.state.formType === "login") {
@@ -105,6 +109,7 @@ class Header extends React.Component {
       this.setState({ formType: "login" });
     }
   }
+
 
   // Modal holds signup or login form depending on input from openModal
   sessionModal() {
@@ -123,6 +128,7 @@ class Header extends React.Component {
       </Modal>
     );
   }
+
 
   // Buttons within Modal
   loginButtons() {
@@ -152,6 +158,7 @@ class Header extends React.Component {
       );
     }
   }
+
 
   // Buttons on the nav bar
   loggedOutButtons() {
@@ -204,7 +211,6 @@ class Header extends React.Component {
   }
 
   // handling Google Maps for search
-
   initAutocomplete() {
     let autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
@@ -220,13 +226,10 @@ class Header extends React.Component {
       lat: lat,
       lng: lng
     };
-    // debugger;
     this.props.updateFilter('center', latlng);
     this.props.router.replace('sites');
-    // this.setState({ center: latlng });
-    // this.props.receiveCenter(latlng);
   }
-  //
+
   geolocate() {
     let that = this;
     if (navigator.geolocation) {
@@ -238,6 +241,7 @@ class Header extends React.Component {
       });
     }
   }
+
 
   render() {
     const buttons = this.props.loggedIn ? this.loggedInButtons() : this.loggedOutButtons();

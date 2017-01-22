@@ -1,7 +1,6 @@
 class Api::SitesController < ApplicationController
   def index
     if params[:geo_bounds]
-      p "Searching within geo bounds"
       @sites = Site.in_bounds(geo_bounds)
     elsif params[:featured]
       @sites = Site.featured_sites

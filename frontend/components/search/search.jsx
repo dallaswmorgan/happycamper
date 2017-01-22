@@ -11,15 +11,14 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSites();
-    this.setState({sites: this.props.sites});
+    this.props.fetchSites(this.props.filters);
   }
 
 
   render() {
     const sites = this.props.sites;
     const updateFilter = this.props.updateFilter;
-    const center = this.props.center;
+    const center = this.props.filters.center;
     if (sites) {
       return(
         <div className="search-page">

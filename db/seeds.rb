@@ -5,9 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-GUEST = User.create!(fname: "Guest", lname: "Camper", email: "guest@happycamper.camp", password: "camphappy", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484816721/Logomakr_5YRquQ_t90pks.png")
-DALLAS = User.create!(fname: "Dallas", lname: "Morgan", email: "dallaswmorgan@gmail.com", password: "camphappy", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png")
+USERS = []
+USERS << guest = User.create!(fname: "Guest", lname: "Camper", email: "guest@happycamper.camp", password: "camphappy", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484816721/Logomakr_5YRquQ_t90pks.png")
+USERS << dallas = User.create!(fname: "Dallas", lname: "Morgan", email: "dallaswmorgan@gmail.com", password: "camphappy", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png")
+USERS << darwin = User.create!(fname: "Charles", lname: "Darwin", email: "darwin@happycamper.camp", password: "finches", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png")
+USERS << muir = User.create!(fname: "John", lname: "Muir", email: "muir@happycamper.camp", password: "yosemite", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png")
+# USERS << anish = User.create!(fname: "Heather", lname: "Anderson", email: "anish@happycamper.camp", password: "anishhikes", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png")
+USERS << thoreau = User.create!(fname: "Henry", lname: "Thoreau", email: "thoreau@happycamper.camp", password: "walden", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png")
+# USERS << JAR = User.create!(fname: "Ray", lname: "Jardine", email: "jardine@happycamper.camp", password: "jardine", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484173946/Logomakr_9Hu3Jp_mppdcg.png")
 
 hilton_park = Site.create(name: "Hilton Park", description: "Situated on the calm banks of the Russian River, Hilton Park is the perfect getaway spot for families and groups. Be sure to bring your inner-tube, as the river is ideal for floating!",
 user_id: 2, region_id: 1, featured: true, public: false, state: "California", city: "Forestville", lat: 38.504777, lng: -122.941945, price: 35, guest_limit: 8 )
@@ -65,7 +70,7 @@ end
 def generate_random_review(site)
   reviews = []
   reviews << { body: "I'm hesitant to write this review, as #{site.name} is one of the few
-  remaining hidden gems near #{site.city}, and I don't want it to blow up. I absolutely love the solitude I find in this place,
+  remaining hidden gems in #{site.city}, and I don't want it to blow up. I absolutely love the solitude I find in this place,
   and come here when I need to get away from it all and be alone with my thoughts. I cannot reccommend
   #{site.name} enough!", rating: 5, site_id: site.id, user_id: DALLAS.id}
   reviews << {body: "#{site.name} is a staple of summertime fun. With its easy car access and reliable cell service,

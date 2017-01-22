@@ -18,10 +18,6 @@ class FeaturedSite extends React.Component {
     this.props.fetchFeaturedSites();
   }
 
-  // componentWillReceiveProps() {
-  //   this.props.fetchFeaturedSites();
-  // }
-
   nextFeaturedSite() {
     let featuredSiteIdx;
     if (this.state.featuredSiteIdx >= this.props.sites.length) {
@@ -46,7 +42,7 @@ class FeaturedSite extends React.Component {
   }
 
   handleSearchClick() {
-    this.props.updateFilter('center', { lat: 37.773972, lng: -122.431297 }),
+    // this.props.updateFilter('center', { lat: 37.773972, lng: -122.431297 }),
     this.props.router.push('sites');
   }
 

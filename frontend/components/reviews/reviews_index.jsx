@@ -44,7 +44,9 @@ class ReviewsIndex extends React.Component {
 
       return (
         <div className="reviews-container">
-          <h2>Reviews</h2>
+          <div className='reviews-header'>
+            <h2>Reviews</h2>
+          </div>
           <div className="reviews">
             {reviews}
           </div>

@@ -11,15 +11,6 @@ const mapStateToProps = ({reviews, session}) => {
   });
 };
 
-// ({
-//     reviews: Object.keys(reviews).map(id => {
-//       if (id !== "errors") {
-//         return reviews[id];
-//       }
-//     }),
-//     errors: reviews.errors
-// });
-
 const mapDispatchToProps = (dispatch) => ({
   deleteReview: id => dispatch(deleteReview(id)),
   clearErrors: () => dispatch(receiveReviewErrors([])),

@@ -1,8 +1,10 @@
 import React from 'react';
+// Actions
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import {fetchFeaturedSites, fetchSites} from '../actions/site_actions';
-import {fetchReservations} from '../actions/reservations_actions';
+import { fetchFeaturedSites, clearSites } from '../actions/site_actions';
+import { fetchReservations } from '../actions/reservations_actions';
+// Components
 import SessionFormContainer from './session_form/session_form_container';
 import App from './app';
 import SearchContainer from './search/search_container';
@@ -24,11 +26,9 @@ const Root = ({ store }) => {
   }
 };
 
-  const _fetchSites = () => {
-  store.dispatch(fetchSites());
+const _clearSites = () => {
+  store.dispatch(clearSites());
 };
-
-
 
   return (
     <Provider store={ store }>
@@ -37,8 +37,8 @@ const Root = ({ store }) => {
           <IndexRoute component={FeaturedSiteContainer}/>
           <Route path="/sites/new" component={ SiteFormContainer } onEnter={ _ensureLoggedIn } />
           <Route path="/sites/:id" component={ SiteShowContainer } />
-          <Route path="/sites" component={ SiteIndex } />
-          <Route path="/reservations" component={ ReservationsContainer } onEnter={_fetchReservations}/>
+          <Route path="/sites" component={ SiteIndex } onEnter={ _clearSites }/>
+          <Route path="/reservations" component={ ReservationsContainer } onEnter={ _fetchReservations }/>
         </Route>
 
       </Router>
