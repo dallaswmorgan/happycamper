@@ -17,7 +17,7 @@ class SiteMap extends React.Component {
   componentDidMount() {
     let _mapOptions = {
       center: this.props.center,
-      zoom: 9,
+      zoom: 7,
       mapTypeId: 'terrain'
     };
     this.map = new google.maps.Map(this.mapNode, _mapOptions);

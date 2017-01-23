@@ -153,14 +153,12 @@ class Site extends React.Component {
                                                             edit={false} />;
       return (
         <div className="site-show">
-
           <div className="site-top">
-
             <div className="site-images-box">
               <ul className="site-images-list">
                 {site_images.map(image =>
                   <li className="site-image-li" key={`image-${image.id}`} >
-                    <div className="site-image-box">  
+                    <div className="site-image-box">
                       <img
                         className="site-image"
                         src={image.url}
@@ -170,11 +168,8 @@ class Site extends React.Component {
                 )}
               </ul>
             </div>
-
           </div>
-
           <div className='site-bottom'>
-
             <div className='site-bottom-left'>
               <div className="site-info">
                 <div className="site-text">
@@ -187,13 +182,11 @@ class Site extends React.Component {
                     <SiteImageForm site={this.props.site}
                       createImage={this.props.createImage}/>
                   </div>
-
                   <h3>{description}</h3>
                 </div>
               </div>
               <ReviewsContainer site={this.props.site}/>
             </div>
-
             <StickyContainer className='site-bottom-right'>
                 <Sticky className="reservation-box">
                   <div className="price-box">
@@ -203,7 +196,6 @@ class Site extends React.Component {
                 </Sticky>
             </StickyContainer>
           </div>
-
         </div>
       );
     } else

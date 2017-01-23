@@ -28,23 +28,23 @@ descriptions << "With 46 acres of unspoiled nature you will have all the privacy
 descriptions << "Rise and shine with the roosters & live as shepherds would have while tending their sheep. The site has a fenced yard, picnic table & fire pit situated in a peaceful walnut orchard, steps from an outdoor shower."
 descriptions << "Bask under the breath taking stars at night and feel the healing effect of nature all around you during your stay. Hike, bike, swim, site-see and don’t forget to visit the Yuba River! So many things are available to you. "
 
-hilton_park = Site.create(name: "Hilton Park", description: "Situated on the calm banks of the Russian River, Hilton Park is the perfect getaway spot for families and groups. Be sure to bring your inner-tube, as the river is ideal for floating!",
-user_id: 2, region_id: 1, featured: true, public: false, state: "California", city: "Forestville", lat: 38.504777, lng: -122.941945, price: 35, guest_limit: 8 )
+# hilton_park = Site.create(name: "Hilton Park", description: "Situated on the calm banks of the Russian River, Hilton Park is the perfect getaway spot for families and groups. Be sure to bring your inner-tube, as the river is ideal for floating!",
+# user_id: 2, region_id: 1, featured: true, public: false, state: "California", city: "Forestville", lat: 38.504777, lng: -122.941945, price: 35, guest_limit: 8 )
+#
+# caswell_park = Site.create(name: "Caswell Memorial State Park", description: "Right on the banks of the Stanislaus River, Caswell Memorial State Park offers an enticing retreat to Bay Area campers looking to soak up the heat while soaking in the water",
+# user_id: 2, region_id: 1, featured: true, public: true, state: "California", city: "Ripon", lat: 37.696086, lng: -121.1844123, price: 25, guest_limit: 6 )
+#
+# briones_retreat = Site.create(name: "Briones Retreat", description: "Nestled in the Mt Diablo foothills, this quiet piece of land is ideal for taking in the beauty of the rolling hills. Come relax the night away in our sturdy wood-platform canvas tent, and be gently awoken by birdsong in the morning.",
+# user_id: 1, region_id: 1, featured: true, public: false, state: "California", city: "Danville", lat: 37.865438, lng: -121.967040, price: 80, guest_limit: 4 )
 
-caswell_park = Site.create(name: "Caswell Memorial State Park", description: "Right on the banks of the Stanislaus River, Caswell Memorial State Park offers an enticing retreat to Bay Area campers looking to soak up the heat while soaking in the water",
-user_id: 2, region_id: 1, featured: true, public: true, state: "California", city: "Ripon", lat: 37.696086, lng: -121.1844123, price: 25, guest_limit: 6 )
-
-briones_retreat = Site.create(name: "Briones Retreat", description: "Nestled in the Mt Diablo foothills, this quiet piece of land is ideal for taking in the beauty of the rolling hills. Come relax the night away in our sturdy wood-platform canvas tent, and be gently awoken by birdsong in the morning.",
-user_id: 1, region_id: 1, featured: true, public: false, state: "California", city: "Danville", lat: 37.865438, lng: -121.967040, price: 80, guest_limit: 4 )
-
-SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg", caption: "The river at dawn")
-SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484447737/russian-river-pic_raa3rr.jpg", caption: "Site overlooking the river")
-SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448367/Campfire_guitar_wcauws.jpg", caption: "Songs by the campfire at night")
-
-SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448112/russian-river-float_lgfnqz.jpg", caption: "Nothing more relaxing that floating down the river with a beer in hand")
-
-SiteImage.create(site_id: caswell_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484391834/mt-rainier_ecyauh.jpg", caption: "View of the mountain from one of the many hiking trails")
-SiteImage.create(site_id: briones_retreat.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484421586/briones-retreat_eum1bf.jpg", caption: "It's hard to beat watching the sunrise from your cozy canvas tent")
+# SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484267441/russian-river-stock_q6wou3.jpg", caption: "The river at dawn")
+# SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484447737/russian-river-pic_raa3rr.jpg", caption: "Site overlooking the river")
+# SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448367/Campfire_guitar_wcauws.jpg", caption: "Songs by the campfire at night")
+#
+# SiteImage.create(site_id: hilton_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484448112/russian-river-float_lgfnqz.jpg", caption: "Nothing more relaxing that floating down the river with a beer in hand")
+#
+# SiteImage.create(site_id: caswell_park.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484391834/mt-rainier_ecyauh.jpg", caption: "View of the mountain from one of the many hiking trails")
+# SiteImage.create(site_id: briones_retreat.id, url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1484421586/briones-retreat_eum1bf.jpg", caption: "It's hard to beat watching the sunrise from your cozy canvas tent")
 
 
 
@@ -128,7 +128,7 @@ def generate_random_reviews(site, users)
   end
 end
 
-def generate_random_site(urls1, urls2, urls3, users, descriptions)
+def generate_random_site(urls1, urls2, urls3, users, descriptions, featured)
   location = random_location
   lat = location[:lat]
   lng = location[:lng]
@@ -137,7 +137,7 @@ def generate_random_site(urls1, urls2, urls3, users, descriptions)
   name = random_name
   description = descriptions.sample
   _public = false
-  featured = false
+  featured = featured
   region_id = 1
   user_id = users.pop.id
   price = rand(5..25) * 5
@@ -209,8 +209,14 @@ urls3 = [
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123132/e83db40f2ef3003ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_fgpz8e.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123140/e83cb20d2ef5003ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_psif7b.jpg"
 ]
-
-100.times do
+# unfeatured
+150.times do
   urls = [urls1, urls2, urls3].shuffle!
-  generate_random_site(urls[0].dup.shuffle!, urls[1].dup.shuffle!, urls[2].dup.shuffle!, users.dup.shuffle!, descriptions)
+  generate_random_site(urls[0].dup.shuffle!, urls[1].dup.shuffle!, urls[2].dup.shuffle!, users.dup.shuffle!, descriptions, false)
+end
+
+# featured
+5.times do
+  urls = [urls1, urls2, urls3].shuffle!
+  generate_random_site(urls[0].dup.shuffle!, urls[1].dup.shuffle!, urls[2].dup.shuffle!, users.dup.shuffle!, descriptions, true)
 end

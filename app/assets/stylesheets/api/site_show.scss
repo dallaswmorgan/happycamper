@@ -22,7 +22,8 @@ $edit-orange: #D4632E;
 }
 
 .site-image-box {
-  width: calc(100vw/3);
+  // overhang encourages user to scroll
+  width: calc(100vw/3.1);
   height: calc(100vh/2);
   overflow: hidden;
   margin-right: 5px;
