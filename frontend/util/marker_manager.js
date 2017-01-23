@@ -42,10 +42,11 @@ export default class MarkerManager {
 
 
     const windowString = "<div class='map-window'>" +
-    `<h3 class='map-name'>${site.name}</h3>` +
+    `<h4 class='map-name'>${site.name}</h4>` +
     "</div>";
     const window = new google.maps.InfoWindow({
       content: windowString,
+      disableAutoPan: true,
       maxWidth: 200
     });
 
