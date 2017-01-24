@@ -1,7 +1,7 @@
 ![happycamper-logo]
 [happycamper-logo]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1484108260/Logomakr_2cxses_s2xnv1.png
 [happycamper.camp][happycamper.camp]
-[happycamper.camp]: www.happycamper.camp
+[happycamper.camp]: http://www.happycamper.camp
 
 ####Happy Camper is the best way to book your next camping trip.
 ####Browse our extensive collection of campgrounds across the country, and book directly through our site with a personalized account.
