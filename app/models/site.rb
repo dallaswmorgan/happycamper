@@ -125,6 +125,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(15.516, -43.376),
       # Geokit::LatLng.new(14.526, -40.444),
       Geokit::LatLng.new(13.396, -36.486),
+
       # Southern Limit
       Geokit::LatLng.new(44.251, -124.355),
       # Geokit::LatLng.new(44.210, -122.589),

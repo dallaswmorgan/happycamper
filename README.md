@@ -4,9 +4,7 @@
 [happycamper.camp]: http://www.happycamper.camp
 
 ####Happy Camper is the best way to book your next camping trip.
-####Browse our extensive collection of campgrounds across the country, and book directly through our site with a personalized account.
-####Or list your own campsite for others to enjoy
-####Using a Postgres database, a Rails backend, and a React/Redux frontend, it is sturdy, scalable, and responsive
+Browse our extensive collection of campgrounds across the country, and book directly through our site with a personalized account, or list your own campsite for others to enjoy. Using a Postgres database, a Rails backend, and a React/Redux frontend, it is sturdy, scalable, and responsive
 
 ##Features
 

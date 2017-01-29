@@ -161,7 +161,6 @@ end
 urls1 = [
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121148/site_urls_1/ec31b90f2af61c2ad65a5854e24c4596e177e7c818b5194494f2c17ca7e5_640_ygndyd.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121179/site_urls_1/e83db50a21f4073ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_chmzzi.jpg",
-  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121194/site_urls_1/e83db7082af3043ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_ymbdxj.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121205/site_urls_1/e83db50f2df1063ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_hsafc2.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121218/site_urls_1/e83db20a2bf1033ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_etufmk.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121242/site_urls_1/e837b1072af4003ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_asp1y1.jpg",
