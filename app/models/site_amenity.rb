@@ -1,5 +1,6 @@
 class SiteAmenity < ApplicationRecord
-  validates :site, :drinking_water, :shower, :fire_ring, :pets_allowed,
-  :toilet, :picnic_table, presence: true
+  validates :drinking_water, :shower, :fire_ring, :pets_allowed,
+            :toilet, :picnic_table, presence: true
+  validates :site, presence: true, uniqueness: true
   belongs_to :site
 end

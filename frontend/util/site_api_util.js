@@ -14,6 +14,14 @@ export const fetchFeaturedSites = () => {
   });
 };
 
+export const fetchEclipseSites = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/sites',
+    data: { eclipse: true }
+  });
+};
+
 export const fetchSite = id => {
   return $.ajax({
     method: 'GET',
