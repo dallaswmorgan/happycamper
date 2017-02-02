@@ -1,10 +1,12 @@
 class Site < ApplicationRecord
-  validates :name, :state, :city, :lat, :lng, :price, :guest_limit, presence: true
-  # acts_as_mappable default_units: :miles,
-  #                  default_formula: :sphere,
-  #                  distance_field_name: :distance,
-  #                  lat_column_name: :lat,
-  #                  lng_column_name: :lng
+  acts_as_mappable default_units: :miles,
+                   default_formula: :sphere,
+                   distance_field_name: :distance,
+                   lat_column_name: :lat,
+                   lng_column_name: :lng
+
+  validates :name, :state, :city, :lat,
+            :lng, :price, :guest_limit, presence: true
 
   belongs_to(
     :host,
@@ -212,14 +214,8 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(16.200, -47.065),
       # Geokit::LatLng.new(15.307, -44.496),
       # Geokit::LatLng.new(14.352, -42.047),
-      Geokit::LatLng.new(13.286, -38.280),    ])
-    @eclipse_bounds.contains?(Geokit::LatLng.new(41.525, -102.069))
-    eclipse_sites = []
-    Site.all.each do |site|
-      if @eclipse_bounds.contains?(Geokit::LatLng.new(site.lat, site.lng))
-        eclipse_sites << site
-      end
-    end
-    eclipse_sites
+      Geokit::LatLng.new(13.286, -38.280)
+      ])
+    self.select { |site| @eclipse_bounds.contains?(site) }
   end
 end
