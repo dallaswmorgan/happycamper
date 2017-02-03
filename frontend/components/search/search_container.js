@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => ({
   center: state.filters.center,
   filters: state.filters,
-  geo_bounds: state.filters.geo_bounds,
+  // geo_bounds: state.filters.geo_bounds,
   sites: state.sites,
 });
 

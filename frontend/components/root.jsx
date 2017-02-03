@@ -20,15 +20,15 @@ const Root = ({ store }) => {
   };
 
   const _ensureLoggedIn = (nextState, replace) => {
-  const currentUser = store.getState().session.currentUser;
-  if (!currentUser) {
-    replace('/');
-  }
-};
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser) {
+      replace('/');
+    }
+  };
 
-const _clearSites = () => {
-  store.dispatch(clearSites());
-};
+  const _clearSites = () => {
+    store.dispatch(clearSites());
+  };
 
   return (
     <Provider store={ store }>
