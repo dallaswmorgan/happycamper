@@ -4,6 +4,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import SiteIndex from './site_index';
 import SiteMap from '../site_map/site_map';
+import FilterForm from './filter_form';
 
 class Search extends React.Component {
   constructor(props) {
@@ -20,12 +21,13 @@ class Search extends React.Component {
     const updateFilter = this.props.updateFilter;
     const center = this.props.filters.center;
     console.log(this.props.filters);
-    // <button width="100px" height="100px" value="Click me" onClick={e  => updateFilter('amenities', {picnic_table: !this.state.filters.picnic_table})}>Picnic</button>
-    // <button width="100px" height="100px" value="Click me" onClick={e  => updateFilter('eclipse', true)}>Eclipse</button>
     if (sites) {
       return(
         <div className="search-page">
           <div className="search-left-half">
+            <FilterForm
+              filters={this.props.filters}
+              updateFilter={this.props.updateFilter}/>
             <SiteIndex sites={sites} />
           </div>
           <div className="search-right-half">
