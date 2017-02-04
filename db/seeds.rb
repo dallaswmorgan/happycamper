@@ -80,6 +80,17 @@ def random_location
   random_location
 end
 
+def generate_random_amenities(site)
+  picnic_table = rand < 0.9
+  drinking_water = rand < 0.8
+  shower = rand < 0.4
+  fire_ring = rand < 0.6
+  pets_allowed = rand < 0.3
+  toilet = rand < 0.9
+  SiteAmenity.create!({site_id: site.id, picnic_table: picnic_table, drinking_water: drinking_water,
+                       shower: shower,fire_ring: fire_ring, pets_allowed: pets_allowed, toilet: toilet})
+end
+
 def generate_random_reviews(site, users)
   reviews = []
   users = users.shuffle
@@ -152,6 +163,7 @@ def generate_random_site(urls1, urls2, urls3, users, descriptions, featured)
   SiteImage.create(site_id: site.id, url: urls3.pop)
 
   generate_random_reviews(site, users)
+  generate_random_amenities(site)
 end
 
 # HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=camping+tent&image_type=photo')

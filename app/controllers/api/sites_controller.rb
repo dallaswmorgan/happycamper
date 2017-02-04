@@ -1,19 +1,22 @@
 class Api::SitesController < ApplicationController
   def index
+    # Values are stringified. Transforms back into boolean
     # Objects:
     geo_bounds = params[:geo_bounds]
 
     # Booleans:
     featured = params[:featured]
-    featured = true if featured = "true"
-    if geo_bounds && params[:amenities]
-      # Values are stringified. Transfroms back into boolean
-      unparsed_amenities = params[:amenities]
-      amenities = {}
+    if featured = "true"
+      featured = true
+    end
+    unparsed_amenities = params[:amenities]
+    amenities = {}
+    if unparsed_amenities
       unparsed_amenities.each do |k, v|
         amenities[k] = true if v == "true"
       end
-      # debugger
+    end
+    if geo_bounds && amenities != {}
       # Site.joins(:amenity_list).where(site_amenities: {pets_allowed: true, picnic_table: true})
 
       @sites = Site.joins(:amenity_list)
@@ -26,7 +29,7 @@ class Api::SitesController < ApplicationController
     else
       @sites = Site.all
     end
-    if params[:eclipse]
+    if params[:eclipse] == "true"
       @sites = @sites.eclipse_sites
     end
     @sites
