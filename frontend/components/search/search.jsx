@@ -20,7 +20,6 @@ class Search extends React.Component {
     const sites = this.props.sites;
     const updateFilter = this.props.updateFilter;
     const center = this.props.filters.center;
-    console.log(this.props.filters);
     if (sites) {
       return(
         <div className="search-page">

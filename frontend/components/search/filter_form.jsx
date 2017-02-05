@@ -7,7 +7,6 @@ class FilterForm extends React.Component {
 
   render() {
     const updateFilter = this.props.updateFilter
-    console.log(this.props.filters.amenities['toilet']);
     return(
       <div className="filter-form">
         <button className={ this.props.filters['eclipse'] ? "selected" : "unselected" }
