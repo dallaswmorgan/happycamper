@@ -5,15 +5,6 @@ class FilterForm extends React.Component {
     super(props);
   }
 
-  toggleFilter(amenity) {
-    console.log('hi');
-    // if (amenity == "eclipse") {
-    //   this.props.updateFilter(amenity, !this.props.filters[amenity]);
-    // } else {
-    //   this.props.updateFilter('amenities', { amenity : !this.props.filters.amenities[amenity] });
-    // }
-  }
-
   render() {
     const updateFilter = this.props.updateFilter
     console.log(this.props.filters.amenities['toilet']);

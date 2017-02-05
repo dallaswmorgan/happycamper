@@ -44,6 +44,31 @@ class Site < ApplicationRecord
     total_stars / total_reviews
   end
 
+  def contains(polygon, site)
+
+    x = site[:lat]
+    y = site[:lng]
+    inside = false;
+
+    i = 0
+    j = polygon.length - 1
+
+    while i < polygon.length
+      xi = polygon[i][:lat]
+      yi = polygon[i][:lng]
+      xj = polygon[j][:lat]
+      yj = polygon[j][:lng]
+
+      intersect = ((yi > y) != (yj > y)) &&
+                  (x < (xj - xi) * (y - yi) / (yj - yi) + xi)
+      inside = !inside if intersect
+      i += 1
+      j = i
+    end
+
+    inside
+  end
+
   def self.eclipse_sites
     #Eclipse Predictions by Fred Espenak, NASA's GSFC
     @eclipse_bounds ||= Geokit::Polygon.new([
@@ -55,7 +80,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(44.533, -117.231),
       # Geokit::LatLng.new(44.453, -115.598),
       # Geokit::LatLng.new(44.367, -114.390),
-      Geokit::LatLng.new(44.273, -113.207),
+      # Geokit::LatLng.new(44.273, -113.207),
       # Geokit::LatLng.new(44.173, -112.046),
       # Geokit::LatLng.new(44.066, -110.505),
       # Geokit::LatLng.new(43.554, -109.385),
@@ -75,7 +100,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(40.294, -95.259),
       # Geokit::LatLng.new(40.119, -94.333),
       # Geokit::LatLng.new(39.541, -93.416),
-      Geokit::LatLng.new(39.359, -92.506),
+      # Geokit::LatLng.new(39.359, -92.506),
       # Geokit::LatLng.new(39.175, -92.004),
       # Geokit::LatLng.new(38.588, -91.109),
       # Geokit::LatLng.new(38.398, -90.220),
@@ -97,7 +122,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(32.599, -78.156),
       # Geokit::LatLng.new(32.365, -77.317),
       # Geokit::LatLng.new(32.127, -76.477),
-      Geokit::LatLng.new(31.487, -76.036),
+      # Geokit::LatLng.new(31.487, -76.036),
       # Geokit::LatLng.new(31.245, -75.194),
       # Geokit::LatLng.new(30.599, -74.349),
       # Geokit::LatLng.new(30.351, -73.501),
@@ -112,7 +137,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(26.364, -66.442),
       # Geokit::LatLng.new(26.080, -65.528),
       # Geokit::LatLng.new(25.390, -65.002),
-      Geokit::LatLng.new(25.096, -64.062),
+      # Geokit::LatLng.new(25.096, -64.062),
       # Geokit::LatLng.new(24.397, -63.107),
       # Geokit::LatLng.new(24.091, -62.135),
       # Geokit::LatLng.new(23.380, -61.144),
@@ -120,7 +145,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(22.335, -59.093),
       # Geokit::LatLng.new(22.001, -58.027),
       # Geokit::LatLng.new(21.258, -56.528),
-      Geokit::LatLng.new(20.504, -55.391),
+      # Geokit::LatLng.new(20.504, -55.391),
       # Geokit::LatLng.new(20.139, -54.210),
       # Geokit::LatLng.new(19.360, -52.575),
       # Geokit::LatLng.new(18.564, -51.276),
@@ -140,7 +165,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(43.556, -117.070),
       # Geokit::LatLng.new(43.472, -115.463),
       # Geokit::LatLng.new(43.382, -114.281),
-      Geokit::LatLng.new(43.285, -113.122),
+      # Geokit::LatLng.new(43.285, -113.122),
       # Geokit::LatLng.new(43.182, -111.585),
       # Geokit::LatLng.new(43.073, -110.468),
       # Geokit::LatLng.new(42.558, -109.370),
@@ -160,7 +185,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(39.307, -95.490),
       # Geokit::LatLng.new(39.134, -94.578),
       # Geokit::LatLng.new(38.558, -94.073),
-      Geokit::LatLng.new(38.380, -93.176),
+      # Geokit::LatLng.new(38.380, -93.176),
       # Geokit::LatLng.new(38.199, -92.286),
       # Geokit::LatLng.new(38.015, -91.403),
       # Geokit::LatLng.new(37.428, -90.525),
@@ -182,7 +207,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(32.098, -78.593),
       # Geokit::LatLng.new(31.468, -78.160),
       # Geokit::LatLng.new(31.236, -77.326),
-      Geokit::LatLng.new(31.002, -76.490),
+      # Geokit::LatLng.new(31.002, -76.490),
       # Geokit::LatLng.new(30.364, -76.053),
       # Geokit::LatLng.new(30.124, -75.213),
       # Geokit::LatLng.new(29.481, -74.370),
@@ -197,7 +222,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(25.550, -67.349),
       # Geokit::LatLng.new(25.272, -66.439),
       # Geokit::LatLng.new(24.590, -65.517),
-      Geokit::LatLng.new(24.303, -64.582),
+      # Geokit::LatLng.new(24.303, -64.582),
       # Geokit::LatLng.new(24.011, -64.031),
       # Geokit::LatLng.new(23.313, -63.064),
       # Geokit::LatLng.new(23.009, -62.077),
@@ -205,7 +230,7 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(21.582, -60.037),
       # Geokit::LatLng.new(21.258, -58.577),
       # Geokit::LatLng.new(20.524, -57.485),
-      Geokit::LatLng.new(20.181, -56.357),
+      # Geokit::LatLng.new(20.181, -56.357),
       # Geokit::LatLng.new(19.427, -55.185),
       # Geokit::LatLng.new(19.059, -53.561),
       # Geokit::LatLng.new(18.277, -52.276),
@@ -216,6 +241,22 @@ class Site < ApplicationRecord
       # Geokit::LatLng.new(14.352, -42.047),
       Geokit::LatLng.new(13.286, -38.280)
       ])
+
+
+      # @eclipse_bounds = [{ lat: 45.193, lng: -125.063 },
+      #                    { lat: 41.362, lng: -99.052 },
+      #                    { lat: 36.192, lng: -84.546 },
+      #                    { lat: 28.261, lng: -70.001 },
+      #                    { lat: 13.396, lng: -36.486 },
+      #                    { lat: 44.251, lng: -124.355 },
+      #                    { lat: 40.367, lng: -99.224 },
+      #                    { lat: 35.249, lng: -85.318 },
+      #                    { lat: 27.420, lng: -70.492 },
+      #                    { lat: 13.286, lng: -38.280 }]
+
+
+
+
     self.select { |site| @eclipse_bounds.contains?(site) }
   end
 end

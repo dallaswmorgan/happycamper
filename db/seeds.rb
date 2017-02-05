@@ -8,12 +8,12 @@
 
 users = []
 users << dallas = User.create!(fname: "Dallas", lname: "Morgan", email: "dallaswmorgan@gmail.com", password: "happycamperrulez", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485077078/Dallas_Morgan_uagewq.jpg")
+users << goodall = User.create!(fname: "Jane", lname: "Goodall", email: "goodall@happycamper.camp", password: "chimpz", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076072/Jane_Goodall_2015_cmiuza.jpg")
 users << darwin = User.create!(fname: "Charles", lname: "Darwin", email: "darwin@happycamper.camp", password: "finches", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485077006/800px-1878_Darwin_photo_by_Leonard_from_Woodall_1884_-_cropped_grayed_partially_cleaned_jpqjq6.jpg")
 users << muir = User.create!(fname: "John", lname: "Muir", email: "muir@happycamper.camp", password: "yosemite", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076871/John_Muir_by_Carleton_Watkins_2C_c1875_qjbatb.jpg")
+users << brockovich = User.create!(fname: "Erin", lname: "Brokovich", email: "brokovich@happycamper.camp", password: "pgesux", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076166/800px-Erin_Brockovich__2830109127682_29_uzuajr.jpg")
 users << thoreau = User.create!(fname: "Henry", lname: "Thoreau", email: "thoreau@happycamper.camp", password: "waldenpond", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076932/800px-Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored_ijzo1k.jpg")
 users << roosevelt = User.create!(fname: "Teddy", lname: "Roosevelt", email: "teddy@happycamper.camp", password: "mooserider", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076467/lossy-page1-800px-President_Roosevelt_-_Pach_Bros.tif_s5jx24.jpg")
-users << goodall = User.create!(fname: "Jane", lname: "Goodall", email: "goodall@happycamper.camp", password: "chimpz", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076072/Jane_Goodall_2015_cmiuza.jpg")
-users << brockovich = User.create!(fname: "Erin", lname: "Brokovich", email: "brokovich@happycamper.camp", password: "pgesux", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076166/800px-Erin_Brockovich__2830109127682_29_uzuajr.jpg")
 users << carson = User.create!(fname: "Rachel", lname: "Carson", email: "carson@happycamper.camp", password: "silentsprings", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485076303/800px-Rachel-Carson_bqmqwy.jpg")
 users << attenborough = User.create!(fname: "David", lname: "Attenborough", email: "attenborough@happycamper.camp", password: "planetearth", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485085356/web-David-Attenborough-1-pa_nyahxe.jpg")
 users << boone = User.create!(fname: "Daniel", lname: "Boone", email: "boone@happycamper.camp", password: "danielboone", image_url: "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485085516/uewb_02_img0098_sms4p4.jpg")
@@ -52,7 +52,7 @@ def random_name
   site_first_names = ["Oak", "Bear", "River", "Redwood", "Wild", "Bullfrog", "Poppy", "Kearsarge", "Muir", "Wildflower", "Elk", "Eagle", "Enchanted", "Willow", "Amber", "Sparrow"]
   site_second_names = ["View", "Hill", "Dunes", "Valley", "Trail", "Oasis", "Crest"]
   site_third_names = ["Camp", "Retreat", "Ravine", "Rock", "Glen", "Garden", "Homestead", "Park", "Forest", "Yurt", "Tipi", "Paradise", "Meadow", "Lake"]
-  num = rand 5
+  num = rand 3
   if num == 0
     return site_second_names.sample + " " + site_third_names.sample
   elsif num == 1
@@ -134,7 +134,7 @@ def generate_random_reviews(site, users)
   reviews << { body: "If you are near #{site.city} and looking to camp, go out of your way to get here.
     Absolutely beautiful land, wish we could have stayed longer but enjoyed every second we were there.",
     rating: 5, site_id: site.id, user_id: users[7].id }
-  (rand(3) + 4).times do
+  (rand(3) + 2).times do
     Review.create!(reviews.pop)
   end
 end
@@ -171,11 +171,6 @@ end
 # HTTParty.get('https://pixabay.com/api/?key=4030205-09edb77b80f0f13b40ea34bea&q=forest_hiking&image_type=photo')
 
 urls1 = [
-  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121148/site_urls_1/ec31b90f2af61c2ad65a5854e24c4596e177e7c818b5194494f2c17ca7e5_640_ygndyd.jpg",
-  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121179/site_urls_1/e83db50a21f4073ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_chmzzi.jpg",
-  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121205/site_urls_1/e83db50f2df1063ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_hsafc2.jpg",
-  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121218/site_urls_1/e83db20a2bf1033ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_etufmk.jpg",
-  "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121242/site_urls_1/e837b1072af4003ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_asp1y1.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121259/site_urls_1/e83db7082bfc043ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_csapo0.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121286/site_urls_1/e83db40e28fd033ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_bmuubf.jpg",
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485121304/site_urls_1/e837b50a2efd023ed95c4518b7484695e375e2d004b0154990f1c379a2edbd_640_wekhad.jpg",
@@ -220,7 +215,7 @@ urls3 = [
   "https://res.cloudinary.com/dallaswmorgan/image/upload/v1485123140/e83cb20d2ef5003ed95c4518b7484695e375e2d004b0154990f1c37baeedb1_640_psif7b.jpg"
 ]
 # unfeatured
-150.times do
+200.times do
   urls = [urls1, urls2, urls3].shuffle!
   generate_random_site(urls[0].dup.shuffle!, urls[1].dup.shuffle!, urls[2].dup.shuffle!, users.dup.shuffle!, descriptions, false)
 end
