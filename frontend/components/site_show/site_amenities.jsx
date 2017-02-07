@@ -24,41 +24,35 @@ class SiteAmenities extends React.Component {
     return(
       <div className='filter-form-box'>
         <div className="filter-form">
-          <button className={ this.props.site.amenities['drinking_water'] ? "site-selected" : "site-unselected" }
-            onClick={e  => this.props.updateFilter('amenities', { drinking_water: !this.props.site.amenities['drinking_water']})}>
+          <div className={this.props.site.amenities['drinking_water'] ? 'site-amenity-true' : 'site-amenity-false'}>
             { this.props.site.amenities['drinking_water'] ? waterIcon : waterIconGray }
             Drinking Water
-          </button>
-          <button className={ this.props.site.amenities['toilet'] ? "site-selected" : "site-unselected" }
-            onClick={e  => this.props.updateFilter('amenities', { toilet: !this.props.site.amenities['toilet']})}>
+          </div>
+          <div className={this.props.site.amenities['toilet'] ? 'site-amenity-true' : 'site-amenity-false'}>
             { this.props.site.amenities['toilet'] ? toiletIcon : toiletIconGray }
             Toilet
-          </button>
-          <button className={ this.props.site.amenities['picnic_table'] ? "site-selected" : "site-unselected" }
-            onClick={e  => this.props.updateFilter('amenities', { picnic_table: !this.props.site.amenities['picnic_table']})}>
+          </div>
+          <div className={this.props.site.amenities['picnic_table'] ? 'site-amenity-true' : 'site-amenity-false'}>
             {this.props.site.amenities['picnic_table'] ? tableIcon : tableIconGray}
             Picnic Table
-          </button>
-          <button className={ this.props.site.amenities['fire_ring'] ? "site-selected" : "site-unselected" }
-            onClick={e  => this.props.updateFilter('amenities', { fire_ring: !this.props.site.amenities['fire_ring']})}>
+          </div>
+          <div className={this.props.site.amenities['fire_ring'] ? 'site-amenity-true' : 'site-amenity-false'}>
             { this.props.site.amenities['fire_ring'] ? fireIcon : fireIconGray }
             Fire Ring
-          </button>
-          <button className={ this.props.site.amenities['pets_allowed'] ? "site-selected" : "site-unselected" }
-            onClick={e  => this.props.updateFilter('amenities', { pets_allowed: !this.props.site.amenities['pets_allowed']})}>
+          </div>
+          <div className={this.props.site.amenities['pets_allowed'] ? 'site-amenity-true' : 'site-amenity-false'}>
             { this.props.site.amenities['pets_allowed'] ? petsIcon : petsIconGray }
             Pet Friendly
-          </button>
-          <button className={ this.props.site.amenities['shower'] ? "site-selected" : "site-unselected" }
-            onClick={e  => this.props.updateFilter('amenities', { shower: !this.props.site.amenities['shower']})}>
+          </div>
+          <div className={ this.props.site.amenities['shower'] ? "site-amenity-true" : "site-amenity-false" }>
             { this.props.site.amenities['shower'] ? showerIcon : showerIconGray }
             Shower
-          </button>
-          <button className={ this.props.site['eclipse'] ? "site-selected" : "site-unselected" }
+          </div>
+          <div className={ this.props.site['eclipse'] ? "site-amenity-true" : "site-amenity-false" }
             onClick={e  => this.props.updateFilter('eclipse', !this.props.site['eclipse'])}>
             { this.props.site['eclipse'] ? eclipseIcon : eclipseIconGray }
             Eclipse 2017
-          </button>
+          </div>
         </div>
       </div>
     );

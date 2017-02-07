@@ -1,0 +1,17 @@
+.site-amenity-true {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.site-amenity-false {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: line-through;
+  color: #D4D4D4;
+}
