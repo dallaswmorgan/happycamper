@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { StickyContainer, Sticky } from 'react-sticky';
 import SiteImageForm from './site_image_form';
+import SiteAmenities from './site_amenities';
 import ReviewsContainer from '../reviews/reviews_container';
 import Stars from 'react-stars';
 
