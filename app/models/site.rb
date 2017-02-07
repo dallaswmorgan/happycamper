@@ -44,6 +44,25 @@ class Site < ApplicationRecord
     total_stars / total_reviews
   end
 
+  def eclipse_site?
+    @eclipse_bounds ||= Geokit::Polygon.new([
+      # Northern Limit, West => East
+      Geokit::LatLng.new(45.193, -125.063),
+      Geokit::LatLng.new(41.362, -99.052),
+      Geokit::LatLng.new(36.192, -84.546),
+      Geokit::LatLng.new(28.261, -70.001),
+      Geokit::LatLng.new(13.396, -36.486),
+
+      # Southern Limit, East => West
+      Geokit::LatLng.new(13.286, -38.280),
+      Geokit::LatLng.new(27.420, -70.492),
+      Geokit::LatLng.new(35.249, -85.318),
+      Geokit::LatLng.new(40.367, -99.224),
+      Geokit::LatLng.new(44.251, -124.355)
+      ])
+    @eclipse_bounds.contains?(self)
+  end
+
   def self.eclipse_sites
     #Eclipse Predictions by Fred Espenak, NASA's GSFC
     @eclipse_bounds ||= Geokit::Polygon.new([
