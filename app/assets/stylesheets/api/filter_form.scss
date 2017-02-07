@@ -1,0 +1,35 @@
+.amenity-icon {
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+}
+
+.selected {
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+}
+
+.unselected {
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+}
+
+.filter-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-form-box {
+  padding-bottom: 15px;
+  background-color: white;
+}

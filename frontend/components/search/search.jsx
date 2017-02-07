@@ -2,6 +2,7 @@ import React from 'react';
 
 // import FilterForm from './filter_form';
 import { withRouter } from 'react-router';
+import { StickyContainer, Sticky } from 'react-sticky';
 import SiteIndex from './site_index';
 import SiteMap from '../site_map/site_map';
 import FilterForm from './filter_form';
@@ -24,6 +25,7 @@ class Search extends React.Component {
       return(
         <div className="search-page">
           <div className="search-left-half">
+
             <FilterForm
               filters={this.props.filters}
               updateFilter={this.props.updateFilter}/>
