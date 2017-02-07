@@ -6,7 +6,7 @@ class Api::SitesController < ApplicationController
 
     # Booleans:
     featured = params[:featured]
-    if featured = "true"
+    if featured == "true"
       featured = true
     end
     unparsed_amenities = params[:amenities]
