@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import Stars from 'react-stars';
+import SiteAmenities from './site_amenities';
 
 class IndexItem extends React.Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class IndexItem extends React.Component {
               </div>
               <div className="index-item-text">
                 {stars}
+                <SiteAmenities site={this.props.site} />
                 <h3 className="index-item-title">{name}</h3>
                 <h5 className="index-item-description">{description}</h5>
               </div>
