@@ -43,6 +43,8 @@ class Api::SitesController < ApplicationController
     @site = Site.new(site_params)
     @site.user_id = current_user.id
     if @site.save
+      SiteAmenity.create!(site_id: @site.id, picnic_table: false, shower: false,
+      pets_allowed: false, fire_ring: false, drinking_water: false, toilet: false)
       render :show
     else
       render json: @site.errors.full_messages, status: 422
