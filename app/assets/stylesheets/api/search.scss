@@ -32,6 +32,7 @@ $button-blue: #28BC8C;
 }
 .index-item-info:hover {
   background: mix(white, $button-blue, 85%);
+  cursor: pointer;
 }
 
 .search-right-half {
