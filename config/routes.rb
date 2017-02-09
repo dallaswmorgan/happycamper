@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :reservations
     resources :site_images, only: [:create]
     resources :reviews
+    resources :site_amenities, only: [:update]
   end
 end
