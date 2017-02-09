@@ -1,9 +1,9 @@
 class Api::SiteAmenitiesController < ApplicationController
 
   def update
+    # Site_id is not necessarily == to site_amenity_id
     @site_amenity = SiteAmenity.find(params[:site_amenity][:id])
-    # Currently depending on site_id == amenity_id. 
-    @site = Site.find(params[:site_amenity][:id])
+    @site = Site.find(params[:site_amenity][:site_id])
     if @site_amenity.update(site_amenity_params)
       render 'api/sites/show'
     else

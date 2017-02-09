@@ -15,6 +15,30 @@
   text-decoration: line-through;
   color: #D4D4D4;
 }
+.site-amenity-true-clickable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.site-amenity-false-clickable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: line-through;
+  color: #D4D4D4;
+}
+.site-amenity-true-clickable :hover{
+  cursor: pointer;
+}
+
+.site-amenity-false-clickable :hover {
+    cursor: pointer;
+}
 
 .amenity-icon-index {
   width: 25px;
