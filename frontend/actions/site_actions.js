@@ -31,6 +31,13 @@ export const createImage = image => dispatch => (
   })
 );
 
+export const updateAmenity = amenity => dispatch => (
+  APIUtil.updateAmenity(amenity).then ( site => {
+    dispatch(receiveSite(site));
+    return(site);
+  })
+);
+
 export const clearSites = () => ({
   type: RECEIVE_SITES,
   sites: {}

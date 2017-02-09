@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Site from './site_show';
-import { fetchSite, createImage } from '../../actions/site_actions';
+import { fetchSite, createImage, updateAmenity } from '../../actions/site_actions';
 import { fetchReviews } from '../../actions/reviews_actions';
 import { createReservation, receiveReservationErrors } from '../../actions/reservations_actions';
 
@@ -22,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   createReservation: reservation => dispatch(createReservation(reservation)),
   createImage: image => dispatch(createImage(image)),
   clearErrors: () => dispatch(receiveReservationErrors([])),
-  fetchReviews: siteId => dispatch(fetchReviews(siteId))
+  fetchReviews: siteId => dispatch(fetchReviews(siteId)),
+  updateAmenity: amenity => dispatch(updateAmenity(amenity))
 });
 //
 export default connect(
