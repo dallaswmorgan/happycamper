@@ -1,8 +1,9 @@
 class Api::SiteAmenitiesController < ApplicationController
-  
+
   def update
-    @site_amenity = SiteAmenities.find_by(site_id: params[:site_amenity][:site_id])
-    @site = Site.find(params[:site_amenity][:site_id])
+    @site_amenity = SiteAmenity.find(params[:site_amenity][:id])
+    # Currently depending on site_id == amenity_id. 
+    @site = Site.find(params[:site_amenity][:id])
     if @site_amenity.update(site_amenity_params)
       render 'api/sites/show'
     else
@@ -12,8 +13,8 @@ class Api::SiteAmenitiesController < ApplicationController
 
   private
 
-  def site_amenitiy_params
-    params.require(:site_amenity).permit(:site_id, :fire_ring, :toilet,
+  def site_amenity_params
+    params.require(:site_amenity).permit(:id, :fire_ring, :toilet,
       :shower, :drinking_water, :pets_allowed, :picnic_table)
   end
 end

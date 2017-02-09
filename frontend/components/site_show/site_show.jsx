@@ -186,7 +186,8 @@ class Site extends React.Component {
                   </div>
                   <h3>{description}</h3>
                 </div>
-                <SiteAmenities site={this.props.site} currentUser={this.props.currentUser}/>
+                <SiteAmenities site={this.props.site} currentUser={this.props.currentUser}
+                  updateAmenity={this.props.updateAmenity}/>
               </div>
               <ReviewsContainer site={this.props.site}/>
             </div>

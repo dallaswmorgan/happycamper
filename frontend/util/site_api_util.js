@@ -63,7 +63,7 @@ export const createImage = image => (
 export const updateAmenity = amenity => (
   $.ajax({
     method: 'PATCH',
-    url: 'api/site_amenities',
+    url: `api/site_amenities/${amenity.id}`,
     data: { site_amenity: amenity }
   })
 );
