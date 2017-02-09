@@ -90,8 +90,8 @@ class SiteForm extends React.Component {
     let site = Object.assign({}, this.state);
     site.price = parseInt(site.price);
     site.guest_limit = parseInt(site.guest_limit);
-    site.lat = this.marker.getPosition().lat();
-    site.lng = this.marker.getPosition().lng();
+    site.lat = this.marker.position.lat();
+    site.lng = this.marker.position.lng();
     const coords = {lat: site.lat, lng: site.lng};
 
     // pulling out city and state from coords. Beware when refactoring

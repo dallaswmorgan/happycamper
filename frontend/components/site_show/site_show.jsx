@@ -144,14 +144,15 @@ class Site extends React.Component {
       }
 
       // Will not display stars if no rating yet
-      const stars = average_review === 0 ? <div></div> :  <Stars
-                                                            className="stars"
-                                                            count={5}
-                                                            size={25}
-                                                            value={average_review}
-                                                            color1={'lightgray'}
-                                                            color2={'#28BC8C'}
-                                                            edit={false} />;
+      const stars = average_review === 0 ? <div></div> :
+        <Stars
+          className="stars"
+          count={5}
+          size={25}
+          value={average_review}
+          color1={'lightgray'}
+          color2={'#28BC8C'}
+          edit={false} />;
       return (
         <div className="site-show">
           <div className="site-top">
@@ -185,7 +186,7 @@ class Site extends React.Component {
                   </div>
                   <h3>{description}</h3>
                 </div>
-                <SiteAmenities site={this.props.site} />
+                <SiteAmenities site={this.props.site} currentUser={this.props.currentUser}/>
               </div>
               <ReviewsContainer site={this.props.site}/>
             </div>

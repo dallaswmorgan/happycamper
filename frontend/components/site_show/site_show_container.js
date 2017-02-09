@@ -7,10 +7,13 @@ import { createReservation, receiveReservationErrors } from '../../actions/reser
 const mapStateToProps = (state, ownProps) => {
   const siteId = parseInt(ownProps.params.id);
   const site = state.sites[siteId];
+  const errors = state.reservations.errors;
+  const currentUser = state.session.currentUser;
   return ({
     site,
     siteId,
-    errors: state.reservations.errors
+    errors,
+    currentUser
   });
 };
 
