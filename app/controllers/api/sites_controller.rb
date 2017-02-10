@@ -40,7 +40,13 @@ class Api::SitesController < ApplicationController
   end
 
   def create
+    lat = site_params[:lat]
+    lng = site_params[:lng]
+    geo_localization = "#{lat},#{lng}"
+    debugger
+    query = Geocoder.search(geo_localization).first
     @site = Site.new(site_params)
+    @site.city, @site.state = query.city, query.state
     @site.user_id = current_user.id
     if @site.save
       SiteAmenity.create!(site_id: @site.id, picnic_table: false, shower: false,

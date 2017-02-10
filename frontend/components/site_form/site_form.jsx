@@ -96,37 +96,37 @@ class SiteForm extends React.Component {
 
     // pulling out city and state from coords. Beware when refactoring
     // as geocoder is asynch
-    let that = this;
-    this.geocoder.geocode({'location': coords}, (results, status) => {
-      if (status === 'OK') {
-        if (results[1]) {
-          let address = results[1].address_components;
+    // let that = this;
+    // this.geocoder.geocode({'location': coords}, (results, status) => {
+    //   if (status === 'OK') {
+    //     if (results[1]) {
+    //       let address = results[1].address_components;
 
           // Parsing out city and state from varying map specificity
-          if (address.length >= 5) {
-            site.city = address[1];
-            site.state = address[3];
-          } else if (address.length === 3) {
-            site.city = address[0].long_name;
-            site.state = address[1].short_name;
-          } else if (address.length === 4) {
-            site.city = address[1].long_name;
-            site.state = address[2].short_name;
-          } else {
-            site.city = address[0];
-            site.state = address[1];
-          }
-
-          // creating the site
-          site.city = site.city.long_name;
-          site.state = site.state.long_name;
-          that.props.createSite(site).then( newSite => (
-            that.props.router.replace(`/sites/${newSite.id}`)));
-        }
-      } else {
-        window.alert(`Google maps failed to recognize location. Please update location and try again`);
-      }
-    });
+    //       if (address.length >= 5) {
+    //         site.city = address[1];
+    //         site.state = address[3];
+    //       } else if (address.length === 3) {
+    //         site.city = address[0].long_name;
+    //         site.state = address[1].short_name;
+    //       } else if (address.length === 4) {
+    //         site.city = address[1].long_name;
+    //         site.state = address[2].short_name;
+    //       } else {
+    //         site.city = address[0];
+    //         site.state = address[1];
+    //       }
+    //
+    //       // creating the site
+    //       site.city = site.city.long_name;
+    //       site.state = site.state.long_name;
+    //     }
+    //   } else {
+    //     window.alert(`Google maps failed to recognize location. Please update location and try again`);
+    //   }
+    // });
+          this.props.createSite(site).then( newSite => (
+            this.props.router.replace(`/sites/${newSite.id}`)));
   }
 
   render() {

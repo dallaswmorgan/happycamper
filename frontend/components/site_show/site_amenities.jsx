@@ -23,7 +23,7 @@ class SiteAmenities extends React.Component {
     let instructions = <div></div>
     let onClick;
     if (this.props.currentUser.id === this.props.site.user_id ) {
-      instructions = <h3>Click icons below to update your site's amenities</h3>;
+      instructions = <h3 className='amenity-instructions'>Click icons below to update your site's amenities</h3>;
       onClick = e => this.props.updateAmenity();
     }
     const amenities = this.props.site.amenities

@@ -1,3 +1,5 @@
+$edit-orange: #D4632E;
+
 .site-amenity-true {
   display: flex;
   flex-direction: column;
@@ -39,6 +41,7 @@
 .site-amenity-false-clickable :hover {
     cursor: pointer;
 }
+
 
 .amenity-icon-index {
   width: 25px;
