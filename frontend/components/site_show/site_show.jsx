@@ -77,6 +77,17 @@ class Site extends React.Component {
       );
     }
 
+    let reservationButton;
+    if (this.props.currentUser) {
+      reservationButton = <button id="reservation-submit-button"
+                            onClick={this.handleCreateSubmit}
+                            className="submit-reservation">
+                            Reserve Site
+                          </button>;
+    } else {
+      reservationButton = <h2>Login to reserve site</h2>;
+    }
+
     return(
       <form className='site-reservation-form'onSubmit={this.handleCreateSubmit}>
 
@@ -113,11 +124,7 @@ class Site extends React.Component {
         </div>
 
         <div className='reservation-submit'>
-          <button id="reservation-submit-button"
-            onClick={this.handleCreateSubmit}
-            className="submit-reservation">
-            Reserve Site
-          </button>
+          {reservationButton}
         </div>
 
       </form>
