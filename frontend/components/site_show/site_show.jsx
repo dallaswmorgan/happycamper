@@ -85,7 +85,7 @@ class Site extends React.Component {
                             Reserve Site
                           </button>;
     } else {
-      reservationButton = <h2>Login to reserve site</h2>;
+      reservationButton = <h3>Login to reserve site</h3>;
     }
 
     return(
