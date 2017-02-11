@@ -21,7 +21,7 @@ class SiteAmenities extends React.Component {
     const waterIconGray = <img src='https://res.cloudinary.com/dallaswmorgan/image/upload/v1486437783/water_grey_axqdzl.png' className='amenity-icon'/>;
     const eclipseIcon = <img src='https://res.cloudinary.com/dallaswmorgan/image/upload/v1486437924/eclipse_ppg1ia.png' className='amenity-icon'/>;
     const eclipseIconGray = <img src='https://res.cloudinary.com/dallaswmorgan/image/upload/v1486437928/eclipse_grey_vgfzlk.png' className='amenity-icon'/>;
-    let instructions = <div></div>
+    let instructions = <div></div>;
     let userId = null;
     if (this.props.currentUser) {
       instructions = <h3 className='amenity-instructions'>Click icons below to update your site's amenities</h3>;

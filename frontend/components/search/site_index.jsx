@@ -5,10 +5,7 @@ class SiteIndex extends React.Component {
   constructor(props) {
     super(props);
   }
-  //
-  // componentDidMount() {
-  //   this.props.fetchSites();
-  // }
+
 
   render() {
     let sites = this.props.sites;
@@ -16,10 +13,10 @@ class SiteIndex extends React.Component {
     const siteItems = sites.map(site => (
       <SiteIndexItem site={site} key={`site${site.id}`}/>
     ));
-    if (sites) {
+    if (sites.length > 0) {
       return(<div>{siteItems}</div>);
     } else {
-      return(<div></div>);
+      return(<div><h3>No sites match your request. Try zooming out or updating your filters</h3></div>);
     }
   }
 }
