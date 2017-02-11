@@ -19,7 +19,6 @@ class Site extends React.Component {
   }
 
   componentWillMount() {
-    debugger;
     let siteId = parseInt(this.props.params.id);
     this.props.fetchSite(siteId);
     this.props.fetchReviews(siteId);

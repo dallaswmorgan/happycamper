@@ -5,6 +5,7 @@ class SiteAmenities extends React.Component {
     super(props);
   }
   // TODO: DRY this up
+  // TODO: seriously this is embarrassing
   render() {
     const showerIcon = <img src='https://res.cloudinary.com/dallaswmorgan/image/upload/v1486436538/shower_wcey6f.png' className='amenity-icon'/>;
     const showerIconGray = <img src='https://res.cloudinary.com/dallaswmorgan/image/upload/v1486436718/shower_grey_cyc3m6.png' className='amenity-icon'/>;
@@ -21,16 +22,15 @@ class SiteAmenities extends React.Component {
     const eclipseIcon = <img src='https://res.cloudinary.com/dallaswmorgan/image/upload/v1486437924/eclipse_ppg1ia.png' className='amenity-icon'/>;
     const eclipseIconGray = <img src='https://res.cloudinary.com/dallaswmorgan/image/upload/v1486437928/eclipse_grey_vgfzlk.png' className='amenity-icon'/>;
     let instructions = <div></div>
-    let onClick;
-    if (this.props.currentUser.id === this.props.site.user_id ) {
+    let userId = null;
+    if (this.props.currentUser) {
       instructions = <h3 className='amenity-instructions'>Click icons below to update your site's amenities</h3>;
-      onClick = e => this.props.updateAmenity();
+      userId = this.props.currentUser.id;
     }
-    const amenities = this.props.site.amenities
-    if (this.props.currentUser.id !== this.props.site.user_id ) {
+    const amenities = this.props.site.amenities;
+    if (userId !== this.props.site.user_id ) {
       return(
         <div className='filter-form-box'>
-          {instructions}
           <div className="filter-form">
             <div className={this.props.site.amenities['drinking_water'] ? 'site-amenity-true' : 'site-amenity-false'}>
               { this.props.site.amenities['drinking_water'] ? waterIcon : waterIconGray }

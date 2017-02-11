@@ -43,7 +43,6 @@ class Api::SitesController < ApplicationController
     lat = site_params[:lat]
     lng = site_params[:lng]
     geo_localization = "#{lat},#{lng}"
-    debugger
     query = Geocoder.search(geo_localization).first
     @site = Site.new(site_params)
     @site.city, @site.state = query.city, query.state
