@@ -193,7 +193,7 @@ class Site extends React.Component {
                       createImage={this.props.createImage}/>
                   </div>
                   <Forecast latitude={lat} longitude={lng} name={name}/>
-                  <h3>{description}</h3>
+                  <h3 className="site-description">{description}</h3>
                 </div>
                 <SiteAmenities site={this.props.site} currentUser={this.props.currentUser}
                   updateAmenity={this.props.updateAmenity}/>
