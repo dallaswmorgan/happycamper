@@ -88,46 +88,17 @@ $button-blue: #28BC8C;
 .featured-site-pic img:hover {
   cursor: pointer;
 }
-//
-// #left-featured-site-button {
-//   position: absolute;
-//   margin: auto;
-//   top: -70px;
-//   left: 0;
-//   right: 0;
-//   width: 137px;
-//   height: 137px;
-//   transform: rotate(45deg);
-//   top: 100px;
-//   -webkit-transform: rotate(45deg);
-//   -moz-transform: rotate(45deg);
-//   -o-transform: rotate(45deg);
-//   -ms-transform: rotate(45deg);
-//   border-right: 4px solid #e74c3c;
-//   border-bottom: 4px solid #e74c3c;
-// }
-#right-featured-site-button {
+
+.featured-site-button {
   height: 75px;
   width: 25px;
   padding: 20px;
-  // position: absolute;
-  // right: 25px;
-  // top: 350px;
 }
-#right-featured-site-button:hover {
+
+.featured-site-button:hover {
   cursor: pointer;
 }
-#left-featured-site-button {
-  height: 75px;
-  width: 25px;
-  padding: 20px;
-  // position: absolute;
-  // left: 25px;
-  // top: 350px;
-}
-#left-featured-site-button:hover {
-  cursor: pointer;
-}
+
 .featured-button-box {
   display: flex;
   align-items: center;
