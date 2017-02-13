@@ -2,7 +2,7 @@ import React from 'react';
 // Actions
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import { fetchFeaturedSites, clearSites } from '../actions/site_actions';
+import { fetchFeaturedSites } from '../actions/site_actions';
 import { fetchReservations } from '../actions/reservations_actions';
 // Components
 import SessionFormContainer from './session_form/session_form_container';
@@ -26,10 +26,6 @@ const Root = ({ store }) => {
     }
   };
 
-  const _clearSites = () => {
-    store.dispatch(clearSites());
-  };
-
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
@@ -37,7 +33,7 @@ const Root = ({ store }) => {
           <IndexRoute component={FeaturedSiteContainer}/>
           <Route path="/sites/new" component={ SiteFormContainer } onEnter={ _ensureLoggedIn } />
           <Route path="/sites/:id" component={ SiteShowContainer } />
-          <Route path="/sites" component={ SiteIndex } onEnter={ _clearSites }/>
+          <Route path="/sites" component={ SiteIndex } />
           <Route path="/reservations" component={ ReservationsContainer } onEnter={ _fetchReservations }/>
         </Route>
 

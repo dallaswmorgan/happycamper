@@ -24,7 +24,7 @@ class SiteAmenities extends React.Component {
     let instructions = <div></div>;
     let userId = null;
     if (this.props.currentUser) {
-      instructions = <h3 className='amenity-instructions'>Click icons below to update your site's amenities</h3>;
+      instructions = <h3 className='amenity-instructions'>{`Welcome, ${this.props.currentUser.fname}! Click icons below to update your site's amenities`}</h3>;
       userId = this.props.currentUser.id;
     }
     const amenities = this.props.site.amenities;

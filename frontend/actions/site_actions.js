@@ -38,11 +38,6 @@ export const updateAmenity = amenity => dispatch => (
   })
 );
 
-export const clearSites = () => ({
-  type: RECEIVE_SITES,
-  sites: {}
-});
-
 export const updateSite = site => dispatch => (
   APIUtil.updateSite(site).then( newSite => dispatch(receiveSite(newSite)))
 );
