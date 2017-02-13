@@ -54,11 +54,11 @@ class FeaturedSite extends React.Component {
       }
     return(
       <div className="home-box">
-      <img id="right-featured-site-button" onClick={this.nextFeaturedSite}
-        src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484627939/right-arrow_gupy9c.png"/>
-      <img id="left-featured-site-button" onClick={this.prevFeaturedSite}
-        src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484627907/left-arrow_cf7aar.png"/>
       <div className="featured-sites-box">
+        <div className="featured-button-box">
+          <img id="left-featured-site-button" onClick={this.prevFeaturedSite}
+            src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484627907/left-arrow_cf7aar.png"/>
+        </div>
         <div className="featured-site-text">
           <h3>Find your happy place at camps like</h3>
           <div className="site-specific-info">
@@ -77,6 +77,10 @@ class FeaturedSite extends React.Component {
         <div className="featured-site-pic" key={currentSite.id}>
           <img onClick={() => this.handleSiteClick(currentSite.id)}
             src={currentSite.site_images[0].url}/>
+        </div>
+        <div className="featured-button-box">
+          <img id="right-featured-site-button" onClick={this.nextFeaturedSite}
+            src="https://res.cloudinary.com/dallaswmorgan/image/upload/v1484627939/right-arrow_gupy9c.png"/>
         </div>
       </div>
       <div className="description-box">
