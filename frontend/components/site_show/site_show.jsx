@@ -5,6 +5,7 @@ import SiteImageForm from './site_image_form';
 import SiteAmenities from './site_amenities';
 import ReviewsContainer from '../reviews/reviews_container';
 import Stars from 'react-stars';
+import Forecast from 'react-forecast';
 
 class Site extends React.Component {
   constructor(props) {
@@ -141,7 +142,7 @@ class Site extends React.Component {
 
   render() {
     if (this.props.site) {
-      let {name, description, site_images, city, state, average_review } = this.props.site;
+      let {name, description, site_images, city, state, average_review, lat, lng } = this.props.site;
       // Adding default pic if no pics added yet
       if (site_images.length === 0) {
         site_images =
@@ -191,6 +192,7 @@ class Site extends React.Component {
                     <SiteImageForm site={this.props.site}
                       createImage={this.props.createImage}/>
                   </div>
+                  <Forecast latitude={lat} longitude={lng} name={name}/>
                   <h3>{description}</h3>
                 </div>
                 <SiteAmenities site={this.props.site} currentUser={this.props.currentUser}
