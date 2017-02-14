@@ -4,7 +4,7 @@
 [happycamper.camp]: http://www.happycamper.camp
 
 ####Happy Camper is the best way to book your next camping trip.
-Browse our extensive collection of campgrounds across the country, and book directly through our site with a personalized account, or list your own campsite for others to enjoy. Using a Postgres database, a Rails backend, and a React/Redux frontend, it is sturdy, scalable, and responsive
+Search our extensive collection of campgrounds across the country, and book directly through our site with a personalized account, or list your own campsite for others to enjoy. Using a Postgres database, a Rails backend, and a React/Redux frontend, it is sturdy, scalable, and responsive.
 
 ##Features
 
@@ -51,7 +51,7 @@ this.geocoder.geocode({'location': coords}, (results, status) => {
 Happy Camper is a true SPA, meaning users never have to wait for a page to reload
 
 #Future Development
-It is intended for Happy Camper to become a one-stop-shop for finding and booking a campsite. In order to do this, I will be adding search filter functionality based on amenities available at sites (showers, picnic tables, fire rings, etc) in adition to geographical filters
+It is intended for Happy Camper to become a one-stop-shop for finding and booking a campsite. In order to do this, I will be adding search filter functionality based on amenities available at sites (showers, picnic tables, fire rings, etc) in addition to geographical filters
 
 #Eclipse 2017
 One of the biggest camping events of the century is coming up in 2017- a total solar ecplipse that is traversing the continental US on August 21. I plan on adding a search filter for sites that will be in the path of the eclipse, using stored lat/lng coordinates. This will help campers plan this once-in-a-lifetime camping trip.

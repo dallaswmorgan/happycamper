@@ -74,7 +74,8 @@ class ReservationEditForm extends React.Component {
 								<br/>
                 <select
                   onChange={this.update("number_of_guests")}
-                  className="reservation-input">
+                  className="reservation-input"
+									value={this.state.number_of_guests}>
 									<option value="" disabled defaultValue>Select guests</option>
 									<option value="1">1</option>
                   <option value="2">2</option>
