@@ -7,6 +7,8 @@ json.set! :host_image_url, reservation.site.host.image_url
 
 json.set! :host_id, reservation.site.host.id
 
+json.set! :guest_limit, reservation.site.guest_limit
+
 json.set! :site_name, reservation.site.name
 
 json.set! :site_id, reservation.site.id
