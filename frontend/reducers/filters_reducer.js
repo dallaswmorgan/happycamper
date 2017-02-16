@@ -5,7 +5,8 @@ const _defaultFilters = Object.freeze({
   // Box around SF
   geo_bounds: { northEast: { lat: 38.6822944581118, lng: -120.68693732734374 },
                 southWest: { lat: 36.8543518010273, lng: -122.84575080390624 }},
-  center: { lat: 37.773972, lng: -122.431297 },
+  center: { lat: 39.5243, lng: -122.1936 },
+  zoom: null,
   amenities: { picnic_table: false, drinking_water: false, pets_allowed: false,
                fire_ring: false, toilet: false, shower: false },
   eclipse: false

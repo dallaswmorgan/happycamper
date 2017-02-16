@@ -21,6 +21,7 @@ class Search extends React.Component {
     const sites = this.props.sites;
     const updateFilter = this.props.updateFilter;
     const center = this.props.filters.center;
+    const zoom = this.props.filters.zoom ? this.props.filters.zoom : 6;
     if (sites) {
       return(
         <div className="search-page">
@@ -35,7 +36,8 @@ class Search extends React.Component {
             <SiteMap
               sites={sites}
               updateFilter={updateFilter}
-              center={center}/>
+              center={center}
+              zoom={zoom}/>
           </div>
         </div>
       );
