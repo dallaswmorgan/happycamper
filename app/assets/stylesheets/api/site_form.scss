@@ -84,6 +84,28 @@ $button-blue: #28BC8C;
   text-align: left;
 }
 
+.price {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-guest {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.guest {
+  color: black;
+  display: flex;
+  flex-direction: column;
+
+}
+
 #city {
   width: 160px;;
 }

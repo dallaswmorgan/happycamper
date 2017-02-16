@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import SiteMap from '../site_map/site_map';
 import Modal from 'react-modal';
 import MaskedInput from 'react-input-mask';
+import NumericInput from 'react-numeric-input';
 
 const modalStyle = {
   content : {
@@ -27,8 +28,8 @@ class SiteForm extends React.Component {
       public: false,
       state: "",
       city: "",
-      price: "",
-      guest_limit:"",
+      price: 50,
+      guest_limit: 6,
       lat: "",
       lng: "",
       modalIsOpen: false
@@ -141,13 +142,17 @@ class SiteForm extends React.Component {
               <input type="text" value={name} placeholder="Name of campsite"
                 onChange={this.update("name")} className="site-field"/>
 
-              <div className="price/guest">
-
-                <MaskedInput mask="999" value={price} placeholder="Price per night"
-                  onChange={this.update("price")} className="site-field" maskChar=" " id="price"/>
-
-                <MaskedInput mask="99" value={guest_limit} placeholder="Guest limit"
-                  onChange={this.update("guest_limit")} className="site-field" maskChar=" " id="guest"/>
+              <div className="price-guest">
+                <label className="price">
+                  Price per night
+                  <input type="number" value={price}
+                    onChange={this.update("price")} className="site-field" min={5} max={300} step={5}/>
+                </label>
+                <label className="guest">
+                  Guest Limit
+                  <input type="number" value={guest_limit}
+                    onChange={this.update("guest_limit")} className="site-field" min={1} max={15}/>
+                </label>
 
               </div>
 
