@@ -2,8 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import SiteMap from '../site_map/site_map';
 import Modal from 'react-modal';
-import MaskedInput from 'react-input-mask';
-import NumericInput from 'react-numeric-input';
 
 const modalStyle = {
   content : {
