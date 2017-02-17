@@ -47,12 +47,15 @@ Happy Camper allows users to create and update reviews of campsites
 ![review-screenshot](https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173111/Screen_Shot_2017-01-23_at_4.04.47_AM_ba0tol.png)
 
 Happy camper lets guests make reservations at campsites
-![reservation-form]https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370422/Screen_Shot_2017-02-17_at_2.26.44_PM_eevwkj.png
+![reservation-form]
+[reservation-form]:https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370422/Screen_Shot_2017-02-17_at_2.26.44_PM_eevwkj.png
 ...and then review all of their upcoming reservations
-![reservation-index](https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173221/Screen_Shot_2017-01-23_at_4.06.40_AM_tggcqu.png)
+![reservation-index]
+[reservation-index]:(https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173221/Screen_Shot_2017-01-23_at_4.06.40_AM_tggcqu.png)
 
 Happy Camper allows users to list sites of their own and specify location with a draggable google maps pin
-![site-form]https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370606/Screen_Shot_2017-02-17_at_2.29.45_PM_ebwjxw.png
+![site-form]
+[site-form]:https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370606/Screen_Shot_2017-02-17_at_2.29.45_PM_ebwjxw.png
 
 #Google Maps Integration
 Happy Camper utilizes Google Maps for accurate GPS input and display, as street addresses are often unreliable when it comes to giving directions for remote campsites. It then reverse-geocodes coordinates given to grab the city or county and state.
@@ -68,4 +71,4 @@ this.geocoder.geocode({'location': coords}, (results, status) => {
 Happy Camper is a true SPA, meaning users never have to wait for a page to reload
 
 #Eclipse 2017
-A once-in-a-lifetime will event on August 21 2017, when a Total Solar Eclipse crosses the breadth of the continental United States. By analyzing NASA data and creating a custom polygon within which to query sites, Happy Camper helps campers plan where they will be staying for this astronomical anomaly by letting them search for only those sites that will be in the path of totality. 
+A once-in-a-lifetime will event on August 21 2017, when a Total Solar Eclipse crosses the breadth of the continental United States. By analyzing NASA data and creating a custom polygon within which to query sites, Happy Camper helps campers plan where they will be staying for this astronomical anomaly by letting them search for only those sites that will be in the path of totality.
