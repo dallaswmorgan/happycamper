@@ -11,31 +11,48 @@ Search our extensive collection of campgrounds across the country, and book dire
 Happy Camper shows you a carousel of featured sites, hand curated from the archives
 
 ![featured-screenshot]
-[featured-screenshot]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1484955107/Screen_Shot_2017-01-20_at_3.31.19_PM_mcoujm.png
+[featured-screenshot]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1487368393/Screen_Shot_2017-02-17_at_1.52.35_PM_abqjkl.png
 
 Happy Camper allows you to search for sites near any location using location autocomplete
 
 ![search-bar-screenshot]
-[search-bar-screenshot]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1484955342/Screen_Shot_2017-01-20_at_3.33.08_PM_m6hgql.png
+[search-bar-screenshot]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1487368520/Screen_Shot_2017-02-17_at_1.54.59_PM_ey4dcg.png
 
 Happy Camper integrates google maps and updates a list of campsites within the view pane in real time
 ![search-screenshot]
-[search-screenshot]:https://res.cloudinary.com/dallaswmorgan/image/upload/v1484955452/Screen_Shot_2017-01-20_at_3.37.01_PM_yrbgxa.png
+[search-screenshot]:https://res.cloudinary.com/dallaswmorgan/image/upload/v1487368577/Screen_Shot_2017-02-17_at_1.55.55_PM_tzd06p.png
+
+Happy Camper lets you search for sites based on the amenities they offer
+![amenity-screenshot]
+[amenity-screenshot]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1487368705/Screen_Shot_2017-02-17_at_1.58.08_PM_skd7rr.png
+
+...including a custom-built filter that selects the sites in the path of the Total Solar Eclipse on August 21 2017
+![eclipse-screenshot]
+[eclipse-screenshot]:https://res.cloudinary.com/dallaswmorgan/image/upload/v1487368806/Screen_Shot_2017-02-17_at_1.59.50_PM_bai9qe.png
+
 
 Happy Camper allows users to view and upload pictures of campsites
 ![image-screenshot]
 [image-screenshot]:https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173003/Screen_Shot_2017-01-23_at_4.02.48_AM_y3wvme.png
 
+Happy Camper displays local weather conditions at campsites
+![weather-screenshot]
+[weather-screenshot]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370030/Screen_Shot_2017-02-17_at_2.20.06_PM_ecinbu.png
+
+...as well as a description containing the amenities that site has to offer
+![amenities-screenshot]
+[amenities-screenshot]: https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370298/Screen_Shot_2017-02-17_at_2.24.37_PM_vmxnxw.png
+
 Happy Camper allows users to create and update reviews of campsites
 ![review-screenshot](https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173111/Screen_Shot_2017-01-23_at_4.04.47_AM_ba0tol.png)
 
 Happy camper lets guests make reservations at campsites
-![reservation-form](https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173191/Screen_Shot_2017-01-23_at_4.06.06_AM_ypfnok.png)
+![reservation-form]https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370422/Screen_Shot_2017-02-17_at_2.26.44_PM_eevwkj.png
 ...and then review all of their upcoming reservations
 ![reservation-index](https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173221/Screen_Shot_2017-01-23_at_4.06.40_AM_tggcqu.png)
 
 Happy Camper allows users to list sites of their own and specify location with a draggable google maps pin
-![site-form](https://res.cloudinary.com/dallaswmorgan/image/upload/v1485173389/Screen_Shot_2017-01-23_at_4.09.10_AM_dzky8t.png)
+![site-form]https://res.cloudinary.com/dallaswmorgan/image/upload/v1487370606/Screen_Shot_2017-02-17_at_2.29.45_PM_ebwjxw.png
 
 #Google Maps Integration
 Happy Camper utilizes Google Maps for accurate GPS input and display, as street addresses are often unreliable when it comes to giving directions for remote campsites. It then reverse-geocodes coordinates given to grab the city or county and state.
@@ -50,8 +67,5 @@ this.geocoder.geocode({'location': coords}, (results, status) => {
 #Single Page App
 Happy Camper is a true SPA, meaning users never have to wait for a page to reload
 
-#Future Development
-It is intended for Happy Camper to become a one-stop-shop for finding and booking a campsite. In order to do this, I will be adding search filter functionality based on amenities available at sites (showers, picnic tables, fire rings, etc) in addition to geographical filters
-
 #Eclipse 2017
-One of the biggest camping events of the century is coming up in 2017- a total solar ecplipse that is traversing the continental US on August 21. I plan on adding a search filter for sites that will be in the path of the eclipse, using stored lat/lng coordinates. This will help campers plan this once-in-a-lifetime camping trip.
+A once-in-a-lifetime will event on August 21 2017, when a Total Solar Eclipse crosses the breadth of the continental United States. By analyzing NASA data and creating a custom polygon within which to query sites, Happy Camper helps campers plan where they will be staying for this astronomical anomaly by letting them search for only those sites that will be in the path of totality. 
