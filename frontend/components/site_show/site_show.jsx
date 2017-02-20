@@ -34,6 +34,7 @@ class Site extends React.Component {
   }
 
   renderErrors() {
+    
   if (this.props.errors.length !== 0) {
     return(
       <ul className="reservation-errors">
