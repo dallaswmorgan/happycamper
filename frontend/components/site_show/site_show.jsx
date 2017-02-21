@@ -34,7 +34,7 @@ class Site extends React.Component {
   }
 
   renderErrors() {
-    
+
   if (this.props.errors.length !== 0) {
     return(
       <ul className="reservation-errors">
@@ -92,7 +92,6 @@ class Site extends React.Component {
 
     return(
       <form className='site-reservation-form'onSubmit={this.handleCreateSubmit}>
-
         {this.renderErrors()}
         <div className="dates">
           <label className="reservation-category">Check In
