@@ -70,5 +70,6 @@ this.geocoder.geocode({'location': coords}, (results, status) => {
 #Single Page App
 Happy Camper is a true SPA, meaning users never have to wait for a page to reload
 
+
 #Eclipse 2017
 A once-in-a-lifetime will event on August 21 2017, when a Total Solar Eclipse crosses the breadth of the continental United States. By analyzing NASA data and creating a custom polygon within which to query sites, Happy Camper helps campers plan where they will be staying for this astronomical anomaly by letting them search for only those sites that will be in the path of totality.
